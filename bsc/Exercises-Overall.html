@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Angewandte Statistik Bachelor of Science – Angewande Statistik Workshops</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-5685cd926c25366c96d9f1407e584118.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../bsc/Intro-Jamovi.html">BSc</a></li><li class="breadcrumb-item"><a href="../bsc/Exercises-Overall.html">Workshop Overall</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Angewande Statistik Workshops</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">BSc</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/Intro-Jamovi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro Jamovi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/WS1-Deskriptive-Statistik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Deskriptive Statistik</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/WS2-Verteilungen-Wahrscheinlichkeit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verteilungen von Wahrscheinlichkeiten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/WS3-Grundlagen-Inferenz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Grundlagen Inferenzstatistik</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/WS4-Vergleich-Mittelwerte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vergleich von Mittelwerten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/WS5-Korrelation-Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Korrelation und Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/WS6-Inferenz-Kategoriell.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inferenz Kategoriell</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/Exercises-Overall.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Workshop Overall</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">MSc</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../msc/ex11-deskriptive-statistik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Deskriptive Statistik</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#einleitung" id="toc-einleitung" class="nav-link active" data-scroll-target="#einleitung">Einleitung</a>
+  <ul class="collapse">
+  <li><a href="#datengrundlage" id="toc-datengrundlage" class="nav-link" data-scroll-target="#datengrundlage">Datengrundlage</a></li>
+  <li><a href="#sinn-und-zweck-der-uebung" id="toc-sinn-und-zweck-der-uebung" class="nav-link" data-scroll-target="#sinn-und-zweck-der-uebung">Sinn und Zweck der Uebung</a></li>
+  <li><a href="#bemerkungen-zur-limitierung" id="toc-bemerkungen-zur-limitierung" class="nav-link" data-scroll-target="#bemerkungen-zur-limitierung">Bemerkungen zur Limitierung</a></li>
+  </ul></li>
+  <li><a href="#beispieldatensatz-aus-nhanes-2015-2016" id="toc-beispieldatensatz-aus-nhanes-2015-2016" class="nav-link" data-scroll-target="#beispieldatensatz-aus-nhanes-2015-2016">Beispieldatensatz aus NHANES 2015-2016</a>
+  <ul class="collapse">
+  <li><a href="#demographics" id="toc-demographics" class="nav-link" data-scroll-target="#demographics">Demographics</a>
+  <ul class="collapse">
+  <li><a href="#verwendete-variablen" id="toc-verwendete-variablen" class="nav-link" data-scroll-target="#verwendete-variablen">Verwendete Variablen</a></li>
+  </ul></li>
+  <li><a href="#examination-data" id="toc-examination-data" class="nav-link" data-scroll-target="#examination-data">Examination data</a>
+  <ul class="collapse">
+  <li><a href="#verwendete-variablen-aus-blutdruck-messungen" id="toc-verwendete-variablen-aus-blutdruck-messungen" class="nav-link" data-scroll-target="#verwendete-variablen-aus-blutdruck-messungen">Verwendete Variablen aus Blutdruck Messungen</a></li>
+  <li><a href="#verwendete-variablen-aus-körpermessungen" id="toc-verwendete-variablen-aus-körpermessungen" class="nav-link" data-scroll-target="#verwendete-variablen-aus-körpermessungen">Verwendete Variablen aus Körpermessungen</a></li>
+  </ul></li>
+  <li><a href="#dietary-data" id="toc-dietary-data" class="nav-link" data-scroll-target="#dietary-data">Dietary data</a>
+  <ul class="collapse">
+  <li><a href="#verwendete-variablen-aus-ernährungsdaten-day-1-and-2-total-files" id="toc-verwendete-variablen-aus-ernährungsdaten-day-1-and-2-total-files" class="nav-link" data-scroll-target="#verwendete-variablen-aus-ernährungsdaten-day-1-and-2-total-files">Verwendete Variablen aus Ernährungsdaten (Day 1 and 2 total files)</a></li>
+  <li><a href="#verwendete-variablen-aus-individual-food-files" id="toc-verwendete-variablen-aus-individual-food-files" class="nav-link" data-scroll-target="#verwendete-variablen-aus-individual-food-files">Verwendete Variablen aus Individual Food Files</a></li>
+  </ul></li>
+  <li><a href="#questionaire-data" id="toc-questionaire-data" class="nav-link" data-scroll-target="#questionaire-data">Questionaire data</a>
+  <ul class="collapse">
+  <li><a href="#verwendete-variablen-aus-alcolol-use" id="toc-verwendete-variablen-aus-alcolol-use" class="nav-link" data-scroll-target="#verwendete-variablen-aus-alcolol-use">Verwendete Variablen aus Alcolol Use</a></li>
+  <li><a href="#verwendete-variablen-aus-smoking---cigarette-use" id="toc-verwendete-variablen-aus-smoking---cigarette-use" class="nav-link" data-scroll-target="#verwendete-variablen-aus-smoking---cigarette-use">Verwendete Variablen aus Smoking - Cigarette Use</a></li>
+  <li><a href="#verwendete-variablen-aus-diet-behavior-nutrition" id="toc-verwendete-variablen-aus-diet-behavior-nutrition" class="nav-link" data-scroll-target="#verwendete-variablen-aus-diet-behavior-nutrition">Verwendete Variablen aus Diet Behavior &amp; Nutrition</a></li>
+  <li><a href="#verwendete-variablen-aus-weight-history" id="toc-verwendete-variablen-aus-weight-history" class="nav-link" data-scroll-target="#verwendete-variablen-aus-weight-history">Verwendete Variablen aus Weight History</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
+  <li><a href="#datenimport" id="toc-datenimport" class="nav-link" data-scroll-target="#datenimport">Datenimport</a></li>
+  <li><a href="#übersicht" id="toc-übersicht" class="nav-link" data-scroll-target="#übersicht">Übersicht</a></li>
+  <li><a href="#aufgabe-1---zweigruppenvergleich-unabhängig" id="toc-aufgabe-1---zweigruppenvergleich-unabhängig" class="nav-link" data-scroll-target="#aufgabe-1---zweigruppenvergleich-unabhängig">Aufgabe 1 - Zweigruppenvergleich unabhängig</a>
+  <ul class="collapse">
+  <li><a href="#vorbereitung" id="toc-vorbereitung" class="nav-link" data-scroll-target="#vorbereitung">Vorbereitung</a></li>
+  <li><a href="#deskriptive-statistik" id="toc-deskriptive-statistik" class="nav-link" data-scroll-target="#deskriptive-statistik">Deskriptive Statistik</a></li>
+  <li><a href="#schliessende-statistik" id="toc-schliessende-statistik" class="nav-link" data-scroll-target="#schliessende-statistik">Schliessende Statistik</a>
+  <ul class="collapse">
+  <li><a href="#bemerkungen-zum-statistischen-testverfahren" id="toc-bemerkungen-zum-statistischen-testverfahren" class="nav-link" data-scroll-target="#bemerkungen-zum-statistischen-testverfahren">Bemerkungen zum statistischen Testverfahren</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#aufgabe-2---zweigruppenvergleich-abhängig-n-100" id="toc-aufgabe-2---zweigruppenvergleich-abhängig-n-100" class="nav-link" data-scroll-target="#aufgabe-2---zweigruppenvergleich-abhängig-n-100">Aufgabe 2 - Zweigruppenvergleich abhängig (N &gt; 100)</a>
+  <ul class="collapse">
+  <li><a href="#deskriptive-statistik-1" id="toc-deskriptive-statistik-1" class="nav-link" data-scroll-target="#deskriptive-statistik-1">Deskriptive Statistik</a></li>
+  <li><a href="#schliessende-statistik-1" id="toc-schliessende-statistik-1" class="nav-link" data-scroll-target="#schliessende-statistik-1">Schliessende Statistik</a></li>
+  </ul></li>
+  <li><a href="#aufgabe-3---zweigruppenvergleich-abhängig-n-100" id="toc-aufgabe-3---zweigruppenvergleich-abhängig-n-100" class="nav-link" data-scroll-target="#aufgabe-3---zweigruppenvergleich-abhängig-n-100">Aufgabe 3 - Zweigruppenvergleich abhängig (N &lt; 100)</a>
+  <ul class="collapse">
+  <li><a href="#deskriptive-statistik-2" id="toc-deskriptive-statistik-2" class="nav-link" data-scroll-target="#deskriptive-statistik-2">Deskriptive Statistik</a></li>
+  </ul></li>
+  <li><a href="#aufgabe-4---korrelation" id="toc-aufgabe-4---korrelation" class="nav-link" data-scroll-target="#aufgabe-4---korrelation">Aufgabe 4 - Korrelation</a></li>
+  <li><a href="#aufgabe-5---regression" id="toc-aufgabe-5---regression" class="nav-link" data-scroll-target="#aufgabe-5---regression">Aufgabe 5 - Regression</a>
+  <ul class="collapse">
+  <li><a href="#interpretation-der-koeffizienten" id="toc-interpretation-der-koeffizienten" class="nav-link" data-scroll-target="#interpretation-der-koeffizienten">Interpretation der Koeffizienten</a></li>
+  <li><a href="#vorhersage" id="toc-vorhersage" class="nav-link" data-scroll-target="#vorhersage">Vorhersage</a></li>
+  <li><a href="#modellprüfung" id="toc-modellprüfung" class="nav-link" data-scroll-target="#modellprüfung">Modellprüfung</a></li>
+  <li><a href="#wie-gut-passt-modell" id="toc-wie-gut-passt-modell" class="nav-link" data-scroll-target="#wie-gut-passt-modell">Wie gut “passt” Modell?</a></li>
+  <li><a href="#prüfung-der-annahmen" id="toc-prüfung-der-annahmen" class="nav-link" data-scroll-target="#prüfung-der-annahmen">Prüfung der Annahmen</a>
+  <ul class="collapse">
+  <li><a href="#linearer-zusammenhang" id="toc-linearer-zusammenhang" class="nav-link" data-scroll-target="#linearer-zusammenhang">Linearer Zusammenhang?</a></li>
+  <li><a href="#normalverteilung-der-residuen" id="toc-normalverteilung-der-residuen" class="nav-link" data-scroll-target="#normalverteilung-der-residuen">Normalverteilung der Residuen</a></li>
+  <li><a href="#konstante-variabilität-der-residuen" id="toc-konstante-variabilität-der-residuen" class="nav-link" data-scroll-target="#konstante-variabilität-der-residuen">Konstante Variabilität der Residuen</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#referenzen" id="toc-referenzen" class="nav-link" data-scroll-target="#referenzen">Referenzen</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../bsc/Intro-Jamovi.html">BSc</a></li><li class="breadcrumb-item"><a href="../bsc/Exercises-Overall.html">Workshop Overall</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Angewandte Statistik Bachelor of Science</h1>
+<p class="subtitle lead">Workshop zu Gesamtvorlesung</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<style type="text/css">
+pre, code {white-space:pre !important; overflow-x:auto}
+</style>
+</div>
+<section id="einleitung" class="level1">
+<h1>Einleitung</h1>
+<section id="datengrundlage" class="level2">
+<h2 class="anchored" data-anchor-id="datengrundlage">Datengrundlage</h2>
+<p>Der <a href="https://www.cdc.gov/nchs/nhanes/index.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fnchs%2Fnhanes.htm">National Health and Nutrition Survey (NHANES)</a> ist ein Studienprogramm zur Erhebung von Gesundheits- und Ernährungsstatus von Erwachsenen und Kindern in den USA. Die Erhebung enthält zahlreiche Daten aus Befragungen und physischen Untersuchungen. Das Vorhaben wird vom <a href="https://www.cdc.gov/nchs/index.htm">National Center for Health Statistics (NCHS)</a> als Teil des <a href="https://www.cdc.gov/nchs/index.htm">Centers for Disease Control and Prevention (CDC)</a> durchgeführt. Das Programm startete in den frühen 1960er Jahren und umfasst Stichproben um die 5000 Personen pro Jahr. Die Daten des laufenden NHANES Programms werden alle zwei Jahre erhoben und reichen zurück bin ins Jahr 1999. Die <a href="https://wwwn.cdc.gov/nchs/nhanes/Default.aspx">Datensätze</a> sind frei zugänglich. Aus den Daten gibt es auch Peer-Review Publikationen (z.B. <span class="citation" data-cites="McClure2020">McClure et al. (<a href="#ref-McClure2020" role="doc-biblioref">2020</a>)</span>) welche zur Evidenz im Fachgebiet betragen.</p>
+</section>
+<section id="sinn-und-zweck-der-uebung" class="level2">
+<h2 class="anchored" data-anchor-id="sinn-und-zweck-der-uebung">Sinn und Zweck der Uebung</h2>
+<p>Die Erfahrungen in der Vermittlung von Wissen aus dem Bereich der Statistik zeigen, dass es zugänglicher ist, wenn auch in der Ausbildung mit <em>echten</em> Daten gearbeitet wird. Ebenfalls scheint es wichtig zu sein selbst mit Daten zu arbeiten um einen starken Bezug zur Anwendung zu schaffen und das Wissen zu festigen. Daher werden wir uns nun konkret mit dem Datenauszug 2015-2016 aus der NHANES Erhebung auseinandersetzen, wobei nur mit einem Bruchteil der Datengrundlage gearbeitet wird um das Wissen in angewandter Statistik zu festigen. Folgende Ziele werden damit verfolgt:</p>
+<ul>
+<li>Die Studierenden wenden das Wissen aus den vergangenen Lerneinheiten an.</li>
+<li>Die Studierenden nehmen eine forschende Haltung um anhand von Daten neue Erkenntnisse zu gewinnen.</li>
+<li>Die Studierenden führen bezüglich der Fragestellung(en) geeignete Analysen mit Hilfe der Methoden der beschreibenden und schliessenden Statistik durch.</li>
+<li>Durch die eigenständige Arbeit von der Fragestellung bis zur Analyse entwickeln die Studierenden ihre Problemlösungskompetenz.</li>
+</ul>
+</section>
+<section id="bemerkungen-zur-limitierung" class="level2">
+<h2 class="anchored" data-anchor-id="bemerkungen-zur-limitierung">Bemerkungen zur Limitierung</h2>
+<p>Die NHANES Erhebung ist sehr umfassend und wir werden uns zu Ausbildungszwecken nur mit einem Bruchteil der erhobenen Informationen beschäftigen. Dies ebenfalls nur im Rahmen der vermittelten Methoden der Statistik innerhalb dieses Moduls. Die Übungen haben daher nicht das Ziel komplexe statistische Analysen durchzuführen um valide und abschliessende Schlussfolgerungen aus den Daten zu ziehen.</p>
+</section>
+</section>
+<section id="beispieldatensatz-aus-nhanes-2015-2016" class="level1">
+<h1>Beispieldatensatz aus NHANES 2015-2016</h1>
+<section id="demographics" class="level2">
+<h2 class="anchored" data-anchor-id="demographics">Demographics</h2>
+<ul>
+<li>https://wwwn.cdc.gov/nchs/nhanes/Search/DataPage.aspx?Component=Demographics&amp;CycleBeginYear=2015</li>
+<li>List of variables: https://wwwn.cdc.gov/nchs/nhanes/Search/variablelist.aspx?Component=Demographics&amp;CycleBeginYear=2015</li>
+<li>File: DEMO_I.XPT; Codebook: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DEMO_I.htm</li>
+</ul>
+<section id="verwendete-variablen" class="level3">
+<h3 class="anchored" data-anchor-id="verwendete-variablen">Verwendete Variablen</h3>
+<ul>
+<li>Geschlecht: Geschlecht m/f (riagendr)</li>
+<li>Alter: Alter in Jahren (ridageyr)
+<ul>
+<li>80: 80 Jahre und älter</li>
+</ul></li>
+<li>Ausbildung: Ausbildung - Höchster Abschluss (dmdeduc2)
+<ul>
+<li>1: &lt; 9. Grad</li>
+<li>2: 9.-11. Grad</li>
+<li>3: High-school Abschluss</li>
+<li>4: Some college oder AA Grad</li>
+<li>5: College-Abschluss oder höherer Abschluss</li>
+</ul></li>
+<li>Haushaltseinkommen pro Jahr als Bereich US Dollar (indhhin2)
+<ul>
+<li>1: $0 to $4’999</li>
+<li>2: $5’000 to $9’999</li>
+<li>3: $10’000 to $14’999</li>
+<li>4: $15’000 to $19’999</li>
+<li>5: $20’000 to $24’999</li>
+<li>6: $25’000 to $34’999</li>
+<li>7: $35’000 to $44’999</li>
+<li>8: $45’000 to $54’999</li>
+<li>9: $55’000 to $64’999</li>
+<li>10: $65’000 to $74’999</li>
+<li>14: $75’000 to $99’999</li>
+<li>15: $100’000 and Over</li>
+</ul></li>
+<li>Familieneinkommen pro Jahr als Bereich US Dollar (indfmin2)
+<ul>
+<li>1: $0 to $4’999</li>
+<li>2: $5’000 to $9’999</li>
+<li>3: $10’000 to $14’999</li>
+<li>4: $15’000 to $19’999</li>
+<li>5: $20’000 to $24’999</li>
+<li>6: $25’000 to $34’999</li>
+<li>7: $35’000 to $44’999</li>
+<li>8: $45’000 to $54’999</li>
+<li>9: $55’000 to $64’999</li>
+<li>10: $65’000 to $74’999</li>
+<li>14: $75’000 to $99’999</li>
+<li>15: $100’000 and Over</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="examination-data" class="level2">
+<h2 class="anchored" data-anchor-id="examination-data">Examination data</h2>
+<ul>
+<li>https://wwwn.cdc.gov/nchs/nhanes/Search/DataPage.aspx?Component=Examination&amp;CycleBeginYear=2015</li>
+<li>Blood pressure file: BPX_I.XPT; Codebook: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/BPX_I.htm</li>
+<li>Body measures file: BMX_I.XPT; Codebook: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/BMX_I.htm</li>
+</ul>
+<p>Die Messungen wurden im Sitzen nach 5 Minuten ruhig Sitzen durchgeführt.</p>
+<section id="verwendete-variablen-aus-blutdruck-messungen" class="level3">
+<h3 class="anchored" data-anchor-id="verwendete-variablen-aus-blutdruck-messungen">Verwendete Variablen aus Blutdruck Messungen</h3>
+<ul>
+<li>Puls in Schlägen pro Minute (bpxpls)</li>
+<li>BlutdruckSys1: Systolischer Blutdruck 1. Messung in mm Hg (bpxsy1)</li>
+<li>BlutdruckSys2: Systolischer Blutdruck 2. Messung in mm Hg (bpxsy2)</li>
+<li>BlutdruckSys3: Systolischer Blutdruck 3. Messung in mm Hg (bpxsy3)</li>
+<li>BlutdruckSys4: Systolischer Blutdruck 4. Messung in mm Hg (bpxsy4)</li>
+<li>BlutdruckDia1: Diastolischer Blutdruck 1. Messung in mm Hg (bpxdi1)</li>
+<li>BlutdruckDia2: Diastolischer Blutdruck 2. Messung in mm Hg (bpxdi2)</li>
+<li>BlutdruckDia3: Diastolischer Blutdruck 3. Messung in mm Hg (bpxdi3)</li>
+<li>BlutdruckDia4: Diastolischer Blutdruck 4. Messung in mm Hg (bpxdi4)</li>
+</ul>
+</section>
+<section id="verwendete-variablen-aus-körpermessungen" class="level3">
+<h3 class="anchored" data-anchor-id="verwendete-variablen-aus-körpermessungen">Verwendete Variablen aus Körpermessungen</h3>
+<ul>
+<li>Koerpergewicht: Körpergewicht in kg (bmxwt)</li>
+<li>Koerpergroese: Körpergrösse in cm (bmxht)</li>
+<li>BMI: Body-Mass-Index in kg/m² (bmxbmi)</li>
+<li>Taillenumfang: Taillenumfang in cm (bmxwaist)</li>
+</ul>
+</section>
+</section>
+<section id="dietary-data" class="level2">
+<h2 class="anchored" data-anchor-id="dietary-data">Dietary data</h2>
+<ul>
+<li>https://wwwn.cdc.gov/nchs/nhanes/Search/DataPage.aspx?Component=Dietary&amp;CycleBeginYear=2015</li>
+<li>Day 1 total file: DR1TOT_I.XPT; Codebook: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DR1TOT_I.htm</li>
+<li>Day 2 total file: DR2TOT_I.XPT; 3-10 day after day 1; Codebook: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DR2TOT_I.htm</li>
+<li>Day 1 individual food file: DR1IIF_I.XPT; Codebook: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DR1IFF_I.htm</li>
+<li>Day 2 individual food file: DR2IIF_I.XPT; Codebook: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DR2IFF_I.htm</li>
+</ul>
+<p>Bei den Ernährungsdaten ist zu beachten, dass die Erhebung zwei mal erfolgte. Die zweite Messung erfolgte im Abstand von drei bis zehn Tagen auf die erste Messung (Praefix <em>dr1t</em>, respektive <em>dr2t</em>). Die Messwerte beziehen sich jeweils auf die Nahrungsaufnahe innhalb der letzten 24 Stunden. Die Individual Food Files schlüsseln die Angaben in den Total Files zusätzlich nach verschiedenen Lebensmitteln auf.</p>
+<section id="verwendete-variablen-aus-ernährungsdaten-day-1-and-2-total-files" class="level3">
+<h3 class="anchored" data-anchor-id="verwendete-variablen-aus-ernährungsdaten-day-1-and-2-total-files">Verwendete Variablen aus Ernährungsdaten (Day 1 and 2 total files)</h3>
+<ul>
+<li><p>OnDiet: Spezielle Diät? Ja/Nein (drqsdiet)</p></li>
+<li><p>Energie1: Energieaufnahme in kcal Messung 1 (dr1tkcal)</p></li>
+<li><p>Protein1: Proteinaufnahme in g Messung 1 (dr1tprot)</p></li>
+<li><p>Kohlenhydrate1: Kohlenhydrataufnahme in g Messung 1 (dr1tcarb)</p></li>
+<li><p>Zucker1: Zuckeraufnahme in g Messung 1 (dr1tsugr)</p></li>
+<li><p>Nahrungsfaser1: Nahrungsfaseraufnahme in g Messung 1 (dr1tfibe)</p></li>
+<li><p>Fett1: Fettaufnahme in g Messung 1 (dr1ttfat)</p></li>
+<li><p>FS1: Aufnahme Gesättigte Fettsäuren in g Messung 1 (dr1tsfat)</p></li>
+<li><p>MUFA1: Aufnahme einfach (mono) ungesättigte Fettsäuren in g Messung 1 (dr1tmfat)</p></li>
+<li><p>PUFA1: Aufnahme mehrfach (poly) ungesättigte Fettsäuren in g Messung 1 (dr1tpfat)</p></li>
+<li><p>Cholesterin1: Cholesterinaufnahme in mg Messung 1 (dr1tchol)</p></li>
+<li><p>Energie2: Energieaufnahme in kcal Messung 2 (dr2tkcal)</p></li>
+<li><p>Protein2: Proteinaufnahme in g Messung 2 (dr2tprot)</p></li>
+<li><p>Kohlenhydrate2: Kohlenhydrataufnahme in g Messung 2 (dr2tcarb)</p></li>
+<li><p>Zucker2: Zuckeraufnahme in g Messung 2 (dr2tsugr)</p></li>
+<li><p>Nahrungsfaser2: Nahrungsfaseraufnahme in g Messung 2 (dr2tfibe)</p></li>
+<li><p>Fett2: Fettaufnahme in g Messung 2 (dr2ttfat)</p></li>
+<li><p>FS2: Aufnahme Gesättigte Fettsäuren in g Messung 2 (dr2tsfat)</p></li>
+<li><p>MUFA2: Aufnahme einfach (mono) ungesättigte Fettsäuren in g Messung 2 (dr2tmfat)</p></li>
+<li><p>PUFA2: Aufnahme mehrfach (poly) ungesättigte Fettsäuren in g Messung 2 (dr2tpfat)</p></li>
+<li><p>Cholesterin2: Cholesterinaufnahme in mg Messung 2 (dr2tchol)</p></li>
+</ul>
+</section>
+<section id="verwendete-variablen-aus-individual-food-files" class="level3">
+<h3 class="anchored" data-anchor-id="verwendete-variablen-aus-individual-food-files">Verwendete Variablen aus Individual Food Files</h3>
+<p>Keine</p>
+</section>
+</section>
+<section id="questionaire-data" class="level2">
+<h2 class="anchored" data-anchor-id="questionaire-data">Questionaire data</h2>
+<ul>
+<li>https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Questionnaire&amp;CycleBeginYear=2015</li>
+<li>Diet Behavior &amp; Nutrition file: DBQ_I.XPT; Codebook: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DBQ_I.htm</li>
+<li>Weight History file: WHQ_I.XPT; Codebook: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/WHQ_I.htm</li>
+<li>Alcohol Use file: ALQ_I.XPT; Codebook: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/ALQ_I.htm</li>
+<li>Smoking - Cigarette Use file: SMQ_I.XPT; Codebook: https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/SMQ_I.htm</li>
+</ul>
+<section id="verwendete-variablen-aus-alcolol-use" class="level3">
+<h3 class="anchored" data-anchor-id="verwendete-variablen-aus-alcolol-use">Verwendete Variablen aus Alcolol Use</h3>
+<p>Keine</p>
+</section>
+<section id="verwendete-variablen-aus-smoking---cigarette-use" class="level3">
+<h3 class="anchored" data-anchor-id="verwendete-variablen-aus-smoking---cigarette-use">Verwendete Variablen aus Smoking - Cigarette Use</h3>
+<ul>
+<li>Rauchen100: Bisher min. 100 Zigaretten geraucht (smq020)</li>
+<li>AlterRauchenRegel: Alter in welchem mit regelmässig Rauchen begonnen wurde in Jahren (smd030)</li>
+<li>Rauchen: Rauchen Sie jetzt? (smq040)
+<ul>
+<li>1: Jeden Tag</li>
+<li>2: Gelegentlich</li>
+<li>3: Nie</li>
+</ul></li>
+</ul>
+</section>
+<section id="verwendete-variablen-aus-diet-behavior-nutrition" class="level3">
+<h3 class="anchored" data-anchor-id="verwendete-variablen-aus-diet-behavior-nutrition">Verwendete Variablen aus Diet Behavior &amp; Nutrition</h3>
+<ul>
+<li>Gesund: Wie gesund ist die Ernährung? (dbq700)
+<ul>
+<li>1: Exzellent</li>
+<li>2: Sehr gut</li>
+<li>3: Gut</li>
+<li>4: Ausreichend</li>
+<li>5: Schlecht</li>
+</ul></li>
+<li>MahlzeitenAuswaerts7d: Anzahl Mahlzeiten (Morgenessen, Mittagessen, Abendessen) nicht zu Hause zubereitet in den letzten 7 Tagen (dbd895)
+<ul>
+<li>5555: Mehr als 21 pro Woche</li>
+</ul></li>
+<li>MahlzeitenFastFood7d: Anzahl der Mahlzeiten auswärts Fast Food (dbd900)
+<ul>
+<li>5555: Mehr als 21 pro Woche</li>
+</ul></li>
+<li>ReadyToEat30d: Anzahl “ready-to-eat” Lebensmittel (z.B. Salat, Suppe, Sandwiches) aus Supermarkt in den letzten 30 Tagen (dbd905)
+<ul>
+<li>5555: Mehr als 21 pro Woche</li>
+</ul></li>
+<li>FrozenMeals30d: Anzahl tiefgefrohrener Menus/Pizza in den letzten 30 Tagen {dbd910)
+<ul>
+<li>5555: Mehr als 21 pro Woche</li>
+</ul></li>
+</ul>
+</section>
+<section id="verwendete-variablen-aus-weight-history" class="level3">
+<h3 class="anchored" data-anchor-id="verwendete-variablen-aus-weight-history">Verwendete Variablen aus Weight History</h3>
+<ul>
+<li>GewichtSelf: Abgefragtes Gewicht in kg (whd020)</li>
+<li>GewichtSelf: Abgefragtes Gewicht in kg (whd010)
+<ul>
+<li>7777: Antwort verweigert</li>
+<li>9999: Weiss nicht</li>
+<li>.: Missing</li>
+</ul></li>
+<li>KoerpergroesseSelf: Abgefragte Koerpergroesse in cm (whd010)</li>
+<li>KoerpergroesseSelf: Abgefragte Koerpergroesse in cm (whd020)</li>
+<li>EinordnungGewicht: Einordnung des Gewichtes (whq030)
+<ul>
+<li>1: Übergewicht</li>
+<li>2: Untergewicht</li>
+<li>3: Normalgewicht</li>
+</ul></li>
+<li>GewichtAendern: Will mehr, weniger oder gleich viel wiegen (whq040)
+<ul>
+<li>1: mehr</li>
+<li>2: weniger</li>
+<li>3: gleich</li>
+</ul></li>
+<li>GewichtSelf1y: Abgefragtes Gewicht in kg von vor einem Jahr (whd050)</li>
+<li>GewichtSelf10y: Abgefragtes Gewicht in kg von vor 10 Jahren (whd110)</li>
+<li>GewichtSelf25y: Abgefragtes Gewicht in kg mit 25 Jahren (whd120)</li>
+<li>GewichtMax: Abgefragtes maximales Gewicht in kg (whd140)</li>
+<li>AlterGewichtMax: Alter bei maximalem Gewicht in Jahren (whq150)
+<ul>
+<li>80: 80 Jahre und älter</li>
+</ul></li>
+<li>GewichtReduzieren: Versuchte im vergangenen Jahr Gewicht zu reduzieren (whq070)
+<ul>
+<li>1: Ja</li>
+<li>2: Nein</li>
+</ul></li>
+<li>WenigerEssen (whd080a)
+<ul>
+<li>Weniger Essen (Menge) um Gewicht zu reduzieren</li>
+</ul></li>
+<li>WenigerKalorien (whd080b)
+<ul>
+<li>Nahrungsmittel mit weniger Kalorien um Gewicht zu reduzieren</li>
+</ul></li>
+<li>WenigerFett (whd080c)
+<ul>
+<li>Weniger Fett essen um Gewicht zu reduzieren</li>
+</ul></li>
+<li>Bewegung (whd080d)
+<ul>
+<li>Bewegung um Gewicht zu reduzieren</li>
+</ul></li>
+<li>MahzeitenAuslassen (whd080e)
+<ul>
+<li>Mahlzeiten auslassen um Gewicht zu reduzieren</li>
+</ul></li>
+<li>Diaetprodukte (whd080f)
+<ul>
+<li>“Diät” Nahrungsmittel oder Produkte um Gewicht zu reduzieren</li>
+</ul></li>
+<li>Fluessigdiaet (whd080g)
+<ul>
+<li>Flüssignahrung (slimfast, optifast) um Gewicht zu reduzieren</li>
+</ul></li>
+<li>Coachingprogramm (whd080h)
+<ul>
+<li>Gewichtsreduktionsprogramm um Gewicht zu reduzieren</li>
+</ul></li>
+<li>Diaetpillen (whd080i)
+<ul>
+<li>Diätpillen durch Arzt verchrieben um Gewicht zu reduzieren</li>
+</ul></li>
+<li>AndereSupplemente (whd080j)
+<ul>
+<li>Nicht verschreibungspflichtige Pillen, Medikamente, Kräuter oder andere Supplemente um Gewicht zu reduzieren</li>
+</ul></li>
+<li>LaxativeErbrechen (whd080k)
+<ul>
+<li>Abführmittel oder Erbrechen um Gewicht zu reduzieren</li>
+</ul></li>
+<li>Wassertrinken (whd080m)
+<ul>
+<li>Viel Wasser trinken um Gewicht zu reduzieren</li>
+</ul></li>
+<li>Spezialdiaet (whd080n)
+<ul>
+<li>Spezialdiät um Gewicht zu reduzieren</li>
+</ul></li>
+<li>WenigerKohlenhydrate (whd080o)
+<ul>
+<li>Weniger Kohlenhydrate essen um Gewicht zu reduzieren</li>
+</ul></li>
+<li>BeginnRauchen (whd080p)
+<ul>
+<li>Begonnen (wieder) zu Rauchen um Gewicht zu reduzieren</li>
+</ul></li>
+<li>FruechteGemuese (whd080q)
+<ul>
+<li>Mehr Früchte, Gemüse, Salat essen um Gewicht zu reduzieren</li>
+</ul></li>
+<li>Essverhalten (whd080r)
+<ul>
+<li>Essverhalten geändert um Gewicht zu reduzieren</li>
+</ul></li>
+<li>WenigerZucker (whd080s)
+<ul>
+<li>Weniger Zucker essen um Gewicht zu reduzieren</li>
+</ul></li>
+<li>WenigerFastfood (whd080t)
+<ul>
+<li>Weniger Fast Food essen um Gewicht zu reduzieren</li>
+</ul></li>
+<li>Operation (whd080u)
+<ul>
+<li>Operativer Eingriff um Gewicht zu reduzieren</li>
+</ul></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="load-packages" class="level1">
+<h1>Load packages</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Funktionen für moderne Datenmanipulation und Plotting</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom) <span class="co"># Statistische Analyseobjekte in Tidy Tibbles konvertieren</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic) <span class="co"># Praktsiche Funktion für deskriptive Statistik</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jmv) <span class="co"># jamovi library</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scatr) <span class="co"># scatter plot like in jamovi</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># library(flexplot)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="datenimport" class="level1">
+<h1>Datenimport</h1>
+<p>Die Datenniveaus werden beim Datenimport gleich richtig eingestellt. Alles was kategoriell ist wird als Faktor abgebildet.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"../data/NHANES-Exercise-Data.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>Ausbildung <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>Ausbildung)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>Haushaltseinkommen <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>Haushaltseinkommen)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>Familieneinkommen <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>Familieneinkommen)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>Gesund <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>Gesund)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>EinordnungGewicht <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>EinordnungGewicht)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>GewichtAendern <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>GewichtAendern)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>WenigerEssen <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>WenigerEssen)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>WenigerKalorien <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>WenigerKalorien)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>WenigerFett <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>WenigerFett)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>Bewegung <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>Bewegung)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>MahlzeitenAuslassen <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>MahlzeitenAuslassen)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>Diaetprodukte <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>Diaetprodukte)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>Fluessigdiaet <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>Fluessigdiaet)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>Coachingprogramm <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>Coachingprogramm)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>Diaetpillen <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>Diaetpillen)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>AndereSupplemente <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>AndereSupplemente)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>LaxativeErbrechen <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>LaxativeErbrechen)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>Wassertrinken <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>Wassertrinken)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>Spezialdiaet <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>Spezialdiaet)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>WenigerKohlenhydrate  <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>WenigerKohlenhydrate)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>BeginnRauchen <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>BeginnRauchen)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>FruechteGemuese <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>FruechteGemuese)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>Essverhalten <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>Essverhalten)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>WenigerZucker <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>WenigerZucker)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>WenigerFastfood <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>WenigerFastfood)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>Operation <span class="ot">=</span> <span class="fu">as_factor</span>(df1<span class="sc">$</span>Operation)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="übersicht" class="level1">
+<h1>Übersicht</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="max-height: 400px;"><code>      seqn           Geschlecht      Alter       Ausbildung Haushaltseinkommen
+ Min.   :83754   Length   :150   Min.   :16.00   1  :11     6      :25        
+ 1st Qu.:86984   N.unique :  2   1st Qu.:28.00   2  :10     15     :21        
+ Median :89160   N.blank  :  0   Median :49.00   3  :27     9      :12        
+ Mean   :89285   Min.nchar:  1   Mean   :46.43   4  :49     14     :12        
+ 3rd Qu.:92034   Max.nchar:  1   3rd Qu.:63.00   5  :33     7      :11        
+ Max.   :93687                   Max.   :80.00   NAs:20     (Other):51        
+                                                            NAs    :18        
+ Familieneinkommen      Puls        BlutdruckSys1   BlutdruckSys2  
+ 6      :26        Min.   : 50.00   Min.   : 88.0   Min.   : 88.0  
+ 15     :21        1st Qu.: 64.00   1st Qu.:112.0   1st Qu.:110.0  
+ 14     :12        Median : 70.00   Median :120.0   Median :120.0  
+ 7      :11        Mean   : 73.14   Mean   :124.3   Mean   :123.7  
+ 2      :10        3rd Qu.: 80.00   3rd Qu.:134.0   3rd Qu.:134.0  
+ (Other):53        Max.   :114.00   Max.   :204.0   Max.   :188.0  
+ NAs    :17        NAs    :3        NAs    :11      NAs    :5      
+ BlutdruckSys3   BlutdruckSys4   BlutdruckDia1   BlutdruckDia2   BlutdruckDia3 
+ Min.   : 90.0   Min.   :124.0   Min.   :48.00   Min.   :46.00   Min.   :44.0  
+ 1st Qu.:110.5   1st Qu.:128.0   1st Qu.:62.00   1st Qu.:64.00   1st Qu.:64.0  
+ Median :120.0   Median :142.0   Median :70.00   Median :70.00   Median :70.0  
+ Mean   :123.9   Mean   :139.4   Mean   :69.87   Mean   :70.65   Mean   :70.1  
+ 3rd Qu.:134.0   3rd Qu.:145.5   3rd Qu.:76.00   3rd Qu.:78.00   3rd Qu.:78.0  
+ Max.   :186.0   Max.   :158.0   Max.   :98.00   Max.   :98.00   Max.   :96.0  
+ NAs    :4       NAs    :140     NAs    :11      NAs    :5       NAs    :4     
+ BlutdruckDia4  Koerpergewicht   Koerpergroesse       BMI       
+ Min.   :56.0   Min.   : 45.20   Min.   :146.4   Min.   :17.20  
+ 1st Qu.:78.5   1st Qu.: 65.17   1st Qu.:157.8   1st Qu.:24.18  
+ Median :82.0   Median : 78.75   Median :166.6   Median :27.95  
+ Mean   :80.2   Mean   : 80.77   Mean   :166.7   Mean   :28.94  
+ 3rd Qu.:85.5   3rd Qu.: 89.67   3rd Qu.:174.4   3rd Qu.:32.70  
+ Max.   :98.0   Max.   :154.20   Max.   :194.3   Max.   :49.80  
+ NAs    :140    NAs    :2        NAs    :2       NAs    :2      
+ Taillenumfang          OnDiet       Energie1       Protein1     
+ Min.   : 66.50   Length   :150   Min.   : 415   Min.   : 13.25  
+ 1st Qu.: 86.40   N.unique :  2   1st Qu.:1376   1st Qu.: 46.85  
+ Median : 97.45   N.blank  :  0   Median :1896   Median : 74.23  
+ Mean   : 98.24   Min.nchar:  2   Mean   :2084   Mean   : 82.13  
+ 3rd Qu.:109.97   Max.nchar:  4   3rd Qu.:2615   3rd Qu.:106.75  
+ Max.   :148.90   NAs      :  7   Max.   :7574   Max.   :287.18  
+ NAs    :10                       NAs    :8      NAs    :8       
+ Kohlenhydrate1      Zucker1       Nahrungsfaser1       Fett1       
+ Min.   : 54.44   Min.   :  8.61   Min.   : 1.800   Min.   :  8.98  
+ 1st Qu.:158.78   1st Qu.: 52.42   1st Qu.: 9.225   1st Qu.: 49.15  
+ Median :220.31   Median : 88.47   Median :14.050   Median : 74.91  
+ Mean   :250.58   Mean   :108.32   Mean   :16.539   Mean   : 81.00  
+ 3rd Qu.:298.35   3rd Qu.:138.74   3rd Qu.:18.975   3rd Qu.:106.47  
+ Max.   :818.16   Max.   :512.25   Max.   :57.900   Max.   :241.06  
+ NAs    :8        NAs    :8        NAs    :8        NAs    :8       
+      FS1             MUFA1            PUFA1         Cholesterin1   
+ Min.   : 3.653   Min.   : 2.629   Min.   : 1.838   Min.   :  18.0  
+ 1st Qu.:13.951   1st Qu.:16.635   1st Qu.: 9.559   1st Qu.: 141.5  
+ Median :25.018   Median :25.402   Median :16.018   Median : 220.5  
+ Mean   :26.241   Mean   :29.068   Mean   :18.047   Mean   : 307.8  
+ 3rd Qu.:35.605   3rd Qu.:38.878   3rd Qu.:23.035   3rd Qu.: 416.8  
+ Max.   :81.658   Max.   :98.785   Max.   :69.320   Max.   :1238.0  
+ NAs    :8        NAs    :8        NAs    :8        NAs    :8       
+    Energie2       Protein2      Kohlenhydrate2     Zucker2      
+ Min.   : 271   Min.   :  2.69   Min.   : 25.2   Min.   :  4.27  
+ 1st Qu.:1385   1st Qu.: 52.66   1st Qu.:153.6   1st Qu.: 52.42  
+ Median :1854   Median : 70.40   Median :230.9   Median : 93.13  
+ Mean   :1948   Mean   : 75.86   Mean   :238.7   Mean   : 99.87  
+ 3rd Qu.:2472   3rd Qu.: 92.36   3rd Qu.:313.7   3rd Qu.:135.37  
+ Max.   :4296   Max.   :250.15   Max.   :563.7   Max.   :358.97  
+ NAs    :35     NAs    :35       NAs    :35      NAs    :35      
+ Nahrungsfaser2      Fett2             FS2             MUFA2       
+ Min.   : 0.00   Min.   :  0.63   Min.   :  0.01   Min.   : 0.072  
+ 1st Qu.: 8.85   1st Qu.: 47.50   1st Qu.: 14.12   1st Qu.:15.214  
+ Median :14.30   Median : 68.04   Median : 20.81   Median :24.427  
+ Mean   :17.32   Mean   : 74.59   Mean   : 24.05   Mean   :26.459  
+ 3rd Qu.:22.00   3rd Qu.: 97.19   3rd Qu.: 30.65   3rd Qu.:34.602  
+ Max.   :63.50   Max.   :190.02   Max.   :101.61   Max.   :78.843  
+ NAs    :35      NAs    :35       NAs    :35       NAs    :35      
+     PUFA2         Cholesterin2    Gesund MahlzeitenAuswaerts7d
+ Min.   : 0.005   Min.   :   0.0   1:14   Min.   : 0.000       
+ 1st Qu.: 9.676   1st Qu.: 150.0   2:23   1st Qu.: 0.000       
+ Median :15.592   Median : 234.0   3:61   Median : 2.000       
+ Mean   :17.223   Mean   : 291.7   4:43   Mean   : 2.787       
+ 3rd Qu.:22.230   3rd Qu.: 406.0   5: 9   3rd Qu.: 4.000       
+ Max.   :52.409   Max.   :1107.0          Max.   :21.000       
+ NAs    :35       NAs    :35                                   
+ MahlzeitenFastFood7d ReadyToEat30d    FrozenMeals30d  KoerpergroesseSelf
+ Min.   : 0.000       Min.   : 0.000   Min.   : 0.00   Min.   :147.3     
+ 1st Qu.: 1.000       1st Qu.: 0.000   1st Qu.: 0.00   1st Qu.:160.0     
+ Median : 1.000       Median : 0.000   Median : 0.00   Median :167.6     
+ Mean   : 2.362       Mean   : 2.966   Mean   : 2.43   Mean   :168.5     
+ 3rd Qu.: 3.000       3rd Qu.: 3.000   3rd Qu.: 2.00   3rd Qu.:175.3     
+ Max.   :21.000       Max.   :90.000   Max.   :30.00   Max.   :200.7     
+ NAs    :45           NAs    :2        NAs    :1       NAs    :3         
+  GewichtSelf     EinordnungGewicht GewichtAendern GewichtSelf1y   
+ Min.   : 47.63   1  :77            1:16           Min.   : 44.45  
+ 1st Qu.: 63.50   2  : 4            2:89           1st Qu.: 63.50  
+ Median : 77.11   3  :68            3:45           Median : 77.11  
+ Mean   : 79.82   NAs: 1                           Mean   : 79.57  
+ 3rd Qu.: 88.90                                    3rd Qu.: 90.72  
+ Max.   :149.69                                    Max.   :154.22  
+ NAs    :5                                         NAs    :6       
+ GewichtSelf10y   GewichtSelf25y     GewichtMax     AlterGewichtMax
+ Min.   : 48.99   Min.   : 39.01   Min.   : 51.71   Min.   :12.00  
+ 1st Qu.: 65.77   1st Qu.: 56.70   1st Qu.: 72.12   1st Qu.:25.25  
+ Median : 76.43   Median : 63.50   Median : 83.01   Median :40.00  
+ Mean   : 79.29   Mean   : 69.68   Mean   : 86.96   Mean   :41.10  
+ 3rd Qu.: 90.72   3rd Qu.: 79.38   3rd Qu.: 97.52   3rd Qu.:55.00  
+ Max.   :137.44   Max.   :127.01   Max.   :158.76   Max.   :80.00  
+ NAs    :56       NAs    :39       NAs    :15       NAs    :16     
+ GewichtReduzieren WenigerEssen WenigerKalorien WenigerFett Bewegung
+ Length   :150     0:108        0:130           0:130       0:102   
+ N.unique :  2     1: 42        1: 20           1: 20       1: 48   
+ N.blank  :  0                                                      
+ Min.nchar:  2                                                      
+ Max.nchar:  4                                                      
+ NAs      : 14                                                      
+                                                                    
+ MahlzeitenAuslassen Diaetprodukte Fluessigdiaet Coachingprogramm Diaetpillen
+ 0:135               0:145         0:144         0:148            0:149      
+ 1: 15               1:  5         1:  6         1:  2            1:  1      
+                                                                             
+                                                                             
+                                                                             
+                                                                             
+                                                                             
+ AndereSupplemente LaxativeErbrechen Wassertrinken Spezialdiaet
+ 0:146             0:149             0:112         0:146       
+ 1:  4             1:  1             1: 38         1:  4       
+                                                               
+                                                               
+                                                               
+                                                               
+                                                               
+ WenigerKohlenhydrate BeginnRauchen FruechteGemuese Essverhalten WenigerZucker
+ 0:135                0:150         0:117           0:124        0:125        
+ 1: 15                              1: 33           1: 26        1: 25        
+                                                                              
+                                                                              
+                                                                              
+                                                                              
+                                                                              
+ WenigerFastfood Operation     Rauchen100  RauchenAlterRegel      Rauchen   
+ 0:115           0:149     Length   :150   Min.   : 9.00     Length   :150  
+ 1: 35           1:  1     N.unique :  2   1st Qu.:15.00     N.unique :  3  
+                           N.blank  :  0   Median :17.50     N.blank  :  0  
+                           Min.nchar:  2   Mean   :19.19     Min.nchar:  3  
+                           Max.nchar:  4   3rd Qu.:21.50     Max.nchar: 12  
+                           NAs      : 10   Max.   :58.00     NAs      : 91  
+                                           NAs    :92                       </code></pre>
+</div>
+</div>
+</section>
+<section id="aufgabe-1---zweigruppenvergleich-unabhängig" class="level1">
+<h1>Aufgabe 1 - Zweigruppenvergleich unabhängig</h1>
+<p>Es soll untersucht werden ob sich der BMI zwischen den Personen, welche sich als normal- oder übergewichtig einordnen, unterscheidet. Es ist ein Signifikanzniveau von 0.05 anzunehmen.</p>
+<p>Aufgaben:</p>
+<ul>
+<li>Formulieren der Hypothesen</li>
+<li>Deskriptive Statistik
+<ul>
+<li>Zusammenfassende Beschreibung der Daten mit Kennzahlen</li>
+<li>Visualisierung</li>
+</ul></li>
+<li>Schliessende Statistik
+<ul>
+<li>Auswahl des statistischen Tests mit Begründung</li>
+<li>Interpretation</li>
+<li>Welchen Fehler könnte man bei der Testentscheidung begehen?</li>
+</ul></li>
+</ul>
+<p>Die Hypothesen sind wie folgt:</p>
+<ul>
+<li>H0: <strong>Der BMI unterscheidet sich nicht</strong> zwischen Personen, welche sich selbst als normal- oder übergewichtig eingeschätzt haben.</li>
+<li>H1: <strong>Der BMI unterscheidet sich</strong> zwischen Personen, welche sich selbst als normal- oder übergewichtig eingeschätzt haben.</li>
+</ul>
+<section id="vorbereitung" class="level2">
+<h2 class="anchored" data-anchor-id="vorbereitung">Vorbereitung</h2>
+<p>Der Codierungstabelle ist folgende Zuordnung zu entnehmen:</p>
+<ul>
+<li>1: Übergewicht</li>
+<li>2: Untergewicht</li>
+<li>3: Normalgewicht</li>
+</ul>
+<p>Die Zahlen werden umcodiert, damit die Interpretation weniger fehleranfällig ist.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df1<span class="sc">$</span>EinordnungGewicht <span class="ot">&lt;-</span> <span class="fu">recode_factor</span>(df1<span class="sc">$</span>EinordnungGewicht,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">1</span><span class="st">`</span><span class="ot">=</span><span class="st">"Übergewicht"</span>, <span class="st">`</span><span class="at">2</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Untergewicht"</span>, <span class="st">`</span><span class="at">3</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Normalgewicht"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Wir sind nur an den Kategorien Über- und Normalgewicht interessiert. Also werden nur diese ausgewählt.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(df1, EinordnungGewicht <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Übergewicht"</span>,<span class="st">"Normalgewicht"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="deskriptive-statistik" class="level2">
+<h2 class="anchored" data-anchor-id="deskriptive-statistik">Deskriptive Statistik</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(<span class="at">formula =</span> BMI <span class="sc">~</span> EinordnungGewicht, df2,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">sd =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">skew =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">sw =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">box =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">hist =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">dens =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">qq =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="max-height: 400px;"><code>
+ DESCRIPTIVES
+
+ Descriptives                                              
+ ───────────────────────────────────────────────────────── 
+                          EinordnungGewicht    BMI         
+ ───────────────────────────────────────────────────────── 
+   N                      Übergewicht                 77   
+                          Untergewicht                 0   
+                          Normalgewicht               67   
+   Missing                Übergewicht                  0   
+                          Untergewicht                 0   
+                          Normalgewicht                1   
+   Mean                   Übergewicht           32.85974   
+                          Untergewicht               NaN   
+                          Normalgewicht         24.90448   
+   Median                 Übergewicht           32.40000   
+                          Untergewicht               NaN   
+                          Normalgewicht         25.00000   
+   Standard deviation     Übergewicht           5.530686   
+                          Untergewicht               NaN   
+                          Normalgewicht         3.948741   
+   Minimum                Übergewicht           21.80000   
+                          Untergewicht               NaN   
+                          Normalgewicht         17.60000   
+   Maximum                Übergewicht           49.80000   
+                          Untergewicht               NaN   
+                          Normalgewicht         34.20000   
+   Skewness               Übergewicht          0.7281557   
+                          Untergewicht               NaN   
+                          Normalgewicht        0.3426969   
+   Std. error skewness    Übergewicht          0.2739081   
+                          Untergewicht               NaN   
+                          Normalgewicht        0.2928363   
+   Shapiro-Wilk W         Übergewicht          0.9581745   
+                          Untergewicht               NaN   
+                          Normalgewicht        0.9736623   
+   Shapiro-Wilk p         Übergewicht          0.0126317   
+                          Untergewicht               NaN   
+                          Normalgewicht        0.1657697   
+ ───────────────────────────────────────────────────────── </code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exercises-Overall_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exercises-Overall_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exercises-Overall_files/figure-html/unnamed-chunk-6-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Es gibt 77 Beobachtungen für übergewichtige und 67 Beobachtungen für normalgewichtige Gewichtseinschätzungen. Anhand der Boxplots scheint es so, dass jene Personen, die sich als normalgewichtig eingeschätzt haben, auch einen tieferen BMI zu haben scheinen.</p>
+</section>
+<section id="schliessende-statistik" class="level2">
+<h2 class="anchored" data-anchor-id="schliessende-statistik">Schliessende Statistik</h2>
+<p>Es handelt sich um kleine Umfänge (N &lt; 100) unabhängiger Daten. Die Annahmen Normalverteilung und Gleichheit der Varianzen müssen geprüft werden um über das geeignete Testverfahren zu entscheiden.</p>
+<p>Die Verteilung wird über die Kennzahlen, Histogramm und QQ-Plot aus der deskriptiven Statistik beurteilt. Beim Vergleich von unabhängigen Gruppen muss die Normalverteilung in beiden Gruppen gegeben sein. Also muss die Voraussetzung in beiden Gruppen überprüft werden. In der Gruppe “Übergewicht” weist das Histogramm auf eine rechtsschiefe Verteilung hin, was ein Hinweis auf Abweichung von der Normalverteilung ist. In der Gruppe “Normalgewicht” hingegen, scheint die Verteilung recht symmetrisch zu sein. Die Asymmetrie bei der übergewichtigen Gruppe ist auch im Boxplot und den Lagekennzahlen erkennbar, mit den Ausreissern gegen oben und dem Mittelwert, welcher gegenüber dem Median durch die Ausreisser grösser ist. Der Wert für die Schiefe (Skewness) von der deskriptiven Statistik bestätigt die Eindrücke der Asymmetrie. Sie beträgt 0.73 für die übergewichtige und 0.34 für die normalgewichtige Gruppe. Betrachtet man den QQ-Plot der übergewichtigen Gruppe, weisen Abweichungen von der Linie am rechten oberen Ende auf eine Verletzung der Voraussetzung der Normalverteilung hin. Dies bestätigt auch der Shapiro-Wilk Test bei der deskriptiven Statistik, welcher für die übergewichtige Gruppe signifikant ist (p &lt; 0.05).</p>
+<p>Da eine der Gruppen die Voraussetzung der Normalverteilung nicht zu erscheinen füllt, entscheiden wir uns also für ein nicht-parametrisches Testverfahren und verwenden den Mann-Whitney U Test für den Gruppenvergleich. Da man so oder so ein nicht-parametrisches Testverfahren anwendet wird die Voraussetzung der Gleichheit der Varianzen hinfällig, das dies nur beim parametrischen Testen relevant ist.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">=</span> <span class="fu">ttestIS</span>(<span class="at">formula =</span> BMI <span class="sc">~</span> EinordnungGewicht, <span class="at">data =</span> df2,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">welchs =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">mann =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">eqv =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">meanDiff =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">ci =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>results<span class="sc">$</span>ttest</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="max-height: 400px;"><code>
+ Independent Samples T-Test                                                                                                   
+ ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+                            Statistic    df          p             Mean difference    SE difference    Lower       Upper      
+ ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+   BMI    Student's t        9.797820    142.0000    &lt; .0000001           7.955263        0.8119421    6.350206    9.560319   
+          Welch's t          10.02287    136.9910    &lt; .0000001           7.955263        0.7937114    6.385752    9.524773   
+          Mann-Whitney U     595.0000                &lt; .0000001           7.699990                     6.299943    9.299933   
+ ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+   Note. Hₐ μ &lt;sub&gt;Group 1&lt;/sub&gt; ≠ μ &lt;sub&gt;Group 2&lt;/sub&gt;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>results<span class="sc">$</span>assum<span class="sc">$</span>eqv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="max-height: 400px;"><code>
+ Homogeneity of Variances Test (Levene's)      
+ ───────────────────────────────────────────── 
+          F           df    df2    p           
+ ───────────────────────────────────────────── 
+   BMI    3.516039     1    142    0.0628311   
+ ───────────────────────────────────────────── 
+   Note. A low p-value suggests a
+   violation of the assumption of equal
+   variances</code></pre>
+</div>
+</div>
+<p>Die Mann-Whitney-U Teststatistik weist darauf hin, dass es einen signifikanten Unterschied im BMI zwischen den sich selbstständig als normal- oder übergewichtig einschätzenden Personen gibt (p &lt; 0.001). Man lehnt also die Nullhypothese ab und nimmt die Alternativhypothese an. Die normalgewichtigen Personen weisen im Mittel einen um 7.7 kg/m^2 geringeren BMI auf als die übergewichtigen Personen. Die normalgewichtigen Personen haben mit 95% Vertrauenswahrscheinlichkeit einen zwischen 6.3 kg/m^2 und 9.3 kg/m^2 geringeren BMI als übergewichtige Personen.</p>
+<p>Möglicherweise begeht man einen Fehler 1. Art, mit dem man die Nullhypothese fälschlicherweise ablehnen würde. Diese Wahrscheinlichkeit entspricht gerade dem p-Wert und ist damit sehr klein. Es ist also sehr unwahrscheinlich, dass das vorliegende Testergebnis durch Zufall entstanden ist. Es ist anzunehmen, dass der Unterschied in Wirklichkeit tatsächlich vorliegt.</p>
+<section id="bemerkungen-zum-statistischen-testverfahren" class="level3">
+<h3 class="anchored" data-anchor-id="bemerkungen-zum-statistischen-testverfahren">Bemerkungen zum statistischen Testverfahren</h3>
+<p>Vergleicht man die Resultate des nicht-parametrichen Mann-Whitney-U Test mit den parametrsichen Vergleich (Student’s t), stellt man fest, dass dies nichts am statistischen Schluss und nur wenig am geschätzten Effekt ändert. Die Mittelwertsdifferenz wird nur wenig grösser geschätzt mit dem parametrsichen Verfahren. Das zeigt, dass die angenommene Abweichung von der Normalverteilung in der übergewichtigen Gruppe nicht so gravierend ist. Würde man davon absehen, nicht-parametrsich zu testen, müsste man die Gleichheit der Varianzen beurteilen. Anhand des nicht signifikanten Resultats des Levene-Test (p = 0.063 und damit p &gt; 0.05) kann man sagen, dass die Varianzen als gleich angenommen werden können. Also dürfte man, unter Annahme der Voraussetzung der Normalverteilung in beiden Gruppen, den Student’s t-Test für den Zweigruppenvergleich anwenden. Wären die Varianzen nicht gleich, würde man den Welch’s t-Test für den Zweigruppenvergleich anwenden.</p>
+</section>
+</section>
+</section>
+<section id="aufgabe-2---zweigruppenvergleich-abhängig-n-100" class="level1">
+<h1>Aufgabe 2 - Zweigruppenvergleich abhängig (N &gt; 100)</h1>
+<p>Es soll untersucht werden ob sich das selbst eingeschätzte Körpergewicht vom gemessenen Körpergewicht unterscheidet. Es ist ein Signifikanzniveau von 0.05 anzunehmen.</p>
+<p>Aufgaben:</p>
+<ul>
+<li>Formulieren der Hypothesen</li>
+<li>Deskriptive Statistik
+<ul>
+<li>Zusammenfassende Beschreibung der Daten mit Kennzahlen</li>
+<li>Visualisierung</li>
+</ul></li>
+<li>Schliessende Statistik
+<ul>
+<li>Auswahl des statistischen Tests mit Begründung</li>
+<li>Interpretation</li>
+<li>Welchen Fehler könnte man bei der Testentscheidung begehen?</li>
+</ul></li>
+<li>Nehme an du kennst lediglich die mittlere Differenz von 0.83 kg zwischen geschätztem und gemessenem Körpergewicht und den Standardfehler von 0.42 kg. Da es sich um eine grosse Stichprobe handelt kannst du die z-Verteilung verwenden (nicht die t-Verteilung). Berechne den z-Wert und den zweiseitigen p-Wert von Hand.</li>
+</ul>
+<p>Die Hypothesen sind wie folgt:</p>
+<ul>
+<li>H0: Das gemessene <strong>Gewicht unterscheidet sich nicht</strong> vom selbst geschätzten Körpergewicht.</li>
+<li>H1: Das gemessene <strong>Gewicht unterscheidet sich</strong> vom selbst geschätzten Körpergewicht.</li>
+</ul>
+<section id="deskriptive-statistik-1" class="level2">
+<h2 class="anchored" data-anchor-id="deskriptive-statistik-1">Deskriptive Statistik</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(df1, <span class="fu">vars</span>(Koerpergewicht, GewichtSelf), <span class="at">sd =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="max-height: 400px;"><code>
+ DESCRIPTIVES
+
+ Descriptives                                            
+ ─────────────────────────────────────────────────────── 
+                         Koerpergewicht    GewichtSelf   
+ ─────────────────────────────────────────────────────── 
+   N                                148            145   
+   Missing                            2              5   
+   Mean                        80.76689       79.81662   
+   Median                      78.75000       77.11070   
+   Standard deviation          20.93905       21.01586   
+   Minimum                     45.20000       47.62720   
+   Maximum                     154.2000       149.6855   
+ ─────────────────────────────────────────────────────── </code></pre>
+</div>
+</div>
+<p>Schaut man sich die deskriptive Statistik an (Mittelwert und Median), ist zu erwarten, dass sich das geschätzte nicht vom gemessenen Körpergewicht untnerscheidet. Denn das gemessene Körpergewicht ist Mittel um nur etwa 1 kg höher bei einer Streuung um 20 kg. Die Streuungskennzahlen und die Extremwerte liegen für beide Variablen ebenfalls im selben Bereich.</p>
+</section>
+<section id="schliessende-statistik-1" class="level2">
+<h2 class="anchored" data-anchor-id="schliessende-statistik-1">Schliessende Statistik</h2>
+<p>Bei diesem Vergleich handelt es ich um abhängige Daten, da jede Person gemessen wurde und sich zusätzlich selbst geschätzt hat. Heisst, die Messwerte stammen jeweils von der gleichen Person. Aus der deskriptiven Statistik ist zu sehen, dass der Stichprobenumfang, mit 148 respektive 145 Beobachtungen pro Variable, deutlich mehr als 100 beträgt. Damit müssen wir die Voraussetzung der Normalverteilung der Differenzen nicht prüfen und dürfen direkt den t-Test für abhängige Daten anwenden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ttestPS</span>(df1, <span class="at">pairs =</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="at">i1 =</span> <span class="st">'Koerpergewicht'</span>, <span class="at">i2 =</span> <span class="st">'GewichtSelf'</span>)),</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">meanDiff =</span> T,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">ci =</span> T,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">plots =</span> T,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">effectSize =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="max-height: 400px;"><code>
+ PAIRED SAMPLES T-TEST
+
+ Paired Samples T-Test                                                                                                                                                              
+ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+                                                   statistic    df          p            Mean difference    SE difference    Lower           Upper                    Effect Size   
+ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+   Koerpergewicht    GewichtSelf    Student's t     1.975934    142.0000    0.0501004          0.8282534        0.4191706    -3.677174e-4    1.656875    Cohen's d      0.1652359   
+ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+   Note. Hₐ μ &lt;sub&gt;Measure 1 - Measure 2&lt;/sub&gt; ≠ 0</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exercises-Overall_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Der p-Wert liegt gerundet bei 0.05 und ist jedoch nicht kleiner als des Signifikanzniveaus von 0.05. Damit gibt es keinen signifikanten Unterschied zwischen dem gemessenen und dem geschätzten Körpergewicht. Die Nullhypothese wird nicht verworfen und als plausibel betrachtet. Es ist anzunehmen, dass es keinen Unterschied zwischen dem gemessenen und dem geschätzten Körpergewicht gibt. Der Punktschätzer für die mittlere Differenz zwischen gemessenem und geschätztem Körpergewicht beträgt 0.8 kg (gemessen ist im Mittel höher; siehe deskriptive Statistik). Das gemessene Körpergewicht unterscheidet sich mit einer Wahrscheinlichkeit von 95% zwischen 0 kg und 1.7 kg vom geschätzten Körpergewicht. Eine Differenz von Null ist im Vertrauensintervall drin. Das heisst, die Mittelwertsdifferenz könnte auch Null betragen, was den Entscheid stützt, dass die Nullhypthese als plausibel anzunehmen ist und sich die Gruppen nicht unterscheiden. Da die Null jedoch nur undeutlich im Vertrauensintervall drin ist, unterscheiden sich die Gruppen nur undeutlich nicht. Der Effekt zwischen Messung und Schätzung ist schwach, da die Effektstärke (Cohen’s d) mit 0.16 unterhalb von 0.2 liegt (vgl. Handout <em>LE4_StatTest</em> Slide Nr. 40). Die Effektstärke von 0.17 beduetet, dass sich die Gruppenmittelwerte nur um 0.17 Standardabweichungen unterscheiden.</p>
+<p>Möglicherweise begeht man einen Fehler 2. Art und behält die Nullhypothese fälschlicherweise bei. Das heisst, man würde nicht entdecken, dass sich das gemessene und geschätzte Körpergewicht im Mittel in Wirklichkeit unterscheiden.</p>
+<p>Den z-Wert erhält man, indem man den beobachteten Effekt durch den zugehörigen Fehler teilt. Im vorliegenden Fall also die mittlere Differenz, dividiert durch den Standardfehler:</p>
+<p><span class="math display">\[
+z = \frac{0.83}{0.42} = 1.976
+\]</span></p>
+<p>Der zweiseitige p-Wert ist die Summe der Fläche unterhalb der z-Verteilung (Standardnormalverteilung) für <span class="math inline">\(z \leq 1.97\)</span> und <span class="math inline">\(z \geq 1.97\)</span>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">*</span><span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.976</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="max-height: 400px;"><code>[1] 0.04815478</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="aufgabe-3---zweigruppenvergleich-abhängig-n-100" class="level1">
+<h1>Aufgabe 3 - Zweigruppenvergleich abhängig (N &lt; 100)</h1>
+<p>In Aufgabe 2 hat man gesehen, dass das sich das geschätzte nicht vom gemessenen Körpergewicht unterscheidet. Nun will man untersuchen ob das auch so ist, wenn man nur die Männer betrachtet.</p>
+<p>Man wählt nur die männlichen Personen aus:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">=</span> <span class="fu">filter</span>(df1, Geschlecht <span class="sc">==</span> <span class="st">"m"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="deskriptive-statistik-2" class="level2">
+<h2 class="anchored" data-anchor-id="deskriptive-statistik-2">Deskriptive Statistik</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descriptives</span>(df2, <span class="fu">vars</span>(Koerpergewicht, GewichtSelf), <span class="at">sd =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="max-height: 400px;"><code>
+ DESCRIPTIVES
+
+ Descriptives                                            
+ ─────────────────────────────────────────────────────── 
+                         Koerpergewicht    GewichtSelf   
+ ─────────────────────────────────────────────────────── 
+   N                                 77             77   
+   Missing                            2              2   
+   Mean                        86.01818       85.38729   
+   Median                      83.60000       81.19303   
+   Standard deviation          20.27620       20.74908   
+   Minimum                     52.40000       53.07031   
+   Maximum                     154.2000       149.6855   
+ ─────────────────────────────────────────────────────── </code></pre>
+</div>
+</div>
+<p>Schaut man sich die deskriptive Statistik an (Mittelwert und Median), ist zu erwarten, dass sich das geschätzte nicht vom gemessenen Körpergewicht untnerscheidet. Denn das gemessene Körpergewicht ist Mittel um nur etwa 0.6 kg höher bei einer Streuung um 20 kg. Die Streuungskennzahlen und die Extremwerte liegen für beide Variablen ebenfalls im ähnlichen Bereich.</p>
+<p>Da man nun weniger als 100 Bebachtungen hat muss man die Annhame der <strong>Normalverteilung der Differenzen</strong> berücksichtigen. Wichtig ist, dass sich beim Vergleich von abhängigen Daten, die Voraussetzung der Normalverteilung auf die Differenzen zwischen den Variablen und nicht auf die Variablen selbst bezieht. Um dies zu überprüfen müsste man nun also die Differenzen berechnen und diese einer neuen Variablen zuweisen, welche man anschliessend auf die Kriterien der Normalverteilung überprüft. Das ist etwas umständlich und geht in jamovi einfacher, indem man beim Zweigruppenvergleich in jamovi unter <strong>Assumption Checks</strong> die Hacken für <em>Normality test</em> und <em>Q-Q Plot</em> setzt.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ttestPS</span>(df2, <span class="at">pairs =</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="at">i1 =</span> <span class="st">'Koerpergewicht'</span>, <span class="at">i2 =</span> <span class="st">'GewichtSelf'</span>)),</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">wilcoxon =</span> T,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">meanDiff =</span> T,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ci =</span> T,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">plots =</span> T,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">norm =</span> T,</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">qq =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="max-height: 400px;"><code>
+ PAIRED SAMPLES T-TEST
+
+ Paired Samples T-Test                                                                                                                                 
+ ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+                                                   statistic    df          p            Mean difference    SE difference    Lower         Upper       
+ ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+   Koerpergewicht    GewichtSelf    Student's t    0.2559242    74.00000    0.7987194          0.1790421        0.6995901     -1.214922     1.573006   
+                                    Wilcoxon W      1458.000                0.8637375         0.04613330        0.6995901    -0.6201685    0.8073135   
+ ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+   Note. Hₐ μ &lt;sub&gt;Measure 1 - Measure 2&lt;/sub&gt; ≠ 0
+
+
+ Normality Test (Shapiro-Wilk)                                     
+ ───────────────────────────────────────────────────────────────── 
+                                         W            p            
+ ───────────────────────────────────────────────────────────────── 
+   Koerpergewicht    -    GewichtSelf    0.7377508    &lt; .0000001   
+ ───────────────────────────────────────────────────────────────── 
+   Note. A low p-value suggests a violation of the assumption
+   of normality</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exercises-Overall_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exercises-Overall_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Der Shapiro-Wilk Normalitätstest (p &lt; 0.05) und der QQ-Plot weisen auf eine Verletzung der Voraussetzung der Normalverteilung hin. Man muss also den Wilcoxon-Test für den Zweigruppenvergleich anwenden. Die Differenz zwischen dem gemessenen und geschätzten Körpergewicht beträgt mit einer Vertrauenswahrscheinlichkeit von 95% zwischen -0.6 kg und 0.8 kg. Die Differenz liegt im Mittel bei 0.05 kg um welche das gemessene Körpergewicht höher ist als das geschätzte Körpergewicht. Der p-Wert ist nicht kleiner als 0.05 und die Null ist im Vertrauensintervall enthalten. Das heisst es könnte gut sein, dass die Mittelwertsdifferenz Null beträgt. Die Nullhypothese wird beibehalten und es kann gesagt werden, dass bei den Männern das gemessene Körpergewicht sich nicht vom geschätzten Körpergewicht unterscheidet. Wäre man von einer Normalverteilung der Differenzen ausgegangen und hätte parametrsich getestet, wäre man zum selben Schluss gekommen.</p>
+</section>
+</section>
+<section id="aufgabe-4---korrelation" class="level1">
+<h1>Aufgabe 4 - Korrelation</h1>
+<p>In Aufgabe 3 hat man gesehen, dass sich das geschätzte Gewicht im Mittel nicht vom das gemessenen Gewicht unterscheidet. Nun soll mit einer Korrelationsanalyse untersucht werden ob beispielsweise schwere Personen sich auch effektiv schwerer schätzen. Heisst, man sucht nach einem Zusammenhang zwischen gemessenem und geschätztem Körpergewicht.</p>
+<p>Im ersten Schritt müssen die Daten visualisiert werden um eine subjektive Einschätzung über einen möglichen Zusammenhang zu machen. Dazu eignet sich das Streudiagramm.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df1, <span class="fu">aes</span>(<span class="at">x =</span> GewichtSelf, <span class="at">y =</span> Koerpergewicht)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'GewichtSelf (kg)'</span>, <span class="at">y =</span> <span class="st">'Körpergewicht (kg)'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exercises-Overall_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Im Streudiagramm ist ein deutlicher positiver linearer Zusammenhang zu erkennen. Wenn das Körpergewicht kleiner geschätzt wird, scheint es auch gemessen kleiner zu sein. Wenn das Körpergewicht grösser geschätzt wird, scheint es auch gemessen grösser zu sein. Visuell beurteilt scheint also ein recht starker Zusammenhang vorhanden zu sein, welcher linear beschrieben werden kann. Es macht also durchaus Sinn die Stärke des linearen Zusammenhangs mit dem Korrelationskoeffizienten zu quantifizieren.</p>
+<p>In den Daten sind keine Ausreisser sichtbar, welche den Korrelationskoeffizienten offensichtlich beinflussen würden. Man kann davon ausgehen, dass der Korrelationskoeffizient nach Pearson gut dafür geeignet ist.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrMatrix</span>(df1, <span class="at">vars =</span> <span class="fu">vars</span>(GewichtSelf, Koerpergewicht),</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">spearman =</span> T,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">ci =</span> T,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">sig =</span> F)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="max-height: 400px;"><code>
+ CORRELATION MATRIX
+
+ Correlation Matrix                                                    
+ ───────────────────────────────────────────────────────────────────── 
+                                       GewichtSelf    Koerpergewicht   
+ ───────────────────────────────────────────────────────────────────── 
+   GewichtSelf       Pearson's r                 —                     
+                     95% CI Upper                —                     
+                     95% CI Lower                —                     
+                     Spearman's rho              —                     
+                                                                       
+   Koerpergewicht    Pearson's r         0.9719765                 —   
+                     95% CI Upper        0.9797995                 —   
+                     95% CI Lower        0.9611833                 —   
+                     Spearman's rho      0.9673711                 —   
+ ───────────────────────────────────────────────────────────────────── </code></pre>
+</div>
+</div>
+<p>Der Pearson Korrelationskoeffizient für den linearen Zusammenhang des geschätzen und gemessenen Körpergewichtes beträgt 0.972. Mit 95% Vertrauenswahrscheienlichkeit liegt der Korrelationskoeffizient der Population zwischen 0.961 und 0.980. Die Stärke des linearen Zusammenhang kann als stark bezeichnet werden da der Korrelationkoeffizient über 0.7 liegt (siehe Handout LE Slide Nr. 22). Der Korrelationskoeffizient nach Pearson ist positiv, also liegt ein starker positiver linearer Zusammenhang vor.</p>
+<p>Zusätzlich wurde der Rangkorrelationskoeffizient nach Spearman berechnet und er unterscheidet sich praktisch nicht vom Korrelationkoeffizieten nach Pearson. Dass die Werte nahe beieinander liegen bestätigt die Einschätzung, dass es keine massgeblichen Ausreisser gibt welche den Korrelationskoeffizienten nach Pearson beinflussen könnten. Wäre dies der Fall würden sich die beiden Korrelationskoeffizienten deutlich unterscheiden.</p>
+</section>
+<section id="aufgabe-5---regression" class="level1">
+<h1>Aufgabe 5 - Regression</h1>
+<p>In Aufgabe 4 konnte festgestellt werden, dass es einen starken positiven linearen Zusammenhang zwischen dem geschätzten und dem gemessenen Körpergewicht gibt. Man will nun ein Modell berechnen, mit welchem das gemessene Körpergewicht basierend auf dem geschätzten Körpergewicht vorausgesagt, respektive der Zusammenhang beschrieben, werden kann.</p>
+<p>Um die Aufgabe zu lösen, braucht man die einfache lineare Regression. “Einfach” darum, weil die Voraussage basierend auf einer Variablen gemacht wird (dem geschätzten Körpergewicht).</p>
+<p>Im Unterschied zur Korrelationsanalyse, wird bei der linearen Regression ein Modell berechnet, welches die Daten beschreibt. Dabei muss zwischen abhängigen und unabhängigen Variablen unterschieden werden. Im vorliegenden Fall soll das wahre Körpergewicht (das gemessene) anhand des geschätzten Körpergewichtes vorausgesagt werden. Die Variable, welche das Modell voraussagt, bezeichnet man als abhängige Variable (“Dependent” in jamovi) und die Variable, welche zur Voraussage genutzt wird, bezeichnet man als unabhängige Variable (“Covariate” in jamovi).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df1, <span class="fu">aes</span>(<span class="at">x =</span> GewichtSelf, <span class="at">y =</span> Koerpergewicht)) <span class="sc">+</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm , <span class="at">color=</span><span class="st">"red"</span>, <span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'GewichtSelf (kg)'</span>, <span class="at">y =</span> <span class="st">'Körpergewicht (kg)'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exercises-Overall_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linReg</span>(<span class="at">data =</span> df1, <span class="at">dep =</span> Koerpergewicht, <span class="at">covs =</span> GewichtSelf,</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">blocks =</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="st">'GewichtSelf'</span>)),</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">ci =</span> T,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">qqPlot =</span> T,</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">resPlots =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="max-height: 400px;"><code>
+ LINEAR REGRESSION
+
+ Model Fit Measures                  
+ ─────────────────────────────────── 
+   Model    R            R²          
+ ─────────────────────────────────── 
+       1    0.9719765    0.9447383   
+ ─────────────────────────────────── 
+   Note. Models estimated using
+   sample size of N=143
+
+
+ MODEL SPECIFIC RESULTS
+
+ MODEL 1
+
+ Model Coefficients - Koerpergewicht                                                             
+ ─────────────────────────────────────────────────────────────────────────────────────────────── 
+   Predictor      Estimate     SE            Lower         Upper       t            p            
+ ─────────────────────────────────────────────────────────────────────────────────────────────── 
+   Intercept      2.8291586    1.64120966    -0.4154005    6.073718     1.723825     0.0869312   
+   GewichtSelf    0.9749630    0.01985797     0.9357051    1.014221    49.096815    &lt; .0000001   
+ ─────────────────────────────────────────────────────────────────────────────────────────────── 
+
+
+ ASSUMPTION CHECKS</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exercises-Overall_files/figure-html/unnamed-chunk-16-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exercises-Overall_files/figure-html/unnamed-chunk-16-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exercises-Overall_files/figure-html/unnamed-chunk-16-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exercises-Overall_files/figure-html/unnamed-chunk-16-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Die einfache lineare Regression liefert als Ergebnis die zwei nötigen Parameter um eine Gerade zu beschreiben (die Koeffizenten des Regressionsmodells), den Achsenabschnitt (Intercept) und die Steigung. Die Steigung ist benannt mit der unabhängigen Variablen, hier <em>GewichtSelf</em>. Das Regressionsmodell hat also mit den auf zwei Nachkommastelle gerundeten Koeffizienten folgende Form:</p>
+<p><span class="math display">\[
+Koerpergewicht = 2.83 + 0.98*GewichtSelf
+\]</span></p>
+<section id="interpretation-der-koeffizienten" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation-der-koeffizienten">Interpretation der Koeffizienten</h2>
+<p>Der Achsenabschnitt sagt, wie schwer eine Person wäre, die sich 0 kg schätzen würde. Dies zu interpretieren ist natürlich nicht sinnvoll, da niemand 0 kg wiegt.</p>
+<p>Die Steigung sagt, um wie viel die abhängige Variable, pro Zunahme der unabhängigen Variable um eine Einheit, zunimmt. Für das vorliegende Beispiel also zum Beispiel, um wie viel das gemessene Körpergewicht zunimmt, wenn das geschätzte Körpergewicht um ein Kilogramm zunimmt. Würde das gemessene Körpergewicht gleich viel zunehmen wie das geschätzte Körpergewicht wäre die Steigung 1. Das Modell ist also plausibel, denn die Steigung von 1 ist im Vertrauensintervall enthalten.</p>
+</section>
+<section id="vorhersage" class="level2">
+<h2 class="anchored" data-anchor-id="vorhersage">Vorhersage</h2>
+<p>Mit dem Modell lässt sich nun das tatsächliche (d.h. gemessene) Körpergewicht voraussagen wenn man das geschätzte Körpergewicht kennt. Gehen wir davon aus, eine Person schätzt sich auf 68 kg. Das Modell lässt uns nun voraussagen wie schwer die Person tatsächlich ist, indem man die 68 kg in die obige Gleichung einsetzt:</p>
+<p><span class="math display">\[
+Koerpergewicht = 2.83 + 0.98*68
+\]</span></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fl">2.83</span> <span class="sc">+</span> <span class="fl">0.98</span><span class="sc">*</span><span class="dv">68</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="max-height: 400px;"><code>[1] 69.47</code></pre>
+</div>
+</div>
+<p>Wenn eine Person sich also auf 68 kg schätzt, wird sie laut dem Modell 69.47 kg wiegen.</p>
+</section>
+<section id="modellprüfung" class="level2">
+<h2 class="anchored" data-anchor-id="modellprüfung">Modellprüfung</h2>
+<p>Es ist wichtig zu bedenken, dass es sich um ein Modell handelt und ein Modell immer ein vereinfachtes Abbild der Realität darstellt. Das Modell beschreibt den linearen Zusammenhang so, wie er im Mittel aufgrund der vorliegenden Daten in der Population erwartet werden kann. Wie bei allem was in der schliessenden Statistik gemacht wird, handelt es sich bei den Koeffizienten des Modells um Schätzer, welche fehlerbehaftet sind, da man ja nicht die gesamte Population kennt. Das wiederspiegelt sich in den jeweiligen Vertrauensintervallen. Der Achsenabschnitt des Modells der Population liegt mit 95% Vertrauenswahrscheinlichkeit zwischen -0.42 und 6.07 und die die Steigung mit 95% Vertrauenswahrscheinlichkeit zwischen 0.94 und 1.01.</p>
+<p>Mit den Vertrauensintervallen bewegt man sich natürlich in der schliessenden Statistik und damit auch bei der statistischen Signifikanz. Damit lässt sich also Prüfen ob ein Koeffizient signifikant unterschiedlich von Null ist. Wie weiter oben bei der Interpretation der Modellkoeffizienten besprochen, macht es im Beispiel keinen Sinn, dies für den Achsenabschnitt zu interpretieren, da es unmöglich ist, dass eine Person Null Kilogramm wiegt. Hingegen lässt sich die Prüfung der Steigung auf den Unterschied zu Null interpretierten. Die Null ist deutlich nicht im Vertrauensintervall enthalten und der p-Wert liegt deutlich unterhalb des Signifikanzniveaus. Daher ist es sehr unwahrscheinlich, dass die Steigung Null beträgt und es damit sehr wahrscheinlich einen <strong>linearen Zusammenahng</strong> zwischen dem geschätzten und gemessenen Körpergewicht gibt.</p>
+</section>
+<section id="wie-gut-passt-modell" class="level2">
+<h2 class="anchored" data-anchor-id="wie-gut-passt-modell">Wie gut “passt” Modell?</h2>
+<p>Wie im vorherigen Abschnitt erwähnt, ist ein Modell immer eine Vereinfachung. Somit muss beurteilt werden wie gut das Modell zu den Daten passt. Die geschieht übers Bestimmtheitsmass <span class="math inline">\(R^2\)</span>, welches 0.95 beträgt. Dieser Wert besagt, dass das lineare Modell 95% der Variation des gemessenen Körpergewichts erklären kann. Also den Grossteil und damit passt das Modell sehr gut. Erstrebenswert sind natürlich 100%, denn in diesem Fall wäre der Zusammenhang perfekt linear (alle Punkte auf einer Linie) und das Modell könnte die Daten komplett erklären. Ist <span class="math inline">\(R^2 &gt; 0.5\)</span> kann man von einem starken linearen Zusammenhang sprechen (siehe Handout LE5 Slide Nr. 38). Das ist hier der Fall und der Zusammenhang kann als sehr stark bezeichnet werden. Dies widerspiegelt sich im Wert <span class="math inline">\(R = 0.97\)</span>, welcher bei der linearen Regression gerade dem Pearson-Korrelationskoeffizienten entspricht. Der Wert ist der selbe wie bei Aufgabe 4 und man kommt zum Schluss, dass es sich um einen starken positiven linearen Zusammenhang zwischen dem geschätzen und gemessenen Körpergewicht handelt.</p>
+</section>
+<section id="prüfung-der-annahmen" class="level2">
+<h2 class="anchored" data-anchor-id="prüfung-der-annahmen">Prüfung der Annahmen</h2>
+<p>Wir haben gelernt, dass die Schlüsse aus inferenzstatistsichen Verfahren nur unter gewissen Voraussetzungen valide sind (z.B. Annahme der Normalverteilung in beiden Gruppen beim parametrsichen Vergleich von zwei unabhängigen Gruppen). Ähnliche Voraussetzungen gelten auch bei der linearen Regression und müssen zur weiteren Beurteilung der Güte des Modells berücksichtigt werden.</p>
+<section id="linearer-zusammenhang" class="level3">
+<h3 class="anchored" data-anchor-id="linearer-zusammenhang">Linearer Zusammenhang?</h3>
+<p>Zuerst muss natürlich visuell geprüft werden ob es sich überhauput um einen möglichen linearen Zusamemnhang handelt. Das ist laut dem Streudiagramm offensichtlich der Fall (man kann sich sehr gut eine Gerade in die Punktewolke “hineindenken”). Die lineare Regression scheint also für den Beschrieb des Zusammenhangs geeignet zu sein.</p>
+</section>
+<section id="normalverteilung-der-residuen" class="level3">
+<h3 class="anchored" data-anchor-id="normalverteilung-der-residuen">Normalverteilung der Residuen</h3>
+<p>Die Residuen (vgl. Handout LE5 Slide Nr. 37), also alle Abweichungen der Daten von der Regressionsgeraden, sollten normalverteilt sein. Dies wird über den QQ-Plot beurteilt und sieht für unser Beispiel nicht ganz so optimal aus.</p>
+</section>
+<section id="konstante-variabilität-der-residuen" class="level3">
+<h3 class="anchored" data-anchor-id="konstante-variabilität-der-residuen">Konstante Variabilität der Residuen</h3>
+<p>Die Residuen sollten keine Streuungsmuster entlang der Regressionslinie vorweisen. Das heisst, sie sollten entlang der Regressionsgeraden immer gleichmässig um die Gerade herum gestreut sein. Dies überprüft man am besten mit dem Diagramm wo die Residuals gegenüber den Fitted (Werten des Modells) aufgetragen sind. Die Bedingung scheint für unser Beispiel gut erfüllt, denn die Streuung scheint ziemlich kosntant über den Wertebereich der Werte des Modells.</p>
+<!-- \backmatter -->
+</section>
+</section>
+</section>
+<section id="referenzen" class="level1 unnumbered">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referenzen</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-McClure2020" class="csl-entry" role="listitem">
+McClure, Scott T., Haley Schlechter, Susan Oh, et al. 2020. <span>“Dietary Intake of Adults with and Without Diabetes: Results from NHANES 2013-2016.”</span> <em>BMJ Open Diabetes Research &amp; Care</em> 8 (October). <a href="https://doi.org/10.1136/bmjdrc-2020-001681">https://doi.org/10.1136/bmjdrc-2020-001681</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

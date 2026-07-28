@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Übung: Deskriptive Statistik in R – Angewande Statistik Workshops</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-5685cd926c25366c96d9f1407e584118.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../msc/ex11-deskriptive-statistik.html">MSc</a></li><li class="breadcrumb-item"><a href="../msc/ex11-deskriptive-statistik.html">Deskriptive Statistik</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Angewande Statistik Workshops</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">BSc</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/Intro-Jamovi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro Jamovi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/WS1-Deskriptive-Statistik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Deskriptive Statistik</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/WS2-Verteilungen-Wahrscheinlichkeit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verteilungen von Wahrscheinlichkeiten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/WS3-Grundlagen-Inferenz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Grundlagen Inferenzstatistik</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/WS4-Vergleich-Mittelwerte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vergleich von Mittelwerten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/WS5-Korrelation-Regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Korrelation und Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/WS6-Inferenz-Kategoriell.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inferenz Kategoriell</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bsc/Exercises-Overall.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Workshop Overall</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">MSc</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../msc/ex11-deskriptive-statistik.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Deskriptive Statistik</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#generelles-zu-den-übungen" id="toc-generelles-zu-den-übungen" class="nav-link active" data-scroll-target="#generelles-zu-den-übungen">Generelles zu den Übungen</a></li>
+  <li><a href="#datensatz-einlesen" id="toc-datensatz-einlesen" class="nav-link" data-scroll-target="#datensatz-einlesen">1: Datensatz einlesen</a></li>
+  <li><a href="#datensatz-anschauen" id="toc-datensatz-anschauen" class="nav-link" data-scroll-target="#datensatz-anschauen">2: Datensatz anschauen</a></li>
+  <li><a href="#erstellen-neuer-variablen" id="toc-erstellen-neuer-variablen" class="nav-link" data-scroll-target="#erstellen-neuer-variablen">3: Erstellen neuer Variablen</a></li>
+  <li><a href="#häufigkeitsverteilungen" id="toc-häufigkeitsverteilungen" class="nav-link" data-scroll-target="#häufigkeitsverteilungen">4: Häufigkeitsverteilungen</a></li>
+  <li><a href="#masse-der-lage-und-masse-der-streuung" id="toc-masse-der-lage-und-masse-der-streuung" class="nav-link" data-scroll-target="#masse-der-lage-und-masse-der-streuung">5: Masse der Lage und Masse der Streuung</a></li>
+  <li><a href="#masse-der-lage-und-masse-der-streuung-1" id="toc-masse-der-lage-und-masse-der-streuung-1" class="nav-link" data-scroll-target="#masse-der-lage-und-masse-der-streuung-1">6: Masse der Lage und Masse der Streuung</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../msc/ex11-deskriptive-statistik.html">MSc</a></li><li class="breadcrumb-item"><a href="../msc/ex11-deskriptive-statistik.html">Deskriptive Statistik</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Übung: Deskriptive Statistik in R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="generelles-zu-den-übungen" class="level2">
+<h2 class="anchored" data-anchor-id="generelles-zu-den-übungen">Generelles zu den Übungen</h2>
+<ul>
+<li>Niemand kann alle R-Funktionen auswendig. Daher ist es ganz normal, dass man spickt (z.B. <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/base-r.pdf">R-Cheat Sheet</a> oder in den Skripten zu den Workshops).<br>
+</li>
+<li>Alle Aufgaben sind mit den Codes aus den R-Workshops lösbar.<br>
+</li>
+<li>Wenn du eine Aufgabe nicht auf Anhieb lösen kannst, versuche dir zuerst Hilfe im Internet oder den Unterrichtsmaterialen zu holen. Schaue die Lösung erst an, wenn du mit Google und co. wirklich nicht weiter kommst.<br>
+</li>
+<li>Fragen zu den Übungen bitte im Forum auf Moodle posten und entsprechend verlinken.</li>
+</ul>
+<hr>
+</section>
+<section id="datensatz-einlesen" class="level2">
+<h2 class="anchored" data-anchor-id="datensatz-einlesen">1: Datensatz einlesen</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="" aria-current="page">Aufgabe</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Lösung</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Codebook</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Für diese Übung brauchst du wieder die Datei <code>caerphilly.csv</code>, welche du auf Moodle findest. Lade den Datensatz herunter und speichere ihn ab. Definiere danach deine Working directory entsprechend und importiere den Datensatz in <code>R</code>.</p>
+<hr>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Der Datenimport ist am einfachsten mit <code>library(rio)</code>. Beachte, dass der Name zwischen den beiden ” ” <strong>identisch</strong> mit jenem der Datei auf deinem Rechner sein muss. Die Working directory muss natürlich auch korrekt definiert sein.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df.cp <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"../data/caerphilly.csv"</span>) <span class="co"># Diese wd() sieht bei dir natürlich anders aus</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Folgende Variablen sind im Datensatz enthalten:</p>
+<ul>
+<li><code>mi</code> = Myocardial infarction (0 = No, 1 = Yes)</li>
+<li><code>socclass</code> = Soziale Klasse mit den Levels I, II, IIIM, IIINM, IV, V</li>
+<li><code>diabetes</code> = Diabetes mit den Levels No/uncertain oder Yes</li>
+<li><code>smoking</code> = Raucherstatus mit den Levels <code>Never smoked</code>, <code>Ex 1-4 years</code>, <code>Ex&gt;5 years</code>, <code>&lt;15 per day</code>, <code>&gt;15 per day</code></li>
+<li><code>totchol</code> = Totales Cholesterin</li>
+<li><code>hdlchol</code> = High-Density-Lipoprotein-Cholesterin</li>
+<li><code>bmi</code> = Body Mass Index</li>
+<li><code>bmicat</code> = Body Mass Indes mit den Levels Underweight, Normal, Overweight, Obese</li>
+</ul>
+<hr>
+</div>
+</div>
+</div>
+</section>
+<section id="datensatz-anschauen" class="level2">
+<h2 class="anchored" data-anchor-id="datensatz-anschauen">2: Datensatz anschauen</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Aufgaben</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Lösungen</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ol type="1">
+<li>Nutze einen einfachen Befehl um zu kontrollieren, ob die Daten richtig eingelesen wurden.</li>
+<li>Wie viele Zeilen und Spalten hat der Datensatz? Was repräsentieren die Zeilen und die Spalten?</li>
+<li>Schau dir die 6. Zeile des Datensatzes an.</li>
+<li>Schau dir die 5. Spalte des Datensatzes an.</li>
+<li>Schau dir die Variable <code>totchol</code> an.</li>
+<li>Welchen totchol-Wert hat die 12. Person?</li>
+</ol>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<ol type="1">
+<li>Nutze einen einfachen Befehl, um zu kontrollieren, ob die Daten richtig eingelesen wurden.</li>
+</ol>
+<p>Es gibt verschiedene Möglichkeiten, dies zu tun. Du kannst im Global Environment (oben rechts) auf das kleine Tabellensymbol hinter dem neu erstellten Objekt klicken. Dann öffnet sich eine Tabelle und du hast quasi eine Excel-Ansicht. Mit <code>str()</code> siehst du die einzelnen Variablen, die jeweilige Datenklasse sowie die ersten Werte. Mit <code>head()</code> siehst du die ersten 6 Zeilen des Datensatzes.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df.cp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   1786 obs. of  9 variables:
+ $ id      : int  1 2 3 4 5 6 7 8 9 10 ...
+ $ mi      : int  0 1 0 1 0 0 1 0 0 0 ...
+ $ socclass: chr  "IIINM" "IV" "II" "IIINM" ...
+ $ diabetes: chr  "No/uncertain" "No/uncertain" "No/uncertain" "No/uncertain" ...
+ $ smoking : chr  " Ex&gt;5 years" "&gt;15 per day" " Ex&gt;5 years" "Never smoked" ...
+ $ totchol : num  4.98 5.58 6.34 6.8 6.04 5.59 4.83 7.7 6.04 7.08 ...
+ $ hdlchol : num  1.33 0.99 1.92 1.42 1.16 1.16 1.16 1.5 1.5 1.64 ...
+ $ bmi     : num  29.7 29.4 19.7 30.9 26.2 ...
+ $ bmicat  : chr  "Overweight" "Overweight" "Underweight" "Obese" ...</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df.cp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  id mi socclass     diabetes      smoking totchol hdlchol      bmi      bmicat
+1  1  0    IIINM No/uncertain   Ex&gt;5 years    4.98    1.33 29.68024  Overweight
+2  2  1       IV No/uncertain  &gt;15 per day    5.58    0.99 29.36095  Overweight
+3  3  0       II No/uncertain   Ex&gt;5 years    6.34    1.92 19.73448 Underweight
+4  4  1    IIINM No/uncertain Never smoked    6.80    1.42 30.92452       Obese
+5  5  0    IIINM No/uncertain  &gt;15 per day    6.04    1.16 26.15399  Overweight
+6  6  0     IIIM No/uncertain  &lt;15 per day    5.59    1.16 24.60821      Normal</code></pre>
+</div>
+</div>
+<hr>
+<ol start="2" type="1">
+<li>Wie viele Zeilen und Spalten hat der Datensatz? Was repräsentieren die Zeilen und die Spalten?</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(df.cp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1786</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(df.cp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9</code></pre>
+</div>
+</div>
+<p>Jede Zeile steht für eine Beobachtungseinheit und jede Spalte für eine Variable.</p>
+<hr>
+<ol start="3" type="1">
+<li>Schau dir die 6. Zeile des Datensatzes an.<br>
+</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.cp[<span class="dv">6</span>, ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  id mi socclass     diabetes     smoking totchol hdlchol      bmi bmicat
+6  6  0     IIIM No/uncertain &lt;15 per day    5.59    1.16 24.60821 Normal</code></pre>
+</div>
+</div>
+<hr>
+<ol start="4" type="1">
+<li>Schau dir die 5. Spalte des Datensatzes an.<br>
+Da es viele Werte sind, musst du etwas scrollen…</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df.cp[ ,<span class="dv">5</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   [1] " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years"  "Never smoked"
+   [5] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+   [9] "Never smoked" " Ex&gt;5 years"  "&lt;15 per day"  " Ex&gt;5 years" 
+  [13] "&gt;15 per day"  "Never smoked" "Never smoked" " Ex&gt;5 years" 
+  [17] "Ex 1-4 years" "&lt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+  [21] "Never smoked" " Ex&gt;5 years"  "Never smoked" "Ex 1-4 years"
+  [25] "&gt;15 per day"  "&lt;15 per day"  "Never smoked" "&gt;15 per day" 
+  [29] "&gt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  "&lt;15 per day" 
+  [33] " Ex&gt;5 years"  "Ex 1-4 years" "&lt;15 per day"  "Ex 1-4 years"
+  [37] "&gt;15 per day"  "&gt;15 per day"  "Never smoked" "&gt;15 per day" 
+  [41] "&gt;15 per day"  "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years" 
+  [45] " Ex&gt;5 years"  "&gt;15 per day"  "Never smoked" "&lt;15 per day" 
+  [49] " Ex&gt;5 years"  " Ex&gt;5 years"  " Ex&gt;5 years"  "&lt;15 per day" 
+  [53] " Ex&gt;5 years"  "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+  [57] "&lt;15 per day"  "Ex 1-4 years" "&gt;15 per day"  "Never smoked"
+  [61] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+  [65] "Never smoked" "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+  [69] "&gt;15 per day"  "Never smoked" " Ex&gt;5 years"  "&gt;15 per day" 
+  [73] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+  [77] "Ex 1-4 years" "Never smoked" " Ex&gt;5 years"  "Ex 1-4 years"
+  [81] "&gt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  "Never smoked"
+  [85] " Ex&gt;5 years"  " Ex&gt;5 years"  " Ex&gt;5 years"  "&lt;15 per day" 
+  [89] "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "Never smoked"
+  [93] "&lt;15 per day"  "Ex 1-4 years" " Ex&gt;5 years"  "&gt;15 per day" 
+  [97] "&lt;15 per day"  "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+ [101] "&lt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day"  "Ex 1-4 years"
+ [105] "&gt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day"  "&lt;15 per day" 
+ [109] "&lt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+ [113] "Ex 1-4 years" " Ex&gt;5 years"  "Ex 1-4 years" "&lt;15 per day" 
+ [117] "Ex 1-4 years" "&gt;15 per day"  "Ex 1-4 years" "Never smoked"
+ [121] " Ex&gt;5 years"  "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+ [125] "&lt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+ [129] "&lt;15 per day"  "Never smoked" " Ex&gt;5 years"  "&gt;15 per day" 
+ [133] "&lt;15 per day"  "Never smoked" "&lt;15 per day"  "Ex 1-4 years"
+ [137] "&lt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+ [141] " Ex&gt;5 years"  "Never smoked" " Ex&gt;5 years"  " Ex&gt;5 years" 
+ [145] "Never smoked" " Ex&gt;5 years"  "Never smoked" "Ex 1-4 years"
+ [149] "&lt;15 per day"  " Ex&gt;5 years"  "Ex 1-4 years" "&gt;15 per day" 
+ [153] "&gt;15 per day"  "Never smoked" "&lt;15 per day"  "&lt;15 per day" 
+ [157] "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+ [161] "Never smoked" "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+ [165] "&lt;15 per day"  "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+ [169] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "Ex 1-4 years"
+ [173] "Never smoked" "&lt;15 per day"  "&lt;15 per day"  "Never smoked"
+ [177] " Ex&gt;5 years"  "&lt;15 per day"  " Ex&gt;5 years"  "Never smoked"
+ [181] "&lt;15 per day"  "Never smoked" "&gt;15 per day"  " Ex&gt;5 years" 
+ [185] "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  "Never smoked"
+ [189] "&lt;15 per day"  "Ex 1-4 years" "&gt;15 per day"  "&lt;15 per day" 
+ [193] "&lt;15 per day"  "&lt;15 per day"  "Never smoked" "&gt;15 per day" 
+ [197] "&gt;15 per day"  "&gt;15 per day"  "Never smoked" "&gt;15 per day" 
+ [201] "&gt;15 per day"  "Never smoked" "&gt;15 per day"  "Never smoked"
+ [205] "Never smoked" " Ex&gt;5 years"  "&gt;15 per day"  "&lt;15 per day" 
+ [209] "&gt;15 per day"  " Ex&gt;5 years"  " Ex&gt;5 years"  "&lt;15 per day" 
+ [213] " Ex&gt;5 years"  "&gt;15 per day"  "&gt;15 per day"  "Never smoked"
+ [217] " Ex&gt;5 years"  "Never smoked" " Ex&gt;5 years"  "&gt;15 per day" 
+ [221] "&lt;15 per day"  " Ex&gt;5 years"  " Ex&gt;5 years"  "Ex 1-4 years"
+ [225] "&lt;15 per day"  " Ex&gt;5 years"  "Never smoked" " Ex&gt;5 years" 
+ [229] "&gt;15 per day"  "Never smoked" "&lt;15 per day"  "Never smoked"
+ [233] "Ex 1-4 years" " Ex&gt;5 years"  "&lt;15 per day"  "Ex 1-4 years"
+ [237] "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+ [241] "&lt;15 per day"  "Never smoked" "&lt;15 per day"  "&lt;15 per day" 
+ [245] "&lt;15 per day"  "&gt;15 per day"  "Never smoked" "Never smoked"
+ [249] "&gt;15 per day"  "&gt;15 per day"  "Never smoked" "&gt;15 per day" 
+ [253] "Never smoked" " Ex&gt;5 years"  " Ex&gt;5 years"  "&gt;15 per day" 
+ [257] "&gt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day"  "Never smoked"
+ [261] " Ex&gt;5 years"  " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years" 
+ [265] "&gt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  "Never smoked"
+ [269] "&gt;15 per day"  " Ex&gt;5 years"  "Never smoked" "&lt;15 per day" 
+ [273] " Ex&gt;5 years"  " Ex&gt;5 years"  "&gt;15 per day"  "&gt;15 per day" 
+ [277] "&lt;15 per day"  " Ex&gt;5 years"  "Ex 1-4 years" "&gt;15 per day" 
+ [281] "&lt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day"  "Never smoked"
+ [285] "Never smoked" "&lt;15 per day"  "Never smoked" "&lt;15 per day" 
+ [289] "&lt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+ [293] " Ex&gt;5 years"  "Never smoked" " Ex&gt;5 years"  "&lt;15 per day" 
+ [297] "&gt;15 per day"  " Ex&gt;5 years"  " Ex&gt;5 years"  " Ex&gt;5 years" 
+ [301] " Ex&gt;5 years"  "&gt;15 per day"  "Ex 1-4 years" " Ex&gt;5 years" 
+ [305] "&gt;15 per day"  "&gt;15 per day"  "Ex 1-4 years" "&gt;15 per day" 
+ [309] "Never smoked" "Never smoked" "Ex 1-4 years" "&gt;15 per day" 
+ [313] " Ex&gt;5 years"  "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+ [317] "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+ [321] "Ex 1-4 years" "&gt;15 per day"  "Never smoked" "Ex 1-4 years"
+ [325] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "Ex 1-4 years"
+ [329] "&gt;15 per day"  " Ex&gt;5 years"  " Ex&gt;5 years"  "&gt;15 per day" 
+ [333] "&lt;15 per day"  "&lt;15 per day"  "Never smoked" "&gt;15 per day" 
+ [337] "&gt;15 per day"  "Never smoked" "&lt;15 per day"  "&gt;15 per day" 
+ [341] "&gt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  "&lt;15 per day" 
+ [345] "Never smoked" "Never smoked" "&lt;15 per day"  " Ex&gt;5 years" 
+ [349] "Ex 1-4 years" " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years" 
+ [353] " Ex&gt;5 years"  "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+ [357] "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+ [361] "&gt;15 per day"  "&gt;15 per day"  "Never smoked" "&gt;15 per day" 
+ [365] "&lt;15 per day"  "&lt;15 per day"  "Never smoked" "Never smoked"
+ [369] "Never smoked" "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+ [373] "Never smoked" "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+ [377] "&gt;15 per day"  "&lt;15 per day"  "&lt;15 per day"  "Ex 1-4 years"
+ [381] " Ex&gt;5 years"  "Never smoked" "&lt;15 per day"  " Ex&gt;5 years" 
+ [385] "&lt;15 per day"  "Ex 1-4 years" "&gt;15 per day"  " Ex&gt;5 years" 
+ [389] " Ex&gt;5 years"  "Ex 1-4 years" "&gt;15 per day"  "&gt;15 per day" 
+ [393] "Never smoked" "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+ [397] "&gt;15 per day"  "Never smoked" "&lt;15 per day"  "Ex 1-4 years"
+ [401] "&gt;15 per day"  "&lt;15 per day"  "&lt;15 per day"  "Never smoked"
+ [405] "Ex 1-4 years" "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+ [409] "&lt;15 per day"  "Never smoked" "Ex 1-4 years" "&gt;15 per day" 
+ [413] " Ex&gt;5 years"  " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years" 
+ [417] "&gt;15 per day"  "Never smoked" "Ex 1-4 years" " Ex&gt;5 years" 
+ [421] "&lt;15 per day"  "&gt;15 per day"  "Ex 1-4 years" "&gt;15 per day" 
+ [425] "&gt;15 per day"  "Ex 1-4 years" "Never smoked" "&lt;15 per day" 
+ [429] " Ex&gt;5 years"  "Never smoked" "Ex 1-4 years" "&gt;15 per day" 
+ [433] "Never smoked" "Ex 1-4 years" " Ex&gt;5 years"  "&lt;15 per day" 
+ [437] " Ex&gt;5 years"  "&lt;15 per day"  "Never smoked" "&gt;15 per day" 
+ [441] "&lt;15 per day"  "Never smoked" "Never smoked" "&gt;15 per day" 
+ [445] "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years"  "Ex 1-4 years"
+ [449] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "Ex 1-4 years"
+ [453] "Never smoked" "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years" 
+ [457] "&lt;15 per day"  "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years" 
+ [461] "Ex 1-4 years" "Never smoked" "&gt;15 per day"  "Never smoked"
+ [465] " Ex&gt;5 years"  "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+ [469] "Never smoked" "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years" 
+ [473] "Never smoked" "Never smoked" "&lt;15 per day"  "&gt;15 per day" 
+ [477] " Ex&gt;5 years"  "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+ [481] "&gt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years" 
+ [485] "Never smoked" " Ex&gt;5 years"  " Ex&gt;5 years"  "Never smoked"
+ [489] "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+ [493] "&lt;15 per day"  "Ex 1-4 years" "Ex 1-4 years" "&lt;15 per day" 
+ [497] "&lt;15 per day"  "Never smoked" "&gt;15 per day"  "Never smoked"
+ [501] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day" 
+ [505] "Never smoked" "Never smoked" "&gt;15 per day"  "&gt;15 per day" 
+ [509] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "&lt;15 per day" 
+ [513] "&lt;15 per day"  "Never smoked" "&lt;15 per day"  " Ex&gt;5 years" 
+ [517] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+ [521] " Ex&gt;5 years"  "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+ [525] "&lt;15 per day"  "Never smoked" "Ex 1-4 years" " Ex&gt;5 years" 
+ [529] "&lt;15 per day"  " Ex&gt;5 years"  "Never smoked" "&gt;15 per day" 
+ [533] " Ex&gt;5 years"  "Ex 1-4 years" " Ex&gt;5 years"  "Never smoked"
+ [537] "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years" 
+ [541] "Never smoked" "&lt;15 per day"  " Ex&gt;5 years"  "Never smoked"
+ [545] "Never smoked" "Ex 1-4 years" "Never smoked" "&lt;15 per day" 
+ [549] "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+ [553] "&gt;15 per day"  "Ex 1-4 years" " Ex&gt;5 years"  "&lt;15 per day" 
+ [557] " Ex&gt;5 years"  "&lt;15 per day"  "Never smoked" "&gt;15 per day" 
+ [561] "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  "Never smoked"
+ [565] "&lt;15 per day"  "&lt;15 per day"  "Never smoked" "Ex 1-4 years"
+ [569] "&lt;15 per day"  "Ex 1-4 years" "&lt;15 per day"  "&gt;15 per day" 
+ [573] "&lt;15 per day"  "Never smoked" "Never smoked" "&gt;15 per day" 
+ [577] "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  "&gt;15 per day" 
+ [581] "Ex 1-4 years" "Never smoked" "&lt;15 per day"  " Ex&gt;5 years" 
+ [585] "Never smoked" " Ex&gt;5 years"  "&gt;15 per day"  "&lt;15 per day" 
+ [589] "Ex 1-4 years" "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years" 
+ [593] "&gt;15 per day"  " Ex&gt;5 years"  "Ex 1-4 years" "&lt;15 per day" 
+ [597] "Ex 1-4 years" "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years" 
+ [601] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "&lt;15 per day" 
+ [605] "&lt;15 per day"  "Never smoked" " Ex&gt;5 years"  "&gt;15 per day" 
+ [609] "&lt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+ [613] " Ex&gt;5 years"  "&lt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+ [617] "&gt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years" 
+ [621] "Ex 1-4 years" "&lt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+ [625] " Ex&gt;5 years"  "&gt;15 per day"  "&lt;15 per day"  "&lt;15 per day" 
+ [629] " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+ [633] "&lt;15 per day"  "&lt;15 per day"  "Never smoked" "&gt;15 per day" 
+ [637] " Ex&gt;5 years"  "Ex 1-4 years" "&gt;15 per day"  " Ex&gt;5 years" 
+ [641] "&gt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years" 
+ [645] "&gt;15 per day"  "&gt;15 per day"  "Never smoked" " Ex&gt;5 years" 
+ [649] "&gt;15 per day"  "&lt;15 per day"  "Ex 1-4 years" " Ex&gt;5 years" 
+ [653] "Never smoked" "&lt;15 per day"  "Never smoked" "&gt;15 per day" 
+ [657] " Ex&gt;5 years"  " Ex&gt;5 years"  "&gt;15 per day"  "&gt;15 per day" 
+ [661] " Ex&gt;5 years"  "&gt;15 per day"  "Ex 1-4 years" "&lt;15 per day" 
+ [665] "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day" 
+ [669] "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years" 
+ [673] "&lt;15 per day"  "Never smoked" "&lt;15 per day"  "&gt;15 per day" 
+ [677] "&gt;15 per day"  "Ex 1-4 years" "&lt;15 per day"  "Never smoked"
+ [681] "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  "Never smoked"
+ [685] "&lt;15 per day"  "&lt;15 per day"  "Ex 1-4 years" "Ex 1-4 years"
+ [689] " Ex&gt;5 years"  "Never smoked" "Ex 1-4 years" "Never smoked"
+ [693] "&lt;15 per day"  "Ex 1-4 years" "Never smoked" "&lt;15 per day" 
+ [697] "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day" 
+ [701] " Ex&gt;5 years"  "Never smoked" "&gt;15 per day"  "&lt;15 per day" 
+ [705] " Ex&gt;5 years"  "&gt;15 per day"  "&gt;15 per day"  "&lt;15 per day" 
+ [709] "Ex 1-4 years" "&gt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+ [713] "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  "&lt;15 per day" 
+ [717] "&gt;15 per day"  "Ex 1-4 years" "&gt;15 per day"  "&gt;15 per day" 
+ [721] "&gt;15 per day"  "Never smoked" "Never smoked" "&gt;15 per day" 
+ [725] "&gt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  "Never smoked"
+ [729] "&lt;15 per day"  "Never smoked" " Ex&gt;5 years"  "&lt;15 per day" 
+ [733] " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years"  "Never smoked"
+ [737] "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  "&lt;15 per day" 
+ [741] "&gt;15 per day"  "Never smoked" "&gt;15 per day"  "Ex 1-4 years"
+ [745] "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+ [749] "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years" 
+ [753] " Ex&gt;5 years"  "&gt;15 per day"  "&lt;15 per day"  "Never smoked"
+ [757] "&lt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day"  "&lt;15 per day" 
+ [761] "&gt;15 per day"  " Ex&gt;5 years"  " Ex&gt;5 years"  " Ex&gt;5 years" 
+ [765] "&lt;15 per day"  "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+ [769] "&gt;15 per day"  "Never smoked" "&lt;15 per day"  "Never smoked"
+ [773] " Ex&gt;5 years"  "Never smoked" " Ex&gt;5 years"  "&lt;15 per day" 
+ [777] "&gt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years" 
+ [781] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+ [785] "&gt;15 per day"  "&gt;15 per day"  "Never smoked" "&gt;15 per day" 
+ [789] "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "Never smoked"
+ [793] "&lt;15 per day"  "&gt;15 per day"  "Ex 1-4 years" " Ex&gt;5 years" 
+ [797] "&lt;15 per day"  " Ex&gt;5 years"  "Never smoked" "&gt;15 per day" 
+ [801] "Never smoked" "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+ [805] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+ [809] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "Never smoked"
+ [813] "&lt;15 per day"  "Never smoked" "&lt;15 per day"  " Ex&gt;5 years" 
+ [817] "&gt;15 per day"  " Ex&gt;5 years"  " Ex&gt;5 years"  "Ex 1-4 years"
+ [821] "&lt;15 per day"  "Never smoked" "&lt;15 per day"  " Ex&gt;5 years" 
+ [825] "&lt;15 per day"  " Ex&gt;5 years"  "Ex 1-4 years" "&gt;15 per day" 
+ [829] "Never smoked" "&gt;15 per day"  "&gt;15 per day"  "&lt;15 per day" 
+ [833] "Ex 1-4 years" " Ex&gt;5 years"  "&gt;15 per day"  "&gt;15 per day" 
+ [837] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+ [841] "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  "&gt;15 per day" 
+ [845] " Ex&gt;5 years"  "&gt;15 per day"  "Never smoked" "&gt;15 per day" 
+ [849] "Never smoked" "Ex 1-4 years" "&lt;15 per day"  "&gt;15 per day" 
+ [853] " Ex&gt;5 years"  "Never smoked" "Never smoked" " Ex&gt;5 years" 
+ [857] "Never smoked" "&gt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years" 
+ [861] "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  "&gt;15 per day" 
+ [865] "&lt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day"  " Ex&gt;5 years" 
+ [869] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+ [873] "&lt;15 per day"  "&lt;15 per day"  "Ex 1-4 years" " Ex&gt;5 years" 
+ [877] "&lt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+ [881] " Ex&gt;5 years"  "Ex 1-4 years" "Ex 1-4 years" "Ex 1-4 years"
+ [885] "&lt;15 per day"  "Never smoked" " Ex&gt;5 years"  "&lt;15 per day" 
+ [889] " Ex&gt;5 years"  "Never smoked" "&lt;15 per day"  " Ex&gt;5 years" 
+ [893] " Ex&gt;5 years"  "Never smoked" "&lt;15 per day"  "&lt;15 per day" 
+ [897] "&gt;15 per day"  "Never smoked" " Ex&gt;5 years"  "Ex 1-4 years"
+ [901] "Ex 1-4 years" "&gt;15 per day"  "&gt;15 per day"  "Never smoked"
+ [905] "&gt;15 per day"  "&lt;15 per day"  "&lt;15 per day"  "Never smoked"
+ [909] " Ex&gt;5 years"  "&lt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+ [913] " Ex&gt;5 years"  "&lt;15 per day"  "&gt;15 per day"  "Never smoked"
+ [917] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day" 
+ [921] "&lt;15 per day"  "Never smoked" " Ex&gt;5 years"  "&gt;15 per day" 
+ [925] "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+ [929] "&gt;15 per day"  " Ex&gt;5 years"  "Never smoked" "Never smoked"
+ [933] "&gt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  "&lt;15 per day" 
+ [937] "&lt;15 per day"  "&lt;15 per day"  "Ex 1-4 years" " Ex&gt;5 years" 
+ [941] "&lt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day"  "Ex 1-4 years"
+ [945] "&gt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day"  "Never smoked"
+ [949] "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  "&lt;15 per day" 
+ [953] "Never smoked" "&gt;15 per day"  "Never smoked" " Ex&gt;5 years" 
+ [957] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+ [961] " Ex&gt;5 years"  "Ex 1-4 years" "&gt;15 per day"  "&gt;15 per day" 
+ [965] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day" 
+ [969] "&gt;15 per day"  "&gt;15 per day"  "Never smoked" "&gt;15 per day" 
+ [973] "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day" 
+ [977] " Ex&gt;5 years"  "Never smoked" "&lt;15 per day"  "&gt;15 per day" 
+ [981] "&lt;15 per day"  "Never smoked" "&lt;15 per day"  "Never smoked"
+ [985] "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  "&lt;15 per day" 
+ [989] " Ex&gt;5 years"  "Ex 1-4 years" "Never smoked" "&gt;15 per day" 
+ [993] "&gt;15 per day"  " Ex&gt;5 years"  "Never smoked" "&lt;15 per day" 
+ [997] "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day" 
+[1001] " Ex&gt;5 years"  "Never smoked" "&gt;15 per day"  "&gt;15 per day" 
+[1005] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "Never smoked"
+[1009] " Ex&gt;5 years"  "Never smoked" "&lt;15 per day"  "&gt;15 per day" 
+[1013] "&lt;15 per day"  "&lt;15 per day"  "&lt;15 per day"  "Never smoked"
+[1017] "&lt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+[1021] "&gt;15 per day"  " Ex&gt;5 years"  " Ex&gt;5 years"  "Never smoked"
+[1025] "&gt;15 per day"  " Ex&gt;5 years"  " Ex&gt;5 years"  "&gt;15 per day" 
+[1029] " Ex&gt;5 years"  "&gt;15 per day"  "&lt;15 per day"  "&lt;15 per day" 
+[1033] "&lt;15 per day"  "&lt;15 per day"  "&lt;15 per day"  "&lt;15 per day" 
+[1037] " Ex&gt;5 years"  "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years" 
+[1041] "&lt;15 per day"  "Ex 1-4 years" "&gt;15 per day"  "Never smoked"
+[1045] " Ex&gt;5 years"  "&lt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+[1049] "Never smoked" "&gt;15 per day"  "Ex 1-4 years" "&gt;15 per day" 
+[1053] "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years"  "Never smoked"
+[1057] "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+[1061] "Never smoked" " Ex&gt;5 years"  "&gt;15 per day"  "Never smoked"
+[1065] "Never smoked" "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+[1069] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+[1073] "&gt;15 per day"  "&gt;15 per day"  "Ex 1-4 years" " Ex&gt;5 years" 
+[1077] "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "Never smoked"
+[1081] "&gt;15 per day"  "Never smoked" " Ex&gt;5 years"  "&gt;15 per day" 
+[1085] "Never smoked" " Ex&gt;5 years"  " Ex&gt;5 years"  " Ex&gt;5 years" 
+[1089] "Never smoked" "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+[1093] "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+[1097] "&gt;15 per day"  "&lt;15 per day"  "&lt;15 per day"  "&lt;15 per day" 
+[1101] "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  "&lt;15 per day" 
+[1105] "Ex 1-4 years" "Never smoked" "&gt;15 per day"  "Never smoked"
+[1109] "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+[1113] "Never smoked" " Ex&gt;5 years"  "&lt;15 per day"  "&lt;15 per day" 
+[1117] "&lt;15 per day"  " Ex&gt;5 years"  " Ex&gt;5 years"  "&gt;15 per day" 
+[1121] "Never smoked" "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+[1125] " Ex&gt;5 years"  "Never smoked" "&lt;15 per day"  "Never smoked"
+[1129] "Never smoked" " Ex&gt;5 years"  " Ex&gt;5 years"  "&gt;15 per day" 
+[1133] "Never smoked" "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+[1137] "Ex 1-4 years" "Ex 1-4 years" "&lt;15 per day"  " Ex&gt;5 years" 
+[1141] "Ex 1-4 years" "&lt;15 per day"  "Never smoked" "&lt;15 per day" 
+[1145] " Ex&gt;5 years"  " Ex&gt;5 years"  "Never smoked" "&lt;15 per day" 
+[1149] "Ex 1-4 years" " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years" 
+[1153] " Ex&gt;5 years"  " Ex&gt;5 years"  " Ex&gt;5 years"  "Never smoked"
+[1157] "Never smoked" " Ex&gt;5 years"  "&gt;15 per day"  "Never smoked"
+[1161] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+[1165] "Ex 1-4 years" "&lt;15 per day"  "&gt;15 per day"  "Ex 1-4 years"
+[1169] "&gt;15 per day"  "Never smoked" "&lt;15 per day"  "&lt;15 per day" 
+[1173] " Ex&gt;5 years"  "Never smoked" " Ex&gt;5 years"  " Ex&gt;5 years" 
+[1177] "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  "Never smoked"
+[1181] "&gt;15 per day"  "Never smoked" "&lt;15 per day"  "Never smoked"
+[1185] "&gt;15 per day"  "Ex 1-4 years" "Never smoked" " Ex&gt;5 years" 
+[1189] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+[1193] "Never smoked" "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day" 
+[1197] "&lt;15 per day"  "&lt;15 per day"  "Never smoked" "&lt;15 per day" 
+[1201] "&gt;15 per day"  " Ex&gt;5 years"  "Ex 1-4 years" "Never smoked"
+[1205] "&lt;15 per day"  " Ex&gt;5 years"  " Ex&gt;5 years"  "Ex 1-4 years"
+[1209] "&gt;15 per day"  "Never smoked" "&gt;15 per day"  "&lt;15 per day" 
+[1213] "Ex 1-4 years" "&lt;15 per day"  "Ex 1-4 years" "Never smoked"
+[1217] "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day" 
+[1221] " Ex&gt;5 years"  "Never smoked" "&gt;15 per day"  "&gt;15 per day" 
+[1225] "Ex 1-4 years" "&gt;15 per day"  "Never smoked" "&lt;15 per day" 
+[1229] "&lt;15 per day"  "Never smoked" "Never smoked" "&lt;15 per day" 
+[1233] "Ex 1-4 years" " Ex&gt;5 years"  " Ex&gt;5 years"  "Never smoked"
+[1237] "Never smoked" "Ex 1-4 years" "&gt;15 per day"  " Ex&gt;5 years" 
+[1241] "&gt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  "Ex 1-4 years"
+[1245] "Ex 1-4 years" "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+[1249] "&gt;15 per day"  "&gt;15 per day"  "Never smoked" "&gt;15 per day" 
+[1253] "Ex 1-4 years" "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day" 
+[1257] "&lt;15 per day"  "&gt;15 per day"  "Never smoked" "&lt;15 per day" 
+[1261] "&gt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years" 
+[1265] "Ex 1-4 years" "&lt;15 per day"  "Ex 1-4 years" "&lt;15 per day" 
+[1269] "&gt;15 per day"  "Never smoked" "&gt;15 per day"  "&gt;15 per day" 
+[1273] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "&lt;15 per day" 
+[1277] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+[1281] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "Never smoked"
+[1285] " Ex&gt;5 years"  "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day" 
+[1289] "Ex 1-4 years" "&lt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+[1293] "Never smoked" "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+[1297] "Never smoked" "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day" 
+[1301] "Never smoked" "&gt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day" 
+[1305] " Ex&gt;5 years"  " Ex&gt;5 years"  "&lt;15 per day"  "&gt;15 per day" 
+[1309] " Ex&gt;5 years"  "Never smoked" "Never smoked" "Never smoked"
+[1313] "&gt;15 per day"  "Never smoked" "&lt;15 per day"  "&gt;15 per day" 
+[1317] "Never smoked" "&gt;15 per day"  "&gt;15 per day"  "Ex 1-4 years"
+[1321] "&gt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day"  "&gt;15 per day" 
+[1325] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+[1329] "&gt;15 per day"  "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years" 
+[1333] "&gt;15 per day"  "Never smoked" "Ex 1-4 years" "Never smoked"
+[1337] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+[1341] "&lt;15 per day"  "Ex 1-4 years" " Ex&gt;5 years"  " Ex&gt;5 years" 
+[1345] " Ex&gt;5 years"  "Never smoked" "&gt;15 per day"  "&lt;15 per day" 
+[1349] "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years" 
+[1353] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "Never smoked"
+[1357] "Never smoked" "Ex 1-4 years" " Ex&gt;5 years"  "&lt;15 per day" 
+[1361] "&lt;15 per day"  " Ex&gt;5 years"  "Ex 1-4 years" " Ex&gt;5 years" 
+[1365] " Ex&gt;5 years"  "&gt;15 per day"  "&gt;15 per day"  "Ex 1-4 years"
+[1369] "&lt;15 per day"  "&gt;15 per day"  "Never smoked" "Never smoked"
+[1373] " Ex&gt;5 years"  "Ex 1-4 years" "&lt;15 per day"  "Ex 1-4 years"
+[1377] "&gt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day" 
+[1381] "&lt;15 per day"  " Ex&gt;5 years"  "Never smoked" "&gt;15 per day" 
+[1385] " Ex&gt;5 years"  " Ex&gt;5 years"  "Never smoked" " Ex&gt;5 years" 
+[1389] "Never smoked" "&gt;15 per day"  "Never smoked" " Ex&gt;5 years" 
+[1393] "Never smoked" "Never smoked" "&gt;15 per day"  "&lt;15 per day" 
+[1397] "&gt;15 per day"  "Never smoked" "&gt;15 per day"  "Never smoked"
+[1401] "Never smoked" "Never smoked" " Ex&gt;5 years"  "&gt;15 per day" 
+[1405] " Ex&gt;5 years"  "Never smoked" "&lt;15 per day"  "Ex 1-4 years"
+[1409] "Never smoked" "Never smoked" "&lt;15 per day"  "&gt;15 per day" 
+[1413] "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day" 
+[1417] "Never smoked" " Ex&gt;5 years"  "&gt;15 per day"  "Ex 1-4 years"
+[1421] "Never smoked" "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+[1425] "Never smoked" "Never smoked" " Ex&gt;5 years"  "&lt;15 per day" 
+[1429] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+[1433] "&lt;15 per day"  "Ex 1-4 years" "Never smoked" " Ex&gt;5 years" 
+[1437] "&lt;15 per day"  "Never smoked" "&gt;15 per day"  " Ex&gt;5 years" 
+[1441] "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+[1445] "&gt;15 per day"  "&lt;15 per day"  "Never smoked" "Ex 1-4 years"
+[1449] "&lt;15 per day"  "Never smoked" "&lt;15 per day"  " Ex&gt;5 years" 
+[1453] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "Never smoked"
+[1457] "&gt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day"  "Ex 1-4 years"
+[1461] " Ex&gt;5 years"  " Ex&gt;5 years"  " Ex&gt;5 years"  "&lt;15 per day" 
+[1465] " Ex&gt;5 years"  "Never smoked" "&gt;15 per day"  "&gt;15 per day" 
+[1469] " Ex&gt;5 years"  " Ex&gt;5 years"  "&gt;15 per day"  "Never smoked"
+[1473] " Ex&gt;5 years"  "Never smoked" "&gt;15 per day"  " Ex&gt;5 years" 
+[1477] "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years"  " Ex&gt;5 years" 
+[1481] "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+[1485] "&gt;15 per day"  "&gt;15 per day"  "Never smoked" "&lt;15 per day" 
+[1489] "&lt;15 per day"  "Never smoked" "&lt;15 per day"  "&lt;15 per day" 
+[1493] "&lt;15 per day"  "Ex 1-4 years" "Never smoked" " Ex&gt;5 years" 
+[1497] "&gt;15 per day"  "&lt;15 per day"  "&lt;15 per day"  "Ex 1-4 years"
+[1501] "&gt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  "Never smoked"
+[1505] " Ex&gt;5 years"  "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+[1509] "&lt;15 per day"  "Never smoked" " Ex&gt;5 years"  " Ex&gt;5 years" 
+[1513] "&gt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  "&lt;15 per day" 
+[1517] " Ex&gt;5 years"  "Never smoked" "Never smoked" " Ex&gt;5 years" 
+[1521] "Ex 1-4 years" "&gt;15 per day"  "&gt;15 per day"  "Never smoked"
+[1525] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+[1529] "&lt;15 per day"  "Never smoked" "Ex 1-4 years" " Ex&gt;5 years" 
+[1533] " Ex&gt;5 years"  "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day" 
+[1537] "&lt;15 per day"  "&gt;15 per day"  "Never smoked" "&lt;15 per day" 
+[1541] "Ex 1-4 years" "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+[1545] "&gt;15 per day"  "&lt;15 per day"  "Ex 1-4 years" "&lt;15 per day" 
+[1549] "&gt;15 per day"  "Never smoked" "&gt;15 per day"  " Ex&gt;5 years" 
+[1553] "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years"  "Ex 1-4 years"
+[1557] "&lt;15 per day"  "Ex 1-4 years" "&gt;15 per day"  "Never smoked"
+[1561] " Ex&gt;5 years"  "Ex 1-4 years" "&lt;15 per day"  "Ex 1-4 years"
+[1565] "&lt;15 per day"  "Never smoked" "&gt;15 per day"  " Ex&gt;5 years" 
+[1569] "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day" 
+[1573] "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+[1577] "&lt;15 per day"  "Never smoked" "&lt;15 per day"  "&lt;15 per day" 
+[1581] "&gt;15 per day"  "&lt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years" 
+[1585] "&lt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+[1589] "&gt;15 per day"  " Ex&gt;5 years"  "Never smoked" "&lt;15 per day" 
+[1593] "Never smoked" " Ex&gt;5 years"  "&gt;15 per day"  "Never smoked"
+[1597] "&gt;15 per day"  "&gt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years" 
+[1601] " Ex&gt;5 years"  " Ex&gt;5 years"  "&lt;15 per day"  "&gt;15 per day" 
+[1605] "&gt;15 per day"  "&lt;15 per day"  "&lt;15 per day"  "&lt;15 per day" 
+[1609] " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years"  " Ex&gt;5 years" 
+[1613] "&gt;15 per day"  "Never smoked" "&gt;15 per day"  "&lt;15 per day" 
+[1617] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "Never smoked"
+[1621] "Ex 1-4 years" "&gt;15 per day"  "&lt;15 per day"  "Ex 1-4 years"
+[1625] "Never smoked" "&lt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+[1629] "&lt;15 per day"  "&lt;15 per day"  "Never smoked" "&gt;15 per day" 
+[1633] "Ex 1-4 years" "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+[1637] "&lt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  "&lt;15 per day" 
+[1641] "&gt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years" 
+[1645] "&gt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day"  "&lt;15 per day" 
+[1649] "Never smoked" "&gt;15 per day"  " Ex&gt;5 years"  "&gt;15 per day" 
+[1653] "&lt;15 per day"  " Ex&gt;5 years"  "Never smoked" "&gt;15 per day" 
+[1657] " Ex&gt;5 years"  "&lt;15 per day"  " Ex&gt;5 years"  " Ex&gt;5 years" 
+[1661] " Ex&gt;5 years"  "&lt;15 per day"  "&gt;15 per day"  "Never smoked"
+[1665] " Ex&gt;5 years"  "Never smoked" "&lt;15 per day"  " Ex&gt;5 years" 
+[1669] "Never smoked" " Ex&gt;5 years"  " Ex&gt;5 years"  "Never smoked"
+[1673] " Ex&gt;5 years"  "Never smoked" "Never smoked" "&lt;15 per day" 
+[1677] "Never smoked" "&lt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+[1681] "&gt;15 per day"  "Never smoked" "&gt;15 per day"  " Ex&gt;5 years" 
+[1685] "Ex 1-4 years" "Never smoked" "&lt;15 per day"  "&lt;15 per day" 
+[1689] "Ex 1-4 years" "&lt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+[1693] " Ex&gt;5 years"  "&lt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+[1697] "Never smoked" " Ex&gt;5 years"  "&lt;15 per day"  "Never smoked"
+[1701] "Never smoked" "&gt;15 per day"  "Ex 1-4 years" "&lt;15 per day" 
+[1705] " Ex&gt;5 years"  "&gt;15 per day"  " Ex&gt;5 years"  "&lt;15 per day" 
+[1709] " Ex&gt;5 years"  " Ex&gt;5 years"  "&lt;15 per day"  "&gt;15 per day" 
+[1713] " Ex&gt;5 years"  "&lt;15 per day"  "Never smoked" "&lt;15 per day" 
+[1717] "&gt;15 per day"  " Ex&gt;5 years"  "Never smoked" "&lt;15 per day" 
+[1721] " Ex&gt;5 years"  "&gt;15 per day"  "&lt;15 per day"  " Ex&gt;5 years" 
+[1725] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  " Ex&gt;5 years" 
+[1729] " Ex&gt;5 years"  " Ex&gt;5 years"  "Never smoked" " Ex&gt;5 years" 
+[1733] " Ex&gt;5 years"  "&lt;15 per day"  "&lt;15 per day"  "&gt;15 per day" 
+[1737] "Never smoked" "&lt;15 per day"  "Never smoked" " Ex&gt;5 years" 
+[1741] "&gt;15 per day"  "&gt;15 per day"  "Never smoked" " Ex&gt;5 years" 
+[1745] "Ex 1-4 years" "&lt;15 per day"  "Never smoked" "&gt;15 per day" 
+[1749] "Ex 1-4 years" "&lt;15 per day"  "Never smoked" "Ex 1-4 years"
+[1753] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "Never smoked"
+[1757] "&lt;15 per day"  "&lt;15 per day"  "Never smoked" "&gt;15 per day" 
+[1761] " Ex&gt;5 years"  "&gt;15 per day"  "Ex 1-4 years" "&gt;15 per day" 
+[1765] "Never smoked" "Ex 1-4 years" "Never smoked" "&gt;15 per day" 
+[1769] "Never smoked" "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+[1773] "Never smoked" "Never smoked" "&gt;15 per day"  "&gt;15 per day" 
+[1777] "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day"  "&gt;15 per day" 
+[1781] "Never smoked" "&gt;15 per day"  "&gt;15 per day"  "&lt;15 per day" 
+[1785] " Ex&gt;5 years"  "&gt;15 per day" </code></pre>
+</div>
+</div>
+<hr>
+<ol start="5" type="1">
+<li>Schau dir die Variable <code>totchol</code> an.</li>
+</ol>
+<p>Da es viele Werte sind, musst du etwas scrollen…</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df.cp<span class="sc">$</span>totchol</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   [1]  4.98  5.58  6.34  6.80  6.04  5.59  4.83  7.70  6.04  7.08  5.13  6.41
+  [13]  6.04  5.13  4.98  6.87  5.96  5.29  4.83  6.11  5.96  6.19  6.70  4.53
+  [25]  5.29  5.06  6.70  6.04  5.36  5.74  4.38  5.96 10.06  5.66  5.13  6.80
+  [37]  6.49  8.31  4.38  6.34  6.95  6.41  6.19  5.06  6.49  4.83  7.10  5.89
+  [49]  6.04  5.44  5.74  4.53  4.78  5.29  6.64  7.00  5.89  4.91  7.59  6.40
+  [61]  6.34  5.06  6.49  6.04  6.64  3.87  1.96  6.19  6.49  4.98  6.04  6.19
+  [73]  3.02  7.89  5.13  5.74  4.83  6.95  5.44  6.19  5.13  5.88  6.80  6.41
+  [85]  6.64  6.18  5.13  7.40  7.78  5.81  6.34  6.19  5.59  7.47  7.10  5.88
+  [97]  6.56  6.04  5.13  7.40  4.08  4.98  5.29  4.23  7.25  5.44  4.46  8.05
+ [109]  5.43  5.29  5.21  4.83  7.89  5.13  5.44  5.59  4.83  6.80  5.89  5.74
+ [121]  6.65  5.13  5.74  4.83  6.95  7.75  7.97  5.29  6.11  6.42  5.59  7.02
+ [133]  6.95  6.34  7.00  6.85  4.83  8.19  8.91  8.46  4.98  5.74  5.66  6.95
+ [145]  5.96  5.13  5.89  4.98  5.29  4.75  4.98  6.64  6.34  5.89  5.06  6.93
+ [157]  4.98 10.30  5.21  6.50  4.68  4.38  5.81  5.29  5.36  5.36  5.36  3.72
+ [169]  5.51  6.11  6.03  7.10  5.29  7.40  7.75  6.10  5.29  4.61  6.19  4.53
+ [181]  4.10  4.68  6.64  5.29  5.06  4.98  6.49  4.83  4.68  5.96  6.04  5.06
+ [193]  5.66  4.92  3.87  6.50  5.59  5.81  6.25  5.59  7.55  6.04  4.23  5.29
+ [205]  6.95  4.53  5.81  5.89  4.60  6.11  5.43  9.68  3.55  5.74  6.04  5.74
+ [217]  6.56  6.04  5.44  6.33  5.74  6.04  4.38 10.42  4.68  6.04  6.19  4.95
+ [229]  5.73  5.74  5.50  6.26  5.51  7.75  6.64  6.40  4.98  6.10  6.34  7.25
+ [241]  4.98  5.59  7.10  7.70  5.51  7.30  5.88  6.70  6.80  4.68  7.70  6.85
+ [253]  8.15  6.04  7.40  5.29  5.74  5.81  4.83  5.29  6.79  7.60  5.59  4.83
+ [265]  6.19  7.25  4.38  6.80  8.31  5.51  6.34  7.97  5.29  4.62  8.19  5.29
+ [277]  5.81  6.56  7.75  6.41  6.04  5.29  4.83  5.44  6.49  4.30  8.15  7.74
+ [289]  5.13  5.74  6.19  7.59  7.10  5.44  6.80  5.29  4.68  5.29  6.34  3.78
+ [301]  6.19  6.20  7.10  8.15  5.89  7.70  5.51  7.25  5.81  4.83  5.88  8.15
+ [313]  5.21  6.95  5.29  4.98  6.49  5.44  8.90  4.53  7.75  4.76  6.64  4.23
+ [325]  5.44  8.46  5.13  6.04  6.04  4.98  4.98  4.98  5.74  4.53  5.13  5.59
+ [337]  5.51  4.83  5.89  6.80  5.89  9.38  4.98  6.34  4.23  4.83  4.98  6.04
+ [349]  4.38  7.37  6.04  7.25  6.04  6.19  6.80  4.61  5.74  6.04  3.47  5.51
+ [361]  5.89  7.15  4.83  5.29  4.68  5.74  5.89  7.10  7.63  7.00  5.74  6.63
+ [373]  5.36  8.04  7.00  5.66  5.29  5.74  5.89  5.96  5.66  4.76  5.89  4.00
+ [385]  4.77  6.04  4.83  7.40  7.40  6.57  6.64  6.04  7.00  4.83  6.34  6.03
+ [397]  5.66  5.59  6.34  6.70  4.92  3.93  4.83  6.19  6.34  6.64  6.34  6.19
+ [409]  5.29  4.83  6.49  6.04  5.89  6.49  4.83  6.04  6.19  5.44  8.46  5.89
+ [421]  4.30  4.53  4.47  7.10  6.95  3.93  5.74  5.89  5.13  6.56  6.80  6.34
+ [433]  6.23  5.59  6.95  5.88  4.98  4.17  7.55  4.53  7.75  6.49  4.23  6.04
+ [445]  6.71  6.26  6.64  6.95  5.74  4.91  6.19  8.46  8.31  5.44  4.83 13.00
+ [457]  5.13  6.80  5.89  7.70  6.26  5.44  6.04  6.10  6.70  4.98  5.28  5.74
+ [469]  4.68  4.30  5.59  7.40  8.15  4.08  5.13  4.98  6.04  5.36  5.51  5.44
+ [481]  5.44  6.34  4.98  5.74  4.47  6.49  5.59  5.74  6.14  5.29  6.49  3.77
+ [493]  8.00  2.87  5.59  5.66  4.47  6.80  5.51  5.89  5.22  6.49  5.36  4.98
+ [505]  4.83  7.10  5.13  7.40  6.34  7.02  7.08  4.38  4.83  5.29  5.36  5.59
+ [517]  7.70  6.49  5.59  7.85  6.19  5.58  4.98  5.29  5.74  5.13  8.64  6.80
+ [529]  7.40  7.59  5.29  5.89  5.66  6.12  4.23  4.92  3.02  4.38  4.98  6.34
+ [541]  7.60  5.59  5.13  5.22  8.15  7.08  5.29  3.25  4.23  5.59  5.13  4.61
+ [553]  5.59  9.82  5.51  5.44  6.64  5.21  6.95  7.70  7.40  5.89  4.17  5.29
+ [565]  5.66  7.45  5.44  4.60  4.98  5.36  8.34  5.29  6.64  5.13  5.13  6.49
+ [577]  4.08  3.02  5.59  7.97  5.89  6.04  7.52  7.10  4.38  5.74  6.49  5.73
+ [589]  5.89  4.98  5.66  9.21  4.98  4.23  4.83  7.85  6.34  6.04  7.30  6.19
+ [601]  7.10  4.98  4.77  4.92  6.95  4.84  4.98  7.55  7.30  6.49  4.83  6.19
+ [613]  5.29  4.83  6.19  6.57  4.99  6.34  5.44  6.41  7.30  5.59  6.19  5.51
+ [625]  6.34  6.19  6.95  4.75  6.19  4.69  4.53  6.19  4.08  3.87  5.44  4.53
+ [637]  5.89  3.93  6.49  6.95  6.80  6.49  5.89  4.23  4.98  8.00  6.04  6.11
+ [649]  6.19  8.31  6.80  8.72  6.19  6.04  4.38  6.04  6.19  6.80  5.36  7.10
+ [661]  6.56  6.04  6.64  6.64  7.75  5.89  6.49  7.25  5.74  5.06  4.98  5.89
+ [673]  3.62  6.26  5.59  5.29  4.38  7.15  5.89  6.49  5.81  6.55  7.10  6.85
+ [685]  7.10  8.19  6.49  4.98  6.04  6.95  8.15  5.66  4.61  5.74  6.95  4.92
+ [697]  4.47  5.29  7.25  6.19  5.96  4.83  7.25  5.74  6.04  5.06  7.10  6.95
+ [709]  7.74  6.19  4.08  5.29  5.36  5.74  4.53  6.49  6.49  5.88  7.93  5.74
+ [721]  4.76  4.47  6.34  6.34  7.30  5.44  6.49  4.23  5.29  4.23  5.96  5.81
+ [733]  6.64  6.27  6.80  7.52  4.53  6.26  5.29  6.95  4.83  5.29  7.10  6.04
+ [745]  5.74  4.98  5.58  5.59  3.78  5.89  6.95  7.55  4.91  4.83  4.30  4.53
+ [757]  6.41  7.37  5.44  4.98  6.48  4.38  6.95  7.25  5.74  5.59  5.13  6.49
+ [769]  6.19  5.29  5.66  6.19  6.78  4.68  6.19  4.77  7.55  4.17  5.13  5.44
+ [781]  6.34  4.83  6.56  6.19  5.66  6.34  4.08  5.13  8.46  6.34  5.44  6.34
+ [793]  7.30  5.14  4.98  5.29  5.13  6.04  6.85  6.85  4.92  4.98  6.57  6.95
+ [805]  6.04  5.13  6.57  5.59  4.90  7.40  9.06  5.74  5.13  4.53  5.13  5.44
+ [817]  6.27  8.00  4.15  4.83  5.36  5.44  4.99  5.66  6.19  5.29  6.27  7.10
+ [829]  5.59  3.62  4.83  6.19  7.10  6.80  6.19  7.30  5.59  4.08  4.99  7.52
+ [841]  6.80  6.95  5.89  6.19  6.03  4.83  6.95  8.00  7.24  5.13  8.31  6.49
+ [853]  4.83  6.04  6.64  4.08  5.44  6.03  4.53  5.22  5.29  7.15  6.04  5.51
+ [865]  6.19  6.49  4.98  5.96  7.40  6.64  6.27  8.15  4.22  4.98  4.08  7.89
+ [877]  5.89  4.98  5.44  7.00  7.55  5.59  6.04  8.34  4.61  8.05  4.91  6.80
+ [889]  5.89  5.29  5.13  5.44  7.97  7.45  5.89  6.56  6.19  4.68  6.49  6.11
+ [901]  4.91  6.34  5.89  8.49  4.76  4.38  4.98  5.44  4.98  7.37  5.74  6.34
+ [913]  5.51  5.59  7.09  6.34  5.21  5.36  5.44 10.27  4.83  4.62  7.25  6.64
+ [925]  5.29  5.44  8.19  5.73  4.83  4.53  6.64  6.80  5.44  4.98  8.00  5.44
+ [937]  5.07  8.00  5.81  5.96  5.89  5.13  9.06  5.13  5.13  7.45  7.70  5.81
+ [949]  7.25  4.98  7.00  5.44  8.00  4.83  8.61  6.95  6.19  7.25  6.64  5.89
+ [961]  7.40  6.80  6.34  7.55  4.70  5.13  5.13  6.04  8.86  5.29  6.19  5.44
+ [973]  5.13  5.21  7.85  6.64  5.81  5.29  8.19  5.89  6.19  4.83  6.19  5.89
+ [985]  5.89  6.49  6.64  6.64  6.49  7.70  4.15  4.53  5.66  7.70  9.36  5.97
+ [997]  5.89  7.55  6.34  7.55  4.98  5.13  5.13  4.47  2.26  7.59  5.51  6.55
+[1009]  5.59  6.04  4.91  5.95  5.13  5.74  7.39  4.83  6.49  5.81  5.29  7.25
+[1021]  5.44  4.68  4.53  7.47  4.83  5.89  5.66  4.83  5.59  5.66  5.59  6.19
+[1033]  6.04  5.29  7.25  7.55  5.13  4.53  5.29  3.93  6.19  7.10  6.34  7.10
+[1045]  6.04  7.10  5.44  5.21  7.25  5.74  5.13  3.32  8.46  6.80  4.92  7.25
+[1057]  5.74  5.66  8.46  4.15  7.40  4.98  6.26  6.70  6.80  3.47  4.40  6.49
+[1069]  5.07  6.95  4.38  3.87  6.79  5.59  6.04  4.23  6.03  5.13  5.74  5.29
+[1081]  5.74  6.04  5.51  8.00  3.73  6.04  6.34  6.04  4.53  5.44  5.44  9.21
+[1093]  6.11  6.04  7.10  9.06  3.93  5.89  5.96  4.53  4.83  5.21  5.13  5.89
+[1105]  5.13  6.49  5.59  6.85  4.38  4.08  5.44  5.13  5.59  7.59  3.79  7.85
+[1117]  6.49  6.34  4.62  6.34  6.19  7.70  4.53  7.30  5.74  5.74  4.83  6.80
+[1129]  7.25  6.42  5.36  4.98  5.51  4.53  7.67  4.98  5.59  6.04  5.07  6.34
+[1141]  6.34  5.74  5.13  5.44  7.25  4.83  4.83  5.74  5.44  4.99  4.38  5.22
+[1153]  5.89  5.29  4.91  5.89  7.10  5.74  6.48  8.00  5.13  6.19  6.34  7.40
+[1165]  5.21  5.59  5.96  5.59  5.29  6.56  6.25  6.34  4.32  7.40  5.13  7.10
+[1177]  4.76  6.04  5.29  7.10  7.97  7.47  5.51  5.74  5.29  7.59  6.64  5.21
+[1189]  8.00  4.98  6.95  6.04  5.59  5.26  4.23  5.74  4.38  5.44  3.72  5.59
+[1201]  5.13  6.34  5.74  5.59  4.90  3.78  5.88  6.95  4.08  6.04  6.95  5.74
+[1213]  5.29  5.44  5.59  5.29  7.70  4.68  5.13  8.91  7.30  6.70  4.83  6.64
+[1225]  5.81  8.19  4.08  5.44  6.34  5.74  6.19  4.30  5.89  4.00  7.45  7.15
+[1237]  5.44  6.64  8.00  5.74  9.08  7.25  5.89  6.79  5.89  7.25  4.99  4.90
+[1249]  4.23  3.58  4.68  4.38  5.51  4.98  6.10  6.80  5.66  5.44  6.40  6.04
+[1261]  4.98  5.66  5.44  5.51  5.59  3.62  6.34  5.13  3.47  5.29  7.55  5.66
+[1273]  4.28  8.46  5.66  3.10  5.74  7.15  5.74  7.23  4.98  7.09  5.29  6.80
+[1285]  6.49  6.19  5.13  6.49  5.89  4.17  5.30  6.95  6.50  7.39  5.13  6.11
+[1297]  6.04  4.68  7.10  4.88  6.41  5.96  4.23  5.44  5.68  7.40  4.45  5.44
+[1309]  6.95  5.51  5.59  5.44  6.19  5.89  4.98  6.04  5.81  5.06  9.20  5.44
+[1321]  5.89  5.74  8.49  5.30  6.34  6.19  8.61  6.64  4.53  6.64  5.74  5.89
+[1333]  6.95  5.66  5.06  4.89  7.30  5.29  6.85  4.68  6.64  5.13  4.61  5.13
+[1345]  4.38  6.95  5.59  5.29  6.04  3.47  5.66  4.53  5.36  7.40  6.95  6.04
+[1357]  6.70  5.81  6.19  5.74  5.51  6.42  5.51  6.04  7.40  6.34  5.44  5.89
+[1369]  5.89  5.44  5.13  6.34  4.98  5.89  6.49  5.29  5.44  6.95  5.59  5.59
+[1381]  5.58  5.13  6.19  5.13  4.98  6.04  7.70  5.59  5.29  6.64  5.29  5.29
+[1393]  4.38  6.34  6.41  7.25  4.32  6.34  5.44  5.44  5.89  6.87  8.34  4.68
+[1405]  6.56  6.10  5.89  4.83  5.44  7.75  5.13  6.49  5.36  5.44  8.46  4.38
+[1417]  5.58  8.91  6.80  6.95  4.53  5.13  6.70  8.34  6.64  4.53  5.96  5.59
+[1429]  7.00  7.00  5.59  5.29  5.29  7.55  4.38  6.80  6.49  5.74  5.74  3.62
+[1441]  7.30  7.15  5.13  5.13  6.34  6.64  7.15  5.36  7.70  6.64  4.00  4.84
+[1453]  4.68  7.70  5.59  4.38  5.29  8.19  4.08  6.41  5.13  4.07  5.81  5.66
+[1465]  4.91  5.89  3.93  7.52  5.29  6.49  6.64  4.08  5.36  6.79  4.98  6.95
+[1477]  7.47  7.30  6.18  6.34  6.80  5.29  4.68  4.38  6.80  6.80  5.51  8.00
+[1489]  6.50  7.25  4.45  5.89  6.04  5.51  4.68  5.74  6.64  6.49  7.55  5.21
+[1501]  7.40  6.10  5.13  5.21  5.44  5.29  5.29  4.83  5.89  6.18  6.04  5.96
+[1513]  5.66  4.45  5.51  6.49  4.98  3.93  6.49  6.04  5.29  5.29  7.25  5.59
+[1525]  9.06  6.64  6.49  5.81  4.38  4.53  5.13  5.59  4.98  5.29  4.98  6.49
+[1537]  5.29  3.47  5.89  3.44  5.13  5.29  3.92  4.76  6.49  5.74  6.04  4.45
+[1549]  9.09  4.83  6.41  5.96  6.95  5.51  6.64  6.95  6.19  9.08  6.56  4.38
+[1561]  7.02  5.74  5.59  5.96  6.11  5.44  4.02  4.98  7.00  4.77  5.59  4.68
+[1573]  5.88  6.04  6.95  4.98  4.83  4.83  6.64  5.44  4.23  6.34  5.59  6.64
+[1585]  5.44  7.70  4.84  7.85  4.83  4.53  4.68  6.04  6.19  3.93  6.95  8.31
+[1597]  5.13  5.44  6.34  4.23  5.05  7.55  5.74  6.50  5.29  5.59  6.19  4.98
+[1609]  5.80  3.93  5.44  4.98  5.06  6.04  6.12  5.51  8.15  6.64  6.95  5.89
+[1621]  6.04  6.49  7.40  6.49  6.19  6.64  6.64  5.44  5.74  5.88  7.40  6.04
+[1633]  7.25  4.23  5.29  4.83  4.68  4.84  6.04  5.29  6.04  6.27  5.59  4.38
+[1645]  5.96  5.59  6.26  6.27  5.29  7.37  5.13  6.95  9.39  6.80  6.19  3.93
+[1657]  5.81  4.30  5.44  6.64  5.59  4.83  5.36  6.26  5.29  6.10  6.12  5.89
+[1669]  4.84  5.30  6.49  6.80  4.32  5.29  6.64  6.49  4.53  4.23  3.78  6.80
+[1681]  5.74  6.64  8.31  6.95  6.85  8.31  6.95  5.89  5.13  5.89  4.53  4.61
+[1693]  5.59  5.13  5.66  8.04  7.55  6.34  5.13  6.64  6.71  5.74  5.81  7.37
+[1705]  7.55  6.80  6.04  7.97  4.68  8.31  6.04  6.40  6.95  4.68  7.30  6.55
+[1717]  4.91  5.74  5.13  5.74  5.21  5.36  7.10  5.13  6.19  4.53  4.87  6.11
+[1729]  7.55  3.85  6.33  6.79  5.13  6.64  6.19  6.49  5.74  7.25  6.95  4.98
+[1741]  5.29  6.19  5.74  6.04  4.84  6.34  6.25  8.34  6.80  6.80  4.68  4.98
+[1753]  5.74  5.29  5.96  5.81 10.58  5.59  6.95  6.04  4.98  5.21  4.30  5.81
+[1765]  6.25  5.44  6.64  6.04  5.66  7.00  6.41  6.19  5.13  7.85  5.89  6.04
+[1777]  3.78  5.89  4.99  5.13  5.74  5.96  6.70  5.89  5.74  6.64</code></pre>
+</div>
+</div>
+<hr>
+<ol start="6" type="1">
+<li>Welchen totchol-Wert hat die 12. Person?<br>
+</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df.cp<span class="sc">$</span>totchol[<span class="dv">12</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.41</code></pre>
+</div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</section>
+<section id="erstellen-neuer-variablen" class="level2">
+<h2 class="anchored" data-anchor-id="erstellen-neuer-variablen">3: Erstellen neuer Variablen</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Aufgaben</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Lösung</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<ol type="1">
+<li>Was ist der relative Anteil des HDL Cholesterins am totalen Cholesterin? Speichere das Resultat in einer neuen Variable mit dem Namen <code>hdlchol_rel</code>. Füge die Variable anschliessend dem Datensatz hinzu.<br>
+</li>
+<li>Was ist der grösste und der kleinste Wert der Variable <code>hdlchol_rel</code>?</li>
+</ol>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<ol type="1">
+<li>Die Berechnung kann auf ganze Vektoren angewendet werden. Das Resultat wird dann in einem neuen Objekt abgespeichert und anschliessend dem Datensatz hinzugefügt.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>hdlchol_rel <span class="ot">&lt;-</span> df.cp<span class="sc">$</span>hdlchol <span class="sc">/</span> df.cp<span class="sc">$</span>totchol <span class="co"># neue Variable berechnen</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df.cp<span class="sc">$</span>hdlchol_rel <span class="ot">&lt;-</span> hdlchol_rel <span class="co"># neue Variable hinzufügen</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df.cp<span class="sc">$</span>hdlchol_rel <span class="ot">&lt;-</span> df.cp<span class="sc">$</span>hdlchol <span class="sc">/</span> df.cp<span class="sc">$</span>totchol <span class="co"># Die beiden oberen Schritte kombiniert ;-)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+<ol start="2" type="1">
+<li>Was ist der grösste und der kleinste Wert der Variable <code>hdlchol_rel</code>?<br>
+</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(df.cp<span class="sc">$</span>hdlchol_rel)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8245033</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(df.cp<span class="sc">$</span>hdlchol_rel)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01230769</code></pre>
+</div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</section>
+<section id="häufigkeitsverteilungen" class="level2">
+<h2 class="anchored" data-anchor-id="häufigkeitsverteilungen">4: Häufigkeitsverteilungen</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Aufgaben</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Lösungen</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<ol type="1">
+<li>Stelle die Verteilung der Variable <code>hdlchol_rel</code> als Histogramm dar.<br>
+</li>
+<li>Stelle die Verteilung der Variable <code>hdlchol_rel</code> als Boxplot dar.<br>
+</li>
+<li>Wie viele Personen hatten einen Herzinfarkt (Variable <code>mi</code>)?</li>
+<li>Aktuell ist die Variable <code>mi</code> nicht als Faktor hinterlegt sondern mit 0 und 1 codiert. Mache aus der Variable einen Faktor mit den Ausprägungsgeraden <code>No</code> und <code>Yes</code>. Wie viele Personen haben ein <code>No</code>?<br>
+</li>
+<li>Visualisiere die Häufigkeitsverteilung der Herzinfarkte mit einem Balkendiagramm.</li>
+<li>Wie ist die relative Verteilung der Variable <code>smoking</code>?</li>
+</ol>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<ol type="1">
+<li>Stelle die Verteilung der Variable <code>hdlchol_rel</code> als Histogramm dar.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(df.cp<span class="sc">$</span>hdlchol_rel)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ex11-deskriptive-statistik_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<ol start="2" type="1">
+<li>Stelle die Verteilung der Variable <code>hdlchol_rel</code> als Boxplot dar.<br>
+</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(df.cp<span class="sc">$</span>hdlchol_rel) <span class="co"># mit range = 0 werden die Ausreisser nicht separat dargestellt</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ex11-deskriptive-statistik_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<ol start="3" type="1">
+<li>Wie viele Personen hatten einen Herzinfarkt (Variable <code>mi</code>)?</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df.cp<span class="sc">$</span>mi)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   0    1 
+1438  348 </code></pre>
+</div>
+</div>
+<hr>
+<ol start="4" type="1">
+<li>Aktuell ist die Variable <code>mi</code> nicht als Faktor hinterlegt sondern mit 0 und 1 codiert. Mache aus der Variable einen Faktor mit den Ausprägungsgeraden <code>No</code> und <code>Yes</code>. Wie viele Personen haben ein <code>No</code>?</li>
+</ol>
+<p>Beachte, dass jetzt oben <code>No</code> und <code>Yes</code> steht und nicht mehr 0 und 1. Dies aufgrund der Umwandlung in einen Faktor.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df.cp<span class="sc">$</span>mi <span class="ot">&lt;-</span> <span class="fu">factor</span>(df.cp<span class="sc">$</span>mi, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>))</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df.cp<span class="sc">$</span>mi)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  No  Yes 
+1438  348 </code></pre>
+</div>
+</div>
+<hr>
+<ol start="5" type="1">
+<li>Visualisiere die Häufigkeitsverteilung der Herzinfarkte mit einem Balkendiagramm.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(df.cp<span class="sc">$</span>mi))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ex11-deskriptive-statistik_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<ol start="6" type="1">
+<li>Wie ist die relative Verteilung der Variable <code>smoking</code>?</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df.cp<span class="sc">$</span>smoking)<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">table</span>(df.cp<span class="sc">$</span>smoking)) <span class="co"># das n wird hier als Summe aller Kategorien berechnet</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  Ex&gt;5 years  &lt;15 per day  &gt;15 per day Ex 1-4 years Never smoked 
+  0.20212766   0.24860022   0.30571109   0.07838746   0.16517357 </code></pre>
+</div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</section>
+<section id="masse-der-lage-und-masse-der-streuung" class="level2">
+<h2 class="anchored" data-anchor-id="masse-der-lage-und-masse-der-streuung">5: Masse der Lage und Masse der Streuung</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">Aufgaben</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">Lösungen</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<ol type="1">
+<li>Was ist der durchschnittliche Body Mass Index?</li>
+<li>Unterscheiden sich Mittelwert und Median des BMI’s?<br>
+</li>
+<li>Lass dir die Quartile des BMI’s anzeigen.<br>
+</li>
+<li>Was ist das 95. Quantil des BMI’s?<br>
+</li>
+<li>Wie gross ist die Standardabweichung für die Variable BMI?<br>
+</li>
+<li>Berechne die Standardabweichung ohne die Funktion <code>sd()</code><br>
+</li>
+<li>Stimmt es, dass <span class="math inline">\(Varianz = Standardabweichung^2\)</span> ?</li>
+</ol>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<ol type="1">
+<li>Was ist der durchschnittliche Body Mass Index?<br>
+</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df.cp<span class="sc">$</span>bmi, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># Das na.rm = TRUE braucht man, wenn es fehlende Werte im Datensatz hat</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 26.2165</code></pre>
+</div>
+</div>
+<hr>
+<ol start="2" type="1">
+<li>Unterscheiden sich Mittelwert und Median des BMI’s?</li>
+</ol>
+<p>ja, um 0.09077536</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df.cp<span class="sc">$</span>bmi, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fu">median</span>(df.cp<span class="sc">$</span>bmi, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.09077536</code></pre>
+</div>
+</div>
+<hr>
+<ol start="3" type="1">
+<li>Lass dir die Quartile des BMI’s anzeigen.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(df.cp<span class="sc">$</span>bmi, <span class="at">probs =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>,<span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      0%      25%      50%      75%     100% 
+16.72293 23.94819 26.12572 28.28088 49.91735 </code></pre>
+</div>
+</div>
+<hr>
+<ol start="4" type="1">
+<li>Was ist das 95. Quantil des BMI’s?<br>
+</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(df.cp<span class="sc">$</span>bmi, <span class="at">probs =</span> .<span class="dv">95</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     95% 
+31.97515 </code></pre>
+</div>
+</div>
+<hr>
+<ol start="5" type="1">
+<li>Wie gross ist die Standardabweichung für die Variable BMI?</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(df.cp<span class="sc">$</span>bmi, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.619247</code></pre>
+</div>
+</div>
+<hr>
+<ol start="6" type="1">
+<li>Berechne die Standardabweichung ohne die Funktion <code>sd()</code></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(df.cp)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>mittelwert <span class="ot">&lt;-</span> <span class="fu">mean</span>(df.cp<span class="sc">$</span>bmi, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>diff <span class="ot">&lt;-</span> df.cp<span class="sc">$</span>bmi <span class="sc">-</span> mittelwert</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>Varianz <span class="ot">&lt;-</span> <span class="fu">sum</span>(diff<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(n<span class="dv">-1</span>)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>Standardabweichung <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(Varianz)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>Standardabweichung</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.619247</code></pre>
+</div>
+</div>
+<hr>
+<ol start="7" type="1">
+<li>Stimmt es, dass <span class="math inline">\(Varianz = Standardabweichung^2\)</span> ?</li>
+</ol>
+<p>Ja, das stimmt:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(df.cp<span class="sc">$</span>bmi, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13.09895</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(df.cp<span class="sc">$</span>bmi, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13.09895</code></pre>
+</div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</section>
+<section id="masse-der-lage-und-masse-der-streuung-1" class="level2">
+<h2 class="anchored" data-anchor-id="masse-der-lage-und-masse-der-streuung-1">6: Masse der Lage und Masse der Streuung</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">Aufgabe</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href="">Lösung</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p>Wiederhole die Schritte 1 bis 5 von Aufgabe 5, jedoch separat für Personen mit und ohne Herzinfarkt.</p>
+<hr>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<p>Es gibt verschiedene Methode, wie man Variablen nach Gruppen analysieren kann. Hier werden drei verschiedene Möglichkeiten gezeigt.</p>
+<ol type="1">
+<li>Ohne die Verwendung einer zusätzlichen Funktion (hier am Beispiel des Mittelwertes)</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df.cp<span class="sc">$</span>bmi[df.cp<span class="sc">$</span>mi <span class="sc">==</span> <span class="st">"No"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 26.08294</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df.cp<span class="sc">$</span>bmi[df.cp<span class="sc">$</span>mi <span class="sc">==</span> <span class="st">"Yes"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 26.76839</code></pre>
+</div>
+</div>
+<hr>
+<ol start="2" type="1">
+<li>Durch die Erstellung eines Subsets mit der <code>subset()</code> Funktion (siehe <code>?subset</code>). Hier am Beispiel des Medians.<br>
+</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>df.mi <span class="ot">&lt;-</span> <span class="fu">subset</span>(df.cp, mi <span class="sc">==</span> <span class="st">"Yes"</span>)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>df.no.mi <span class="ot">&lt;-</span> <span class="fu">subset</span>(df.cp, mi <span class="sc">==</span> <span class="st">"No"</span>)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(df.mi<span class="sc">$</span>bmi)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 26.54083</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(df.no.mi<span class="sc">$</span>bmi)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 25.99897</code></pre>
+</div>
+</div>
+<hr>
+<ol start="3" type="1">
+<li>Für die besonders Interessierten bietet das Tidyverse-Package sehr attraktive Funktionen. Hier am Beispiel der Quantile.<br>
+</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra) <span class="co"># for nice tables</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>df.cp <span class="sc">%&gt;%</span> </span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(mi) <span class="sc">%&gt;%</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Mean =</span> <span class="fu">mean</span>(bmi), </span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">Median =</span> <span class="fu">median</span>(bmi), </span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">Quartile_1 =</span> <span class="fu">quantile</span>(bmi, <span class="fl">0.25</span>), </span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">Quartile_2 =</span> <span class="fu">quantile</span>(bmi, <span class="fl">0.5</span>),</span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">Quartile_3 =</span> <span class="fu">quantile</span>(bmi, <span class="fl">0.75</span>),</span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">Quantile_95 =</span> <span class="fu">quantile</span>(bmi, <span class="fl">0.95</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_paper</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="lightable-paper caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">mi</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Mean</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Median</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Quartile_1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Quartile_2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Quartile_3</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Quantile_95</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">No</td>
+<td style="text-align: right;">26.08294</td>
+<td style="text-align: right;">25.99897</td>
+<td style="text-align: right;">23.79433</td>
+<td style="text-align: right;">25.99897</td>
+<td style="text-align: right;">28.18288</td>
+<td style="text-align: right;">31.76698</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yes</td>
+<td style="text-align: right;">26.76839</td>
+<td style="text-align: right;">26.54083</td>
+<td style="text-align: right;">24.69112</td>
+<td style="text-align: right;">26.54083</td>
+<td style="text-align: right;">28.64899</td>
+<td style="text-align: right;">32.40204</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
