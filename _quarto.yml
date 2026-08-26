@@ -1,5 +1,8 @@
 project:
   type: website
+  resources:
+    - "data/*"
+    - "solutions/*"
 
 website:
   title: "Angewande Statistik Workshops"
@@ -48,6 +51,8 @@ format:
     highlight: monochrome
     code_folding: hide # enables you to include R code but have it hidden by default. Users can choose to show hidden R code either individually or document wide (e.g exercies solutions).
     css: styles.css
+    lightbox: true
+    embed-resources: true
 
 bibliography: [bibliography.bib]
 

@@ -1,3 +1,8 @@
+# Quarto
 /.quarto/
 **/*.quarto_ipynb
 _site
+
+# macOS
+.DS_Store
+.Rproj.user
