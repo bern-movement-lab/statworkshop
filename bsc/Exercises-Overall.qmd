@@ -3,29 +3,6 @@ title: "Angewandte Statistik Bachelor of Science"
 subtitle: "Workshop zu Gesamtvorlesung"
 ---
 
-```{css, echo=FALSE}
-pre, code {white-space:pre !important; overflow-x:auto}
-```
-
-```{r global_options, include=FALSE}
-
-# warning=F - disable display of warnings in doc
-# message=F - disable display of code messages in doc
-# additionally for pdf output: echo=F - disable code output in doc
-
-if (knitr::is_html_output()){
-  knitr::opts_chunk$set(attr.output='style="max-height: 400px;"') # enable vertical scrolling
-  knitr::opts_chunk$set(warning=FALSE, message=FALSE, cache = F)
-  # knitr::opts_chunk$set(fig.width=7, fig.height=5, fig.align='center',
-  #                       # fig.path = 'knitrFigs/', dev = c('png','pdf','svg'), # uncomment this to save graphics by knitr
-  #                       warning=FALSE, message=FALSE, cache = F)
-} else if (knitr::is_latex_output()){
-  # knitr::opts_chunk$set(fig.width=7, fig.height=5, fig.align='center',
-  #                       # fig.path = 'knitrFigs/', dev = c('png','pdf'), # uncomment this to save graphics by knitr
-  #                       echo=F, warning=FALSE, message=FALSE, cache = F)
-}
-```
-
 # Einleitung
 
 ## Datengrundlage
