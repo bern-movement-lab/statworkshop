@@ -1,10 +1,21 @@
 [
   {
+    "objectID": "bsc/Exercises-Overall.html",
+    "href": "bsc/Exercises-Overall.html",
+    "title": "Angewandte Statistik Bachelor of Science",
+    "section": "",
+    "text": "Der National Health and Nutrition Survey (NHANES) ist ein Studienprogramm zur Erhebung von Gesundheits- und Ernährungsstatus von Erwachsenen und Kindern in den USA. Die Erhebung enthält zahlreiche Daten aus Befragungen und physischen Untersuchungen. Das Vorhaben wird vom National Center for Health Statistics (NCHS) als Teil des Centers for Disease Control and Prevention (CDC) durchgeführt. Das Programm startete in den frühen 1960er Jahren und umfasst Stichproben um die 5000 Personen pro Jahr. Die Daten des laufenden NHANES Programms werden alle zwei Jahre erhoben und reichen zurück bin ins Jahr 1999. Die Datensätze sind frei zugänglich. Aus den Daten gibt es auch Peer-Review Publikationen (z.B. McClure et al. (2020)) welche zur Evidenz im Fachgebiet betragen.\n\n\n\nDie Erfahrungen in der Vermittlung von Wissen aus dem Bereich der Statistik zeigen, dass es zugänglicher ist, wenn auch in der Ausbildung mit echten Daten gearbeitet wird. Ebenfalls scheint es wichtig zu sein selbst mit Daten zu arbeiten um einen starken Bezug zur Anwendung zu schaffen und das Wissen zu festigen. Daher werden wir uns nun konkret mit dem Datenauszug 2015-2016 aus der NHANES Erhebung auseinandersetzen, wobei nur mit einem Bruchteil der Datengrundlage gearbeitet wird um das Wissen in angewandter Statistik zu festigen. Folgende Ziele werden damit verfolgt:\n\nDie Studierenden wenden das Wissen aus den vergangenen Lerneinheiten an.\nDie Studierenden nehmen eine forschende Haltung um anhand von Daten neue Erkenntnisse zu gewinnen.\nDie Studierenden führen bezüglich der Fragestellung(en) geeignete Analysen mit Hilfe der Methoden der beschreibenden und schliessenden Statistik durch.\nDurch die eigenständige Arbeit von der Fragestellung bis zur Analyse entwickeln die Studierenden ihre Problemlösungskompetenz.\n\n\n\n\nDie NHANES Erhebung ist sehr umfassend und wir werden uns zu Ausbildungszwecken nur mit einem Bruchteil der erhobenen Informationen beschäftigen. Dies ebenfalls nur im Rahmen der vermittelten Methoden der Statistik innerhalb dieses Moduls. Die Übungen haben daher nicht das Ziel komplexe statistische Analysen durchzuführen um valide und abschliessende Schlussfolgerungen aus den Daten zu ziehen.",
+    "crumbs": [
+      "BSc",
+      "Workshop Overall"
+    ]
+  },
+  {
     "objectID": "bsc/Exercises-Overall.html#datengrundlage",
     "href": "bsc/Exercises-Overall.html#datengrundlage",
     "title": "Angewandte Statistik Bachelor of Science",
-    "section": "Datengrundlage",
-    "text": "Datengrundlage\nDer National Health and Nutrition Survey (NHANES) ist ein Studienprogramm zur Erhebung von Gesundheits- und Ernährungsstatus von Erwachsenen und Kindern in den USA. Die Erhebung enthält zahlreiche Daten aus Befragungen und physischen Untersuchungen. Das Vorhaben wird vom National Center for Health Statistics (NCHS) als Teil des Centers for Disease Control and Prevention (CDC) durchgeführt. Das Programm startete in den frühen 1960er Jahren und umfasst Stichproben um die 5000 Personen pro Jahr. Die Daten des laufenden NHANES Programms werden alle zwei Jahre erhoben und reichen zurück bin ins Jahr 1999. Die Datensätze sind frei zugänglich. Aus den Daten gibt es auch Peer-Review Publikationen (z.B. McClure et al. (2020)) welche zur Evidenz im Fachgebiet betragen.",
+    "section": "",
+    "text": "Der National Health and Nutrition Survey (NHANES) ist ein Studienprogramm zur Erhebung von Gesundheits- und Ernährungsstatus von Erwachsenen und Kindern in den USA. Die Erhebung enthält zahlreiche Daten aus Befragungen und physischen Untersuchungen. Das Vorhaben wird vom National Center for Health Statistics (NCHS) als Teil des Centers for Disease Control and Prevention (CDC) durchgeführt. Das Programm startete in den frühen 1960er Jahren und umfasst Stichproben um die 5000 Personen pro Jahr. Die Daten des laufenden NHANES Programms werden alle zwei Jahre erhoben und reichen zurück bin ins Jahr 1999. Die Datensätze sind frei zugänglich. Aus den Daten gibt es auch Peer-Review Publikationen (z.B. McClure et al. (2020)) welche zur Evidenz im Fachgebiet betragen.",
     "crumbs": [
       "BSc",
       "Workshop Overall"
@@ -14,8 +25,8 @@
     "objectID": "bsc/Exercises-Overall.html#sinn-und-zweck-der-uebung",
     "href": "bsc/Exercises-Overall.html#sinn-und-zweck-der-uebung",
     "title": "Angewandte Statistik Bachelor of Science",
-    "section": "Sinn und Zweck der Uebung",
-    "text": "Sinn und Zweck der Uebung\nDie Erfahrungen in der Vermittlung von Wissen aus dem Bereich der Statistik zeigen, dass es zugänglicher ist, wenn auch in der Ausbildung mit echten Daten gearbeitet wird. Ebenfalls scheint es wichtig zu sein selbst mit Daten zu arbeiten um einen starken Bezug zur Anwendung zu schaffen und das Wissen zu festigen. Daher werden wir uns nun konkret mit dem Datenauszug 2015-2016 aus der NHANES Erhebung auseinandersetzen, wobei nur mit einem Bruchteil der Datengrundlage gearbeitet wird um das Wissen in angewandter Statistik zu festigen. Folgende Ziele werden damit verfolgt:\n\nDie Studierenden wenden das Wissen aus den vergangenen Lerneinheiten an.\nDie Studierenden nehmen eine forschende Haltung um anhand von Daten neue Erkenntnisse zu gewinnen.\nDie Studierenden führen bezüglich der Fragestellung(en) geeignete Analysen mit Hilfe der Methoden der beschreibenden und schliessenden Statistik durch.\nDurch die eigenständige Arbeit von der Fragestellung bis zur Analyse entwickeln die Studierenden ihre Problemlösungskompetenz.",
+    "section": "",
+    "text": "Die Erfahrungen in der Vermittlung von Wissen aus dem Bereich der Statistik zeigen, dass es zugänglicher ist, wenn auch in der Ausbildung mit echten Daten gearbeitet wird. Ebenfalls scheint es wichtig zu sein selbst mit Daten zu arbeiten um einen starken Bezug zur Anwendung zu schaffen und das Wissen zu festigen. Daher werden wir uns nun konkret mit dem Datenauszug 2015-2016 aus der NHANES Erhebung auseinandersetzen, wobei nur mit einem Bruchteil der Datengrundlage gearbeitet wird um das Wissen in angewandter Statistik zu festigen. Folgende Ziele werden damit verfolgt:\n\nDie Studierenden wenden das Wissen aus den vergangenen Lerneinheiten an.\nDie Studierenden nehmen eine forschende Haltung um anhand von Daten neue Erkenntnisse zu gewinnen.\nDie Studierenden führen bezüglich der Fragestellung(en) geeignete Analysen mit Hilfe der Methoden der beschreibenden und schliessenden Statistik durch.\nDurch die eigenständige Arbeit von der Fragestellung bis zur Analyse entwickeln die Studierenden ihre Problemlösungskompetenz.",
     "crumbs": [
       "BSc",
       "Workshop Overall"
@@ -25,8 +36,8 @@
     "objectID": "bsc/Exercises-Overall.html#bemerkungen-zur-limitierung",
     "href": "bsc/Exercises-Overall.html#bemerkungen-zur-limitierung",
     "title": "Angewandte Statistik Bachelor of Science",
-    "section": "Bemerkungen zur Limitierung",
-    "text": "Bemerkungen zur Limitierung\nDie NHANES Erhebung ist sehr umfassend und wir werden uns zu Ausbildungszwecken nur mit einem Bruchteil der erhobenen Informationen beschäftigen. Dies ebenfalls nur im Rahmen der vermittelten Methoden der Statistik innerhalb dieses Moduls. Die Übungen haben daher nicht das Ziel komplexe statistische Analysen durchzuführen um valide und abschliessende Schlussfolgerungen aus den Daten zu ziehen.",
+    "section": "",
+    "text": "Die NHANES Erhebung ist sehr umfassend und wir werden uns zu Ausbildungszwecken nur mit einem Bruchteil der erhobenen Informationen beschäftigen. Dies ebenfalls nur im Rahmen der vermittelten Methoden der Statistik innerhalb dieses Moduls. Die Übungen haben daher nicht das Ziel komplexe statistische Analysen durchzuführen um valide und abschliessende Schlussfolgerungen aus den Daten zu ziehen.",
     "crumbs": [
       "BSc",
       "Workshop Overall"
@@ -198,26 +209,6 @@
     ]
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "CC-BY-SA\n\n\nThis work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License\nOER Plattform Statistik für Gesundheitsprofessionen\nPatric Eichelberger, Nathanael Lutz, Lukas Stammler, André Meichtry\nBFH Gesundheit, 5. Mai 2025, lizenziert unter CC BY-SA 4.0 International",
-    "crumbs": [
-      "About"
-    ]
-  },
-  {
-    "objectID": "about.html#lizenz",
-    "href": "about.html#lizenz",
-    "title": "About",
-    "section": "",
-    "text": "CC-BY-SA\n\n\nThis work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License\nOER Plattform Statistik für Gesundheitsprofessionen\nPatric Eichelberger, Nathanael Lutz, Lukas Stammler, André Meichtry\nBFH Gesundheit, 5. Mai 2025, lizenziert unter CC BY-SA 4.0 International",
-    "crumbs": [
-      "About"
-    ]
-  },
-  {
     "objectID": "msc/ex11-deskriptive-statistik.html",
     "href": "msc/ex11-deskriptive-statistik.html",
     "title": "Übung: Deskriptive Statistik in R",
@@ -303,6 +294,70 @@
     "crumbs": [
       "MSc",
       "Deskriptive Statistik"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "CC-BY-SA\n\n\nThis work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License\nOER Plattform Statistik für Gesundheitsprofessionen\nPatric Eichelberger, Nathanael Lutz, Lukas Stammler, André Meichtry\nBFH Gesundheit, 5. Mai 2025, lizenziert unter CC BY-SA 4.0 International",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "about.html#lizenz",
+    "href": "about.html#lizenz",
+    "title": "About",
+    "section": "",
+    "text": "CC-BY-SA\n\n\nThis work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License\nOER Plattform Statistik für Gesundheitsprofessionen\nPatric Eichelberger, Nathanael Lutz, Lukas Stammler, André Meichtry\nBFH Gesundheit, 5. Mai 2025, lizenziert unter CC BY-SA 4.0 International",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "bsc/Intro-Jamovi.html",
+    "href": "bsc/Intro-Jamovi.html",
+    "title": "Angewandte Statistik Bachelor of Science",
+    "section": "",
+    "text": "Wir verwenden für statistische Berechnungen die freie Software jamovi. jamovi ist eine grafische Benutzerschnittstelle zu R, einer freien Sofwareumgebung für statistische Berechnungen, welche in vielen Bereichen der Wissenschaft und Wirtschaft eingesetzt wird. Installationsanweisungen für jamovi für die gängigen Betriebssysteme sind auf der jamovi Webseite zu finden. Es empfiehlt sich jeweils das Release solid zu verwenden, welches in der Regel gut getestet ist und wenig Fehlfunktionen aufweisen sollte. jamovi stellt die für die meisten Anwendungen im BSc Statistikkurs genügend Funktionalitäten bereit. Für fortgeschrittene Anwendungen ist es empfehlenswert direkt mit Syntax in R zu arbeiten. Um diese Arbeit zu erleichtern gibt es mit RStudio eine hilfreiche integrierte Entwicklungsumgebung (IDE - integrated development environment).\nFolgend finden sich einige hilfreiche Ressourcen für weitergehende Informationen rund um R für statistische Berechnungen.\n\n\n\njamovi - jamovi Projekt\nR - Offizielle Homepage des R-Projekts\nR/RStudio Install - Tutorial Installation R und RStudio\nR Tutorial - R Tutorial\njamovi Video Tutorials\n\n\n\n\n\nA. Field, J. Miles und Z. Field, Discovering Statistics using R. London: SAGE Publications Ltd., 2012.\nH. Wickham und G. Grolemund, R for Data Science. O’Reilly UK Ltd., 2017. (freies E-Book auf https://r4ds.hadley.nz/\nDanielle J. Navarro and David R. Foxcroft, Learning Statistics with jamovi: A Tutorial for Beginners in Statistical Analysis. Cambridge, UK: Open Book Publishers, 2025, https://doi.org/10.11647/OBP.0333",
+    "crumbs": [
+      "BSc",
+      "Intro Jamovi"
+    ]
+  },
+  {
+    "objectID": "bsc/Intro-Jamovi.html#statistiksoftware",
+    "href": "bsc/Intro-Jamovi.html#statistiksoftware",
+    "title": "Angewandte Statistik Bachelor of Science",
+    "section": "",
+    "text": "Wir verwenden für statistische Berechnungen die freie Software jamovi. jamovi ist eine grafische Benutzerschnittstelle zu R, einer freien Sofwareumgebung für statistische Berechnungen, welche in vielen Bereichen der Wissenschaft und Wirtschaft eingesetzt wird. Installationsanweisungen für jamovi für die gängigen Betriebssysteme sind auf der jamovi Webseite zu finden. Es empfiehlt sich jeweils das Release solid zu verwenden, welches in der Regel gut getestet ist und wenig Fehlfunktionen aufweisen sollte. jamovi stellt die für die meisten Anwendungen im BSc Statistikkurs genügend Funktionalitäten bereit. Für fortgeschrittene Anwendungen ist es empfehlenswert direkt mit Syntax in R zu arbeiten. Um diese Arbeit zu erleichtern gibt es mit RStudio eine hilfreiche integrierte Entwicklungsumgebung (IDE - integrated development environment).\nFolgend finden sich einige hilfreiche Ressourcen für weitergehende Informationen rund um R für statistische Berechnungen.\n\n\n\njamovi - jamovi Projekt\nR - Offizielle Homepage des R-Projekts\nR/RStudio Install - Tutorial Installation R und RStudio\nR Tutorial - R Tutorial\njamovi Video Tutorials\n\n\n\n\n\nA. Field, J. Miles und Z. Field, Discovering Statistics using R. London: SAGE Publications Ltd., 2012.\nH. Wickham und G. Grolemund, R for Data Science. O’Reilly UK Ltd., 2017. (freies E-Book auf https://r4ds.hadley.nz/\nDanielle J. Navarro and David R. Foxcroft, Learning Statistics with jamovi: A Tutorial for Beginners in Statistical Analysis. Cambridge, UK: Open Book Publishers, 2025, https://doi.org/10.11647/OBP.0333",
+    "crumbs": [
+      "BSc",
+      "Intro Jamovi"
+    ]
+  },
+  {
+    "objectID": "bsc/Intro-Jamovi.html#jamovi-basics",
+    "href": "bsc/Intro-Jamovi.html#jamovi-basics",
+    "title": "Angewandte Statistik Bachelor of Science",
+    "section": "jamovi Basics",
+    "text": "jamovi Basics\nWir verwenden im Folgenden den Datensatz KennzahlenKoerpergroesse.csv.\n\nGestaltung von Tabellen\n\nFür die Arbeit in R ist das Long Table Format mit Gruppierungsvariablen (z.B. Geschlecht) zu bevorzugen Figure 2 (a).\nWird mit dem Wide Table Format Figure 2 (b) gearbeitet ist viel mehr Formatierungsaufwand für die Tabellen nötig.\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Long Table\n\n\n\n\n\n\n\n\n\n\n\n(b) Wide Table\n\n\n\n\n\n\n\nFigure 1: Gestaltung von Tabellen\n\n\n\n\n\nDatenhandhabung in jamovi\n\nR und jamovi bieten grundsätzlich die Möglichkeit Daten aus diversen Quellen zu importieren (Text, Excel, Libreoffice Calc, Datenbanken, Formate anderer Statistikprogramme wie z.B. SPSS).\nFür jamovi wird optimalerweise mit kommagetrennten Textdateien (.csv) gearbeitet:\n\nTabelle in Excel oder Libreoffice Calc gestalten\nDatei &gt; Speichern unter...\nals .csv Datei mit UTF-8 Encoding abspeichern.\n\njamovi kann auch direkt aus Tabellenkalkulationsprogrammen wie Excel (.xlsx) oder Libreoffice Calc (.ods) importieren. Je nach dem geht aber die Erkennung des Skalenniveaus weniger gut als wenn man von .csv importiert.\n\n\n\nDatenimport\n\njamovi öffnen und anschliessend File (drei horizontale Striche) &gt; Open klicken und die Datei auswählen die geöffnet werden soll.\nAnschliessend ist den Spalten ein passendes Skalenniveau zuzuweisen (Continous, Ordinal, Nominal). Menu ist per Doppelklick auf die Spaltenüberschrift zu öffnen.\n\n\n\n\n\n\n\n\nDeskriptive Statistik in jamovi\n\nExploration &gt; Descriptives klicken\nAnschliessend muss ausgewählt von welcher Variablen die deskriptive Statistik berechnet werden soll. Optional kann im vorliegenden Beispiel der Körpergrösse mit Split by gleich nach Geschlecht getrennt werden (Vorteil der Gruppierungsvariablen!)\nDie Felder Statistics und Plots können durch Klicken aufgeklappt und entsprechende Optionen ausgewählt werden.\nDie Analyse kann via File &gt; Save als jamovi (.omv) Datei abgespeichert und bei Bedarf wieder geöffnet werden.\nDie Resultate können via File &gt; Export auch direkt in ein PDF oder in HTML exportiert werden.\nTabellen und Grafiken können via Copy-Paste (rechte Maustaste) in Textverarbeitungsprogramme (z.B. Word, Libreoffice Writer) übernommen werden.\n\n\n\n\n\n\n\n\nAufgabe 1\n\nAufgabeLösungCodebook\n\n\nBenutze den Datensatz KennzahlenKoerpergroesse.csv\n\nFinde dich in jamovi zurecht und reproduziere die in den vorherigen Abschnitten gezeigten Schritte.\nAnalysiere die Daten getrennt nach Männern und Frauen in jamovi mithilfe der deskriptiven Statistik. Nutze dafür in jamovi die Variable Geschlecht als Split-by-Variable.\nSpeichere deine Analyse als *.omv Datei.\nKopiere eine Tabelle und eine Grafik in dein gewohntes Textverarbeitungsprogramm (z.B. Word).\n\n\n\nBSc_WS1_IntroJ_Ex1_sol.omv\n\n\n\nGroesse: Körpergrösse in cm\nGeschlecht: Geschlecht (f = female, m = male)\nGeschlecht_code: Geschlecht (1 = female, 2 = male)\n\n\n\n\n\n\nAufgabe 2\n\nAufgabeLösungCodebook\n\n\nBringe die Daten ins Wide-Format (separate Spalten für Männer und Frauen) und importiere sie in jamovi. Erstelle erneut deskriptive Statistiken für die Männer und die Frauen. Welche Unterschiede im Vergleich mit dem Long-Table Format stellst du fest?\n\n\n\nLibreoffice/Excel Tabelle: BSc_WS1_IntroJ_Ex2_sol.ods\n.csv Datei: KennzahlenKoerpergroesse_M_F_wide.csv\nLösung jamovi: BSc_WS1_IntroJ_Ex2_sol.omv\n\nWenn man mit dem Wide Table Format arbeitet, resultieren zwei separate Variablen (Groesse_m und Groesse_f) und die Gruppierungsvariable Geschlecht entfällt. Das Geschlecht ist nun in den Variablennamen mit dem Suffix _m/_f codiert. Die Folge davon ist, dass die Boxplots nicht ins gleiche Diagramm gezeichnet werden. Das erschwert die Vergleichbarkeit und sollte vermieden werden.\n\n\n\nGroesse_m: Körpergrösse in cm der Männer\nGroesse_f: Körpergrösse in cm der Frauen",
+    "crumbs": [
+      "BSc",
+      "Intro Jamovi"
+    ]
+  },
+  {
+    "objectID": "bsc/Intro-Jamovi.html#jamovi-advanced",
+    "href": "bsc/Intro-Jamovi.html#jamovi-advanced",
+    "title": "Angewandte Statistik Bachelor of Science",
+    "section": "jamovi Advanced",
+    "text": "jamovi Advanced\nWir verwenden im Folgenden wiederum den Datensatz KennzahlenKoerpergroesse.csv.\n\nCodieren - Levels neue Werte zuweisen\n\nOftmals sind Variablen codiert. D.h. weiblich entspricht z.B. der Zahl ein und männlich der Zahl zwei.\nZu besseren Interpretation macht es Sinn das Geschlecht den vorhandenen Levels explizit zuzuordnen.\nData &gt; Variable auswählen &gt; Bei Levels neue Bezeichnung eingeben.\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Variable auswählen\n\n\n\n\n\n\n\n\n\n\n\n(b) Levels neue Werte zuweisen\n\n\n\n\n\n\n\nFigure 2: Variablen umcodieren\n\n\n\n\n\nBerechnen - Neue Werte generieren\n\nMan will anhand von vorhandenen Daten eine neue Variable berechnen.\nIm Datensatz mit der Körpergrösse, z.B. Umrechnen in die Einheit Meter.\nData &gt; Compute klicken. Variablennamen vergeben und Berechnungsformel eingeben. Durch Klicken aufs Formelzeichen können mathematische Operationen aufgerufen werden.\n\n\n\n\n\n\n\n\nTransformieren - Zum Beispiel bilden von Kategorien\n\nMan will z.B. eine kontinuierliche Skala kategorisieren. Für die Körpergrösse z.B. die Klassen klein, mittel und gross.\nData &gt; Transform klicken. Quellvariable angeben, eine Transformation anlegen.\n\n\n\n\n\n\n\nVorteil Arbeiten mit Transformationen: man kann diese wiederholt auf andere Variablen anwenden.\nHat man eine Transformation angelegt, kann man Rekodierungskonditionen hinzufügen.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFiltern - Teilmengen (Zeilen) auswählen\nBeispiel: Daten aller weiblichen Personen Geschlecht == 'f'\n\n\n\n\n\nBeispiel: Daten aller nicht weiblichen Personen Geschlecht != 'f'\n\n\n\n\n\n\nVergleichende Operationen mit Komparatoren\n\n\n\nKomparator\nBedeutung\n\n\n\n\n==\nist gleich\n\n\n!=\nist ungleich\n\n\n&gt;\nist grösser\n\n\n&lt;\nist kleiner\n\n\n&gt;=\nist grösser oder gleich\n\n\n&lt;=\nist kleiner oder gleich\n\n\n\n\n\n\n\n\n\n\nBeispiel\nBedeutung\n\n\n\n\nGeschlecht == 'f'\nVariable Geschlecht hat Wert f\n\n\nGeschlecht == f\nVariable Geschlecht hat Wert der Variablen f\n\n\nGroesse &gt; 169\nWert der Variablen Groesse ist grösser als 169\n\n\nGroesse &gt;= 169\nWert der Variablen Groesse ist grösser oder gleich 169\n\n\n\n\n\n\nVerknüpfte Filter: UND - Variante 1: Verschachtelte Kondition\n\n\n\n\n\n\nTipBeispiel\n\n\n\nDaten aller weiblichen Personen grösser 1.69 m\nGeschlecht == 'f' and Groesse &gt; 169\n\n\n\n\n\n\n\n\n\nVerknüpfte Filter: UND - Variante 2: Textverknüpfung\n\n\n\n\n\n\n\nVerknüpfte Filter: UND - Variante 3: Separate Filter\n\n\n\n\n\n\n\nVerknüpfte Filter: ODER\n\n\n\n\n\n\nTipBeispiel\n\n\n\nAlle Personen der Kategorie klein oder gross\nGroessenklasse == 'klein' or Groessenklasse == 'gross'\n\n\n\n\n\n\n\n\n\nAufgabe 3\n\nAufgabeLösungCodebook\n\n\nBenutze den Datensatz KennzahlenKoerpergroesse.csv\nFinde dich in jamovi zurecht und reproduziere die in den vorherigen Abschnitten gezeigten Schritte zum Codieren, Berechnen und Transformieren von Variablen und zum Filtern von Teilmengen des Datensatzes.\n\n\nBSc_WS1_IntroJ_Ex3_sol.omv\n\n\n\nGroesse: Körpergrösse in cm\nGeschlecht: Geschlecht (f = female, m = male)\nGroessenklasse: Grössenklasse (klein, mittel, gross)\n\n\n\n\n\n\nAufgabe 4\n\nAufgabeLösungCodebook\n\n\n\nLade die Datei NHANES-BW-BH.csv\nImportiere den Datensatz in jamovi. Stelle sicher, dass Körpergrösse und Körpergewicht das Skalenniveau Kontinuierlich und das Geschlecht das Skalenniveau Nominal haben.\nRecodiere die Variable Geschlecht in f (weiblich) und m (männlich).\nBerechne den Body Mass Index (BMI) als neue Variable mit \\(\\text{BMI}=\\frac{\\text{Körpergewicht}}{\\text{Körpergrösse}^2}\\). Dazu ist in jamovi Data &gt; Compute zu verwenden.\nKreiere eine neue Variable BMIcat, welche den BMI in Untergewicht, Normalgewicht (BMI 20 bis 25) und Übergewicht kategorisiert. Benutze dazu in jamovi Data &gt; Transformation.\nBerechne mit Hilfe eines Filters eine deskriptive Statistik für alle weiblichen Personen mit Normalgewicht.\n\n\n\nBSc_WS1_IntroJ_Ex4_sol.omv\n\n\n\nKoerpergroesse: Körpergrösse in cm\nKoerpergewicht: Körpergewicht in kg\nGeschlecht: Geschlecht (1 = male, 2 = female)\n\nDatenquelle: NHANES 2015-2016",
+    "crumbs": [
+      "BSc",
+      "Intro Jamovi"
     ]
   }
 ]
