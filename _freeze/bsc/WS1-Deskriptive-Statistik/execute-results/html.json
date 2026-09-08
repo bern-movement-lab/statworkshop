@@ -1,0 +1,15 @@
+{
+  "hash": "ef73c93f2092670815060000a2074f9e",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Angewandte Statistik Bachelor of Science\"\nsubtitle: \"Workshop 1: Deskriptive Statistik\"\n---\n\n## Beurteilung von Verteilungen: Ordne zu.\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell layout-align=\"center\"}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n\n::: {.cell}\n\n:::\n\n\n::: {.panel-tabset}\n\n### Aufgabe\n\nIm Datensatz <a href=\"../data/ExampleDistributions.csv\" download>ExampleDistributions.csv</a> gibt es die Variablen `Data1`, `Data2` und `Data3`. Sie weisen Verteilungen auf, die sich bezüglich Symmetrie und Schiefe unterscheiden. Folgend die ersten 5 Zeilen aus dem Datensatz.\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n\n|      Data1|      Data2|      Data3|\n|----------:|----------:|----------:|\n|  0.4997338|  0.3136112| -0.7287942|\n| -0.4432356|  1.5153379| -1.2396346|\n| -0.6650565| -0.4076533| -0.9054984|\n|  1.3623441|  0.0393696|  0.5040650|\n| -0.6604165|  1.2876223|  0.5130014|\n\n\n:::\n:::\n\n\nDie folgende Abbildung zeigt Histogramme, Boxplots und QQ-Plot der Variablen im Datensatz in zufälliger Anordnung. Gruppiere jeweils Histogramm, Boxplot und QQ-Plot jeder Variablen.\n\n![](../img/WS2_DistrExamples_problem.png)\n\n### Lösung\n\n![](../img/WS2_DistrExamples_solution.png)\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
