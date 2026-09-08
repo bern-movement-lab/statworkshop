@@ -83,7 +83,7 @@ Benutze den Datensatz <a href="../data/KennzahlenKoerpergroesse_M_F.csv" downloa
 
 ### Lösung
 
-<a href="../solutions/BSc_WS1_IntroJ_Ex1_sol.omv" download>BSc_WS1_IntroJ_Ex1_sol.omv</a>
+<a href="../solutions/BSc_IntroJ_Ex1_sol.omv" download>BSc_IntroJ_Ex1_sol.omv</a>
 
 ### Codebook
 
@@ -103,9 +103,9 @@ Bringe die Daten ins Wide-Format (separate Spalten für Männer und Frauen) und 
 
 ### Lösung
 
-- Libreoffice/Excel Tabelle: <a href="../solutions/BSc_WS1_IntroJ_Ex2_sol.ods" download>BSc_WS1_IntroJ_Ex2_sol.ods</a>
+- Libreoffice/Excel Tabelle: <a href="../solutions/BSc_IntroJ_Ex2_sol.ods" download>BSc_IntroJ_Ex2_sol.ods</a>
 - .csv Datei: <a href="../data/KennzahlenKoerpergroesse_M_F_wide.csv" download>KennzahlenKoerpergroesse_M_F_wide.csv</a>
-- Lösung jamovi: <a href="../solutions/BSc_WS1_IntroJ_Ex2_sol.omv" download>BSc_WS1_IntroJ_Ex2_sol.omv</a>
+- Lösung jamovi: <a href="../solutions/BSc_IntroJ_Ex2_sol.omv" download>BSc_IntroJ_Ex2_sol.omv</a>
 
 Wenn man mit dem Wide Table Format arbeitet, resultieren zwei separate Variablen (`Groesse_m` und `Groesse_f`) und die Gruppierungsvariable `Geschlecht` entfällt. Das Geschlecht ist nun in den Variablennamen mit dem Suffix `_m/_f` codiert. Die Folge davon ist, dass die Boxplots nicht ins gleiche Diagramm gezeichnet werden. Das erschwert die Vergleichbarkeit und sollte vermieden werden.
 
@@ -228,7 +228,7 @@ Finde dich in jamovi zurecht und reproduziere die in den vorherigen Abschnitten 
 
 ### Lösung
 
-<a href="../solutions/BSc_WS1_IntroJ_Ex3_sol.omv" download>BSc_WS1_IntroJ_Ex3_sol.omv</a>
+<a href="../solutions/BSc_IntroJ_Ex3_sol.omv" download>BSc_IntroJ_Ex3_sol.omv</a>
 
 ### Codebook
 
@@ -253,7 +253,7 @@ Finde dich in jamovi zurecht und reproduziere die in den vorherigen Abschnitten 
 
 ### Lösung
 
-<a href="../solutions/BSc_WS1_IntroJ_Ex4_sol.omv" download>BSc_WS1_IntroJ_Ex4_sol.omv</a>
+<a href="../solutions/BSc_IntroJ_Ex4_sol.omv" download>BSc_IntroJ_Ex4_sol.omv</a>
 
 ### Codebook
 

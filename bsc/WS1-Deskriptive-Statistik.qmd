@@ -3,3 +3,28 @@ title: "Angewandte Statistik Bachelor of Science"
 subtitle: "Workshop 1: Deskriptive Statistik"
 ---
 
+### Aufgabe 1
+
+M&Ms Stichproben
+
+### Aufgabe 2
+
+Begriffe
+
+### Aufgabe 3
+
+Skalenniveaus
+
+### Aufgabe 4
+
+Kennzahlen, Boxplot, Histogram
+
+### Aufgabe 5
+
+Häufigkeitstabellen
+
+
+### Aufgabe 6
+
+Handspanne und Körpergewicht
+
