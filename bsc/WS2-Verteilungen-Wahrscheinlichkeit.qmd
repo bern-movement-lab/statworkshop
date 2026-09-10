@@ -782,6 +782,22 @@ ggplot() + geom_line(data = df, aes(z_scores,dens), size=2) +
 
 ### Lösung
 
+```{r}
+#| echo: false
+# Make a sequence of z-scores between -3 and 3 with a spacing of 0.1
+z_scores <- seq(-3,3,.1)
+
+# Probability density function
+dens = dnorm(z_scores)
+
+df = data.frame(z_scores,dens)
+ggplot() + geom_line(data = df, aes(z_scores,dens), size=2) +
+  ggtitle("Dichtefunktion der Standard-Normalverteilung") +
+  labs(y="Dichte", x="z-Wert") +
+  scale_x_discrete(limits=c(-3,-2,-1,0,1,2,3))
+
+```
+
 <a href="../solutions/BSc_WS2_Verteilungen_Wahrscheinlichkeit_Ex2_sol.omv" download>BSc_WS2_DeskrStat_Ex1_sol.omv</a>
 
 - Wie gross ist die gesamte Fläche unter der Standard-Normalverteilung?
@@ -864,8 +880,18 @@ Körpergewicht: Wahrscheinlichkeit und Quantile
 
 ### Lösung
 
+<a href="../solutions/BSc_WS2_Verteilung_Wahrscheinlichkeit_Ex5_sol.omv" download>BSc_WS2_Verteilung_Wahrscheinlichkeit_Ex5_sol.omv</a>
 
-
+- Annahme: Normalverteilung mit Mittelwert und Standardabweichung des Körpergewichts in der vorliegenden Stichprobe.
+- Wie schwer ist eine Person innerhalb des 95\%-Normbereiches?
+  - Zwischen dem 0.025 und dem 0.975 Quantil der Normalverteilung mit Mittelwert 80.8 kg und Standardabweichung 20.9 kg: Zwischen 39.8 kg und 121.8 kg.
+- Wie schwer muss eine Person mindestens sein, damit sie zu den 10\% schwersten Personen gehört?
+  - Dafür müssen wir das 0.9 Quantil (90. Perzentil) kennen: 107.6 kg.
+- Wie gross ist die Wahrscheinlichkeit, dass eine Person weniger oder 58 kg wiegt?
+  - Die Wahrscheinlichkeit ist 0.27.
+- Wie gross ist die Wahrscheinlichkeit, dass eine Person 58 kg oder mehr wiegt?
+  - Die Wahrscheinlichkeit ist 0.86.
+  
 ### Codebook
 
 - `Koerpergroesse`: Körpergrösse in cm
@@ -889,12 +915,12 @@ Das Geburtsgewicht von Neugeborenen nach unauffälliger Schwangerschaft sei mit 
 
 ### Lösung
 
+<a href="../solutions/BSc_WS2_Verteilungen_Wahrscheinlichkeit_Ex6_sol.omv" download>BSc_WS2_Verteilungen_Wahrscheinlichkeit_Ex6_sol.omv</a>
+
 - Wie gross ist die Wahrscheinlichkeit, dass ein Neugeborenes aus dieser Grundgesamtheit mehr als 4700 Gramm wiegt?
   - Die Wahrscheinlichkeit beträgt 0.0082.
 - Finde eine Grenze für das Geburtsgewicht, die nur von 2.5% aller Neugeborenen übertroffen wird.
   - Die Grenze beträgt 4480 Gramm.
-
-<a href="../solutions/BSc_WS2_Verteilungen_Wahrscheinlichkeit_Ex6_sol.omv" download>BSc_WS2_Verteilungen_Wahrscheinlichkeit_Ex6_sol.omv</a>
 
 :::
 

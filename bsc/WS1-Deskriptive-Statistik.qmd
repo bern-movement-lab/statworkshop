@@ -7,24 +7,166 @@ subtitle: "Workshop 1: Deskriptive Statistik"
 
 M&Ms Stichproben
 
+Fülle die Befragung M&Ms Stichproben auf Moodle aus. Benutze die Daten aus der M&Ms Datenerhebung (siehe Moodle) und jamovi um den Mittelwert und die Standardabweichung deiner Stichprobe zu berechnen.
+
 ### Aufgabe 2
 
 Begriffe
+
+::: {.panel-tabset}
+
+### Aufgabe
+
+Wir haben folgende Angaben:
+
+| ID  | Gewicht | Handspanne |
+|-----|---------|------------|
+| P01 | 70.0    | 20.0       |
+| P02 | 66.8    | 14.0       |
+| P03 | 59.5    | 15.0       |
+| P04 | 58.0    | 21.5       |
+| P05 | 64.0    | 20.0       |
+
+- Handelt es sich um eine Population oder eine Stichprobe? Begründe!
+- Wo in der Tabelle befinden sich die Beobachtungseinheiten?
+- Wo in der Tabelle befinden sich die Merkmale?
+- Wo in der Tabelle befinden sich die Merkmalsausprägungen?
+
+### Lösung
+
+Wir haben folgende Angaben:
+
+| ID  | Gewicht | Handspanne |
+|-----|---------|------------|
+| P01 | 70.0    | 20.0       |
+| P02 | 66.8    | 14.0       |
+| P03 | 59.5    | 15.0       |
+| P04 | 58.0    | 21.5       |
+| P05 | 64.0    | 20.0       |
+
+- Handelt es sich um eine Population oder eine Stichprobe? Begründe!
+  - Stichprobe aus einer Population. Denn es sehr unwahrscheinlich, dass eine Population aus nur fünf Einheiten besteht. Es könnte zum Beispiel eine Stichprobe von Studierenden an der BFH sein, bei welchen das Gewicht und die Handspanne gemessen wurden.
+- Wo in der Tabelle befinden sich die Beobachtungseinheiten?
+  - In den Zeilen
+- Wo in der Tabelle befinden sich die Merkmale?
+  - In den Spalten
+- Wo in der Tabelle befinden sich die Merkmalsausprägungen?
+  - In den Zellen
+
+:::
 
 ### Aufgabe 3
 
 Skalenniveaus
 
+::: {.panel-tabset}
+
+### Aufgabe
+
+Ordne den Merkmalen die richtigen Skalenniveaus zu.
+
+| Merkmal          | qualitativ-nominal | qualitativ-ordinal | quantitativ-diskret | quantitativ-kontinuierlich |
+|------------------|:------------------:|:------------------:|:-------------------:|:--------------------------:|
+| Fusslänge        |                    |                    |                     |                            |
+| Schuhgrösse      |                    |                    |                     |                            |
+| Temperatur in °C |                    |                    |                     |                            |
+| Nationalität     |                    |                    |                     |                            |
+| Alter            |                    |                    |                     |                            |
+| Kaffees pro Tag  |                    |                    |                     |                            |
+
+### Lösung
+
+Ordne den Merkmalen die richtigen Skalenniveaus zu.
+
+| Merkmal          | qualitativ-nominal | qualitativ-ordinal | quantitativ-diskret | quantitativ-kontinuierlich |
+|------------------|:------------------:|:------------------:|:-------------------:|:--------------------------:|
+| Fusslänge        |                    |                    |                     | x                          |
+| Schuhgrösse      |                    | x                  |                     |                            |
+| Temperatur in °C |                    |                    |                     | x                          |
+| Nationalität     | x                  |                    |                     |                            |
+| Alter            |                    |                    |                     | x                          |
+| Kaffees pro Tag  |                    | x                  |                     |                            |
+
+:::
+
 ### Aufgabe 4
 
 Kennzahlen, Boxplot, Histogram
+
+
+::: {.panel-tabset}
+
+### Aufgabe
+
+In dieser Aufgabe schauen wir uns die Gewichtsmessungen von M&Ms an. Die Musterlösung benutzt den Musterdatensatz <a href="../data/MMs.csv" download>MMs.csv</a>. Der Datensatz aus der eigenen Datenerhebung befindet sich in Moodle und soll für diese Aufgabe verwendet werden.
+
+- Importiere die Daten in jamovi.
+- Wie gross ist der Stichprobenumfang?
+- Welcher Wert liegt auf der 25\%-Perzentile? Welcher auf der 75\%-Perzentile?
+- Wie gross ist der Interquartilsabstand?
+- Wie viele Werte liegen innerhalb des Interquartilsabstands?
+- Wie viele Werte liegen über der 90\%-Perzentile? (Tipp: Erstelle einen Filter)
+- Zeichne einen Boxplot für das M\&Ms Gewicht von Hand.
+- Erstelle mit jamovi ein Histogramm für das M\&Ms Gewicht und interpretiere. Was stellst du fest im Vergleich mit dem Boxplot (Stichwort Symmetrie)?
+- Untersuche den Einfluss der Farbe auf das M\&Ms Gewicht.
+
+### Lösung
+
+<a href="../solutions/BSc_WS1_DeskrStat_Ex4_sol.omv" download>BSc_WS1_DeskrStat_Ex4_sol.omv</a>
+
+- Importiere die Daten in jamovi.
+- Wie gross ist der Stichprobenumfang?
+  - N = 556
+- Welcher Wert liegt auf der 25\%-Perzentile? Welcher auf der 75\%-Perzentile?
+  - 25. Perzentil: 1.8 g. 75. Perzentil: 2.51 g.
+- Wie gross ist der Interquartilsabstand?
+  - IQR = 0.71 g
+- Wie viele Werte liegen innerhalb des Interquartilsabstands?
+  - Die Hälfte aller vorliegenden Beobachtungen. $N = 0.5\cdot556 = 278$
+- Wie viele Werte liegen über der 90\%-Perzentile? (Tipp: Erstelle einen Filter)
+  - N = 38
+- Zeichne einen Boxplot für das M\&Ms Gewicht von Hand.
+  - Man benötigt den Median (Strich in der Box), das 1. und 3. Quartil (Box) sowie das Minimum und Maximum (Whisker/"Antennen").
+- Erstelle mit jamovi ein Histogramm für das M\&Ms Gewicht und interpretiere. Was stellst du fest im Vergleich mit dem Boxplot (Stichwort Symmetrie)?
+  - Der Boxplot zeigt mehrere Ausreisser von höheren Gewichtswerten.
+  - Dies ist ebenfalls im Histogramm ersichtlich. Die Verteilung ist rechtsschief.
+- Untersuche den Einfluss der Farbe auf das M\&Ms Gewicht.
+  - Am besten schaut man sich Boxplots des Gewichtes gruppiert nach Farben an. Es zeigt sich kein offensichtlicher Eifluss der Farbe auf das Gewicht. Das heisst, das mittlere Gewicht (Mittelwert und Median) und dessen Streuung (Standardabweichung und Interquartilsabstand) über die Farben hinweg sind ähnlich und scheinen nicht abhängig von der Farbe zu sein.
+:::
 
 ### Aufgabe 5
 
 Häufigkeitstabellen
 
+::: {.panel-tabset}
 
-### Aufgabe 6
+### Aufgabe
 
-Handspanne und Körpergewicht
+In dieser Aufgabe schauen wir uns die Gewichtsmessungen von M&Ms an. Die Musterlösung benutzt den Musterdatensatz <a href="../data/MMs.csv" download>MMs.csv</a>. Der Datensatz aus der eigenen Datenerhebung befindet sich in Moodle und soll für diese Aufgabe verwendet werden.
 
+Erstelle eine Tabelle mit den absoluten und relativen Häufigkeiten der M&Ms Farben.
+
+### Lösung
+
+<a href="../solutions/BSc_WS1_DeskrStat_Ex5_sol.omv" download>BSc_WS1_DeskrStat_Ex5_sol.omv</a>
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(kableExtra)
+df <- read_csv("../data/MMs.csv")
+df |>
+  group_by(Farbe) |>
+  summarise(
+    n = n()
+  ) |>
+  mutate(
+    Prozent = round(100 * n / sum(n), digits = 1)
+  ) |>
+  add_row(Farbe = "Total", n = nrow(df), Prozent = 100) |>
+  kableExtra::kable()
+```
+
+Wenn man sich die Anzahl M\&Ms in den verschiedenen Farbgruppen anschaut fällt auf, dass die Anteile blauer, gelber und oranger M&Ms grösser sind (jeweils um 20%). Die braunen M&Ms sind mit 8.4% am wenigsten in der Stichprobe vertreten.
+
+:::
