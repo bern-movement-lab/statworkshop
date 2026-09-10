@@ -2,3 +2,11 @@
 title: "Angewandte Statistik Bachelor of Science"
 subtitle: "Workshop 3: Grundlagen Inferenzstatistik"
 ---
+
+## Aufgabe 1
+
+## Aufgabe 2
+
+## Aufgabe 3
+
+## Aufgabe 4
