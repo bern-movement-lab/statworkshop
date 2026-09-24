@@ -17,8 +17,8 @@ website:
     contents:
       - section: "BSc"
         contents:
-          - text: Intro jamovi
-            href: bsc/Intro-jamovi.qmd
+          - text: Intro Jamovi
+            href: bsc/Intro-Jamovi.qmd
           - text: Deskriptive Statistik
             href: bsc/WS1-Deskriptive-Statistik.qmd
           - text: Verteilungen von Wahrscheinlichkeiten
