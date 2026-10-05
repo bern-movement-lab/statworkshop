@@ -891,7 +891,7 @@ Körpergewicht: Wahrscheinlichkeit und Quantile
   - Die Wahrscheinlichkeit ist 0.138.
 - Wie gross ist die Wahrscheinlichkeit, dass eine Person 58 kg oder mehr wiegt?
   - Die Wahrscheinlichkeit ist 0.862.
-  
+
 ### Codebook
 
 - `Koerpergroesse`: Körpergrösse in cm
