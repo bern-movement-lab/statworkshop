@@ -888,9 +888,9 @@ Körpergewicht: Wahrscheinlichkeit und Quantile
 - Wie schwer muss eine Person mindestens sein, damit sie zu den 10\% schwersten Personen gehört?
   - Dafür müssen wir das 0.9 Quantil (90. Perzentil) kennen: 107.6 kg.
 - Wie gross ist die Wahrscheinlichkeit, dass eine Person weniger oder 58 kg wiegt?
-  - Die Wahrscheinlichkeit ist 0.27.
+  - Die Wahrscheinlichkeit ist 0.138.
 - Wie gross ist die Wahrscheinlichkeit, dass eine Person 58 kg oder mehr wiegt?
-  - Die Wahrscheinlichkeit ist 0.86.
+  - Die Wahrscheinlichkeit ist 0.862.
   
 ### Codebook
 
