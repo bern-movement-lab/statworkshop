@@ -98,7 +98,7 @@ Kennzahlen, Boxplot, Histogram
 
 ### Aufgabe
 
-In dieser Aufgabe schauen wir uns die Gewichtsmessungen von M&Ms an. Die Musterlösung benutzt den Musterdatensatz <a href="../data/MMs.csv" download>MMs.csv</a>. Der Datensatz aus der eigenen Datenerhebung befindet sich in Moodle und soll für diese Aufgabe verwendet werden.
+In dieser Aufgabe schauen wir uns die Gewichtsmessungen von [M&M's](https://de.wikipedia.org/wiki/M%26M%E2%80%99s) (Variante *Peanuts*) an. Die Musterlösung benutzt den Musterdatensatz <a href="../data/MMs.csv" download>MMs.csv</a>. Der Datensatz aus der eigenen Datenerhebung befindet sich in Moodle und soll für diese Aufgabe verwendet werden.
 
 - Importiere die Daten in jamovi.
 - Wie gross ist der Stichprobenumfang?
@@ -142,7 +142,7 @@ Häufigkeitstabellen
 
 ### Aufgabe
 
-In dieser Aufgabe schauen wir uns die Gewichtsmessungen von M&Ms an. Die Musterlösung benutzt den Musterdatensatz <a href="../data/MMs.csv" download>MMs.csv</a>. Der Datensatz aus der eigenen Datenerhebung befindet sich in Moodle und soll für diese Aufgabe verwendet werden.
+In dieser Aufgabe schauen wir uns die Gewichtsmessungen von [M&M's](https://de.wikipedia.org/wiki/M%26M%E2%80%99s) (Variante *Peanuts*) an. Die Musterlösung benutzt den Musterdatensatz <a href="../data/MMs.csv" download>MMs.csv</a>. Der Datensatz aus der eigenen Datenerhebung befindet sich in Moodle und soll für diese Aufgabe verwendet werden.
 
 Erstelle eine Tabelle mit den absoluten und relativen Häufigkeiten der M&Ms Farben.
 

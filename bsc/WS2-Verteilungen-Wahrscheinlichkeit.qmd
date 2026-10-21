@@ -3,7 +3,7 @@ title: "Angewandte Statistik Bachelor of Science"
 subtitle: "Workshop 2: Verteilungen von Wahrscheinlichkeiten"
 ---
 
-## Beurteilung von Verteilungen: Ordne zu.
+# Beurteilung von Verteilungen: Ordne zu.
 
 ```{r}
 #| echo: FALSE
@@ -731,7 +731,7 @@ ggsave("../img/BSc_WS2_Verteilungen_Wahrscheinlichkeit_Ex1_solution.png", p, wid
 
 ::: {.panel-tabset}
 
-### Aufgabe
+## Aufgabe
 
 Im Datensatz <a href="../data/ExampleDistributions.csv" download>ExampleDistributions.csv</a> gibt es die Variablen `Data1`, `Data2` und `Data3`. Sie weisen Verteilungen auf, die sich bezüglich Symmetrie und Schiefe unterscheiden. Folgend die ersten 5 Zeilen aus dem Datensatz.
 
@@ -745,19 +745,19 @@ Die folgende Abbildung zeigt Histogramme, Boxplots und QQ-Plot der Variablen im 
 
 ![](../img/BSc_WS2_Verteilungen_Wahrscheinlichkeit_Ex1_problem.png)
 
-### Lösung
+## Lösung
 
 ![](../img/BSc_WS2_Verteilungen_Wahrscheinlichkeit_Ex1_solution.png)
 
 :::
 
-### Aufgabe 2
+# Aufgabe 2
 
 Flächen der Standard Normalverteilung
 
 ::: {.panel-tabset}
 
-### Aufgabe
+## Aufgabe
 
 ```{r}
 #| echo: false
@@ -778,7 +778,7 @@ ggplot() + geom_line(data = df, aes(z_scores,dens), size=2) +
 - Wie gross ist die Fläche unter der Standard-Normalverteilung für $z \leq -1.96$?
 - Wie gross ist die Fläche für $-1.96 \leq z \leq 1.96$?
 
-### Lösung
+## Lösung
 
 ```{r}
 #| echo: false
@@ -807,13 +807,13 @@ ggplot() + geom_line(data = df, aes(z_scores,dens), size=2) +
 
 :::
 
-### Aufgabe 3
+# Aufgabe 3
 
 Wahrscheinlichkeit der Normalverteilung.
 
 ::: {.panel-tabset}
 
-### Aufgabe
+## Aufgabe
 
 Für diese Aufgabe verwenden wir das Modul **distrAction** in jamovi.
 
@@ -821,7 +821,7 @@ Das Körpergewicht sei normalverteilt mit Mittelwert 65 kg und Standardabweichun
 
 Frage: Wie gross ist die Wahrscheinlichkeit zwischen 55 kg und 75 kg zu wiegen?
 
-### Lösung
+## Lösung
 
 Das Körpergewicht sei normalverteilt mit Mittelwert 65 kg und Standardabweichung 5 kg.
 
@@ -833,13 +833,13 @@ Die Wahrscheinlichkeit ist 95.5%. Sie entspricht dem 95.5% Bereich ist $\bar{x} 
 
 :::
 
-### Aufgabe 4
+# Aufgabe 4
 
 Wahrscheinlichkeit der Normalverteilung.
 
 ::: {.panel-tabset}
 
-### Aufgabe
+## Aufgabe
 
 Für diese Aufgabe verwenden wir das Modul **distrAction** in jamovi.
 
@@ -847,7 +847,7 @@ Das Körpergewicht sei normalverteilt mit Mittelwert 65 kg und Standardabweichun
 
 Frage: Wie gross ist die Wahrscheinlichkeit zwischen 62.5 kg und 72.8 kg zu wiegen?
 
-### Lösung
+## Lösung
 
 Das Körpergewicht sei normalverteilt mit Mittelwert 65 kg und Standardabweichung 5 kg.
 
@@ -859,13 +859,13 @@ Die Wahrscheinlichkeit beträgt 0.632.
 
 :::
 
-### Aufgabe 5
+# Aufgabe 5
 
 Körpergewicht: Wahrscheinlichkeit und Quantile
 
 ::: {.panel-tabset}
 
-### Aufgabe
+## Aufgabe
 
 - Lade die Datei <a href="../data/NHANES-BW-BH.csv" download>NHANES-BW-BH.csv</a>
 - Annahme: Normalverteilung mit Mittelwert und Standardabweichung des Körpergewichts in der vorliegenden Stichprobe.
@@ -874,7 +874,7 @@ Körpergewicht: Wahrscheinlichkeit und Quantile
 - Wie gross ist die Wahrscheinlichkeit, dass eine Person weniger oder 58 kg wiegt?
 - Wie gross ist die Wahrscheinlichkeit, dass eine Person 58 kg oder mehr wiegt?
 
-### Lösung
+## Lösung
 
 <a href="../solutions/BSc_WS2_Verteilung_Wahrscheinlichkeit_Ex5_sol.omv" download>BSc_WS2_Verteilung_Wahrscheinlichkeit_Ex5_sol.omv</a>
 
@@ -888,7 +888,7 @@ Körpergewicht: Wahrscheinlichkeit und Quantile
 - Wie gross ist die Wahrscheinlichkeit, dass eine Person 58 kg oder mehr wiegt?
   - Die Wahrscheinlichkeit ist 0.862.
 
-### Codebook
+## Codebook
 
 - `Koerpergroesse`: Körpergrösse in cm
 - `Koerpergewicht`: Körpergewicht in kg
@@ -896,20 +896,20 @@ Körpergewicht: Wahrscheinlichkeit und Quantile
 
 :::
 
-### Aufgabe 6
+# Aufgabe 6
 
 Normalverteilung Geburtsgewicht.
 
 ::: {.panel-tabset}
 
-### Aufgabe
+## Aufgabe
 
 Das Geburtsgewicht von Neugeborenen nach unauffälliger Schwangerschaft sei mit Mittelwert 3500 Gramm und Standardabweichung 500 Gramm normalverteilt.
 
 - Wie gross ist die Wahrscheinlichkeit, dass ein Neugeborenes aus dieser Grundgesamtheit mehr als 4700 Gramm wiegt?
 - Finde eine Grenze für das Geburtsgewicht, die nur von 2.5% aller Neugeborenen übertroffen wird.
 
-### Lösung
+## Lösung
 
 <a href="../solutions/BSc_WS2_Verteilungen_Wahrscheinlichkeit_Ex6_sol.omv" download>BSc_WS2_Verteilungen_Wahrscheinlichkeit_Ex6_sol.omv</a>
 

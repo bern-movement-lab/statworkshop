@@ -3,10 +3,434 @@ title: "Angewandte Statistik Bachelor of Science"
 subtitle: "Workshop 3: Grundlagen Inferenzstatistik"
 ---
 
+# Verteilung von Stichprobenkennzahlen & Standardfehler
+
 ## Aufgabe 1
+
+Man hat die Aufgabe, das durchschnittliche Gewicht von drei Packungen [M&M's](https://de.wikipedia.org/wiki/M%26M%E2%80%99s) (Variante Peanut) zu bestimmen. Die drei Packungen M&M's wären demnach die **Population** und das durchschnittliche M&M's Gewicht das Merkmal, dessen wahrer Wert üblicherweise unbekannt ist. Dieses Beispiel arbeitet zur Veranschaulichung mit dem Musterdatensatz <a href="../data/MMs.csv" download>MMs.csv</a>. Die Aufgabe soll spezifisch mit dem M&M's Datensatz mit den Messwerten aus der Einführungslektion bearbeitet werden. Dieser wird über Moodle zur Verfügung gestellt.
+
+Wir gehen davon aus, dass das M&M's Gewicht normalverteilt ist. Wir suchen also
+
+- den unbekannten Populations-Mittelwert $\mu$ fürs Gewicht
+- die unbekannte Standardabweichung $\sigma$ fürs Gewicht
+
+**Beachte:** Die unbekannten Populationskennzahlen werden in
+griechischen Buchstaben angegeben im Gegensatz zu den
+Stichproben-Kennzahlen, die in lateinischen Buchstaben angegeben werden
+($\bar{x}$ für Mittelwert und $s$ für Standardabweichung).
+
+```{r}
+#| echo: false
+
+# Packages
+library(tidyverse)
+library(patchwork)
+library(latex2exp)
+library(mosaic)
+library(jmv)
+library(kableExtra)
+
+# Import data
+df <- read_csv("../data/MMs.csv")
+df$Farbe <- as_factor(df$Farbe)
+df$ID <- as_factor(df$ID)
+# Overall mean weight
+m <- mean(df$Gewicht, na.rm = TRUE)
+# Overall standard deviation
+s <- sd(df$Gewicht, na.rm = TRUE)
+# Overall N
+N <- sum(!is.na(df$Gewicht))
+# Overall color probabilities
+prob_all <- df |> # keep only rows where a colour is recorded
+    filter(!is.na(Farbe)) |>
+    count(Farbe, name = "n") |> # how many times each colour occurs
+    mutate(
+        total    = sum(n), # total number of non‑NA colour observations
+        prob     = n / total, # P(colour)
+        prob_not = 1 - prob # complementary probability
+    ) |>
+    select(Farbe, n, prob, prob_not)
+# Reshape color probabilities
+prob_long <- prob_all |>
+    pivot_longer(
+        cols = c(prob, prob_not),
+        names_to = "type",
+        values_to = "value"
+    ) |>
+    mutate(
+        type = factor(type,
+            ## levels = c("prob", "prob_not"),
+            ## labels = c("P(Farbe)", "1–P(Farbe)"))
+            levels = c("prob_not", "prob"),
+            labels = c("1–P(Farbe)", "P(Farbe)")
+        )
+    )
+# Draw samples
+set.seed(30)
+nA <- 5 # number of items to draw for sample A
+nB <- 10 # number of items to draw for sample B
+nC <- 80 # number of items to draw for sample C
+nsamples <- 30
+samples <- 1:nsamples # number of samples to draw
+sampledf <- data.frame() # data frame for samples
+weightdf <- data.frame() # data frame for sample means
+colordf <- data.frame() # data frame for sample color proportions
+for (i in samples) {
+    rowsA <- sample(1:nrow(df), nA)
+    rowsB <- sample(1:nrow(df), nB)
+    rowsC <- sample(1:nrow(df), nC)
+    dfA <- df[rowsA, ]
+    dfB <- df[rowsB, ]
+    dfC <- df[rowsC, ]
+    meanAdf <- data.frame(Gewicht_mean = mean(dfA$Gewicht,na.rm = TRUE),
+                          Gewicht_sd = sd(dfA$Gewicht, na.rm = TRUE),
+                          n = nA,
+                          sample = "A")
+    meanBdf <- data.frame(Gewicht_mean = mean(dfB$Gewicht, na.rm = TRUE),
+                          Gewicht_sd = sd(dfB$Gewicht, na.rm = TRUE),
+                          n = nB,
+                          sample = "B")
+    meanCdf <- data.frame(Gewicht_mean = mean(dfC$Gewicht, na.rm = TRUE),
+                          Gewicht_sd = sd(dfC$Gewicht, na.rm = TRUE),
+                          n = nC,
+                          sample = "C")
+    meandf <- bind_rows(meanAdf, meanBdf, meanCdf)
+    meandf$Ziehung <- i
+    dfA$Ziehung <- i
+    dfA$sample <- "A"
+    dfB$Ziehung <- i
+    dfB$sample <- "B"
+    dfC$Ziehung <- i
+    dfC$sample <- "C"
+    weightdf <- bind_rows(weightdf, meandf)
+    sampledf <- bind_rows(sampledf, dfA, dfB, dfC)
+    probA <- dfA |> # keep only rows where a colour is recorded
+        filter(!is.na(Farbe)) |>
+        count(Farbe, name = "n") |> # how many times each colour occurs
+        mutate(
+            total    = sum(n), # total number of non‑NA colour observations
+            prob     = n / total, # P(colour)
+            prob_not = 1 - prob # complementary probability
+        ) |>
+        select(Farbe, n, prob, prob_not)
+    probA$n <- nA
+    probA$sample <- "A"
+    probB <- dfB |> # keep only rows where a colour is recorded
+        filter(!is.na(Farbe)) |>
+        count(Farbe, name = "n") |> # how many times each colour occurs
+        mutate(
+            total    = sum(n), # total number of non‑NA colour observations
+            prob     = n / total, # P(colour)
+            prob_not = 1 - prob # complementary probability
+        ) |>
+        select(Farbe, n, prob, prob_not)
+    probB$n <- nB
+    probB$sample <- "B"
+    probC <- dfC |> # keep only rows where a colour is recorded
+        filter(!is.na(Farbe)) |>
+        count(Farbe, name = "n") |> # how many times each colour occurs
+        mutate(
+            total    = sum(n), # total number of non‑NA colour observations
+            prob     = n / total, # P(colour)
+            prob_not = 1 - prob # complementary probability
+        ) |>
+        select(Farbe, n, prob, prob_not)
+    probC$n <- nC
+    probC$sample <- "C"
+    probdf <- bind_rows(probA, probB, probC)
+    probdf$Ziehung <- i
+    colordf <- bind_rows(colordf, probdf)
+}
+
+weightdf$Gewicht_mean <- round(weightdf$Gewicht_mean, digits = 2)
+weightdf$Gewicht_sd <- round(weightdf$Gewicht_sd, digits = 2)
+exportdf <- weightdf |>
+    select(-sample) |>
+    filter(n != nC) |>
+    rename("Stichprobe" = "Ziehung")
+write_csv(exportdf, "../data/MMs-WS3-samples.csv")
+```
+
+ Zur Erinnerung hier nochmals die wichtigsten Kennzahlen zum Gewicht der M&Ms:
+
+```{r}
+#| echo: false
+desc <- jmv::descriptives(
+    data = df,
+    vars = Gewicht
+)
+desc
+n <- sum(!is.na(df$Gewicht))
+m <- round(mean(df$Gewicht, na.rm = TRUE), digits = 2)
+s <- round(sd(df$Gewicht, na.rm = TRUE), digits = 2)
+```
+
+Für die folgenden Überlegungen nehmen wir unsere `{r} n` M&M's als Population. Weil wir einen Datensatz mit Gewichten von allen diesen M&M's haben, kennen wir in unserem Fall den wahren Mittelwert $\mu$ = `{r} m` und die wahre Standardabweichung $\sigma$ = `{r} s`. *Um die theoretischen Grundlagen zu überprüfen, tun wir jetzt aber so, als ob wir das nicht wüssten!*.
+
+Bevor du jetzt weiterfährst, empfehlen wir ein Video: [Bunnies, Dragons and the 'Normal' World: Central Limit Theorem \| The New York Times](https://youtu.be/jvoxEYmQHNM) Youtube, 3m38s
+
+Jetzt führen wir ein Experiment durch: Deine Aufgabe ist es, das Gewicht von M&M's zu bestimmen. Der Aufwand, um das Gewicht aller `{r} n` M&M's alleine zu messen wäre zu gross. Daher kriegst du Unterstützung von deinen Mitstudenten und Mitstudentinnen. Jede Person hat dabei das Gewicht von jeweils 10 M&Ms erfasst. Von jeder dieser Stichproben wurden der Mittelwert und die Standardabweichung für alle und für die ersten 5 M&M's der Stichprobe bestimmt. Als Musterdatensatz wird im Folgenden die Datei <a href="../data/MMs-WS3-samples.csv" download>MMs-WS3-samples.csv</a> verwendet. **Wenn du in einem Moodlekurs eingeschrieben bist, verwendest du die dort zur Verfügung gestellten Daten**. Folgende Tabelle zeigt die ersten sechs Zeilen aus dem Musterdatensatz:
+
+```{r}
+#| echo: false
+
+head(exportdf, 6) |>
+    kableExtra::kable()
+
+```
+
+::: {.panel-tabset}
+
+### Aufgabe
+
+Verwende den Musterdatensatz <a href="../data/MMs-WS3-samples.csv" download>MMs-WS3-samples.csv</a> oder den Datensatz von Moodle wenn du in einem Kurs eingeschrieben bist.
+
+1. Betrachte die Mittelwerte in Bezug auf den wahren Populationsmittelwert ($\mu$ = `{r} m`). Was stellst du fest?
+2. Betrachte die Streuung der Mittelwerte aus den Stichproben vom Umfang 5 und Umfang 10. Was stellst du fest?
+
+### Lösung
+
+<a href="../solutions/BSc_WS3_Inferenz_Ex1_sol.omv" download>BSc_WS3_Inferenz_Ex1_sol.omv</a>
+
+1. Man stellt fest, dass die Mittelwerte der Stichproben nie exakt dem wahren Populationsmittelwert entsprechen. Das heisst, die Stichprobenmittelwerte streuen rund um den wahren Populationsmittelwert. Die Standardabweichung der einzelnen Stichprobenmittelwerte wird als **Standardfehler SE** (engl. standard error) bezeichnet.
+2. Man stellt fest, dass die Mittelwerte der Stichproben vom Umfang 10 weniger Streuung aufweisen, als die Mittelwerte der Stichproben vom Umfang 5. Das heisst, der Standardfehler wird dort wegen dem grösseren Stichprobenumfang kleiner.
+
+### Codebook
+
+Folgende Variablen sind im Datensatz <a href="../data/MMs.csv" download>MMs.csv</a> enthalten:
+
+- `Stichprobe`: ID der Stichprobe
+- `Gewicht_mean`: Mittelwert der Stichprobe
+- `Gewicht_sd`: Standardabweichung der Stichprobe
+- `n`: Umfang
+:::
 
 ## Aufgabe 2
 
+Wir arbeiten mit einer Simulations-App. Rufe den Link [Central
+Limit Theorem for Means](https://gallery.shinyapps.io/CLT_mean/) auf
+(Rechtsklick auf den Link \> "Link in neuem Tab öffnen").
+
+::: {.panel-tabset}
+
+### Aufgabe
+
+1. Wähle *Parent Distribution*: normal (d.h. die Stichproben werden aus einer normalverteilten Population gezogen)
+2. Stelle die Populationskennzahlen *Mean = 0* und *Standard Deviation = 20* ein. Im Fenster rechts unter *Population Distribution* wird jetzt die Verteilung ihrer Population dargestellt. Da die Daten mit ihren Angaben zu Mittelwert und Standardabweichung randomisiert erstellt wurden, kann es sein, dass der Mittelwert und die Standardabweichung leicht von ihren Vorgaben abweichen.
+3. Stelle die Stichprobenangaben *Sample size = 25* und *Number of Samples = 100* ein.
+4. Wechsele jetzt ins Register *Samples*: Die App hat nach ihren Vorgaben 100 Zufallsstichproben gezogen und die Ergebnisse der ersten acht Stichproben werden angezeigt. Notiere die jeweiligen Mittelwerte *x_bar* und die Standardabweichung *SD* der acht Stichproben.
+
+Vergrössern jetzt die *Sample Size* auf 100. Hat der Stichprobenumfang einen Einfluss ...
+
+(a) ... auf die Standardabweichungen SD der Stichproben (Register *Samples*: Sample 1 bis Sample 8)?
+(b) ... auf die Mittelwerte $\bar{x}$ der Stichproben (Register *Samples*: Sample 1 bis Sample 8)?
+(c) ... auf den den Standardfehler SE der Verteilung der Stichprobenmittelwerte (Register *Sampling distribution*)?
+
+Wiederhole die Übung mit Stichprobenumfängen von 200 und 400.
+
+### Lösung
+
+(a) Die Standardabweichungen der Stichproben entsprechen etwa der Standardabweichung der Population $s \approx 20$. Der Stichprobenumfang beeinflusst die Standardabweichung SD der Stichprobe insofern, als dass die Abweichungen der einzelnen Stichproben-Standardabweichungen von der Populationsstandardabweichung $\sigma = 20$ mit steigendem Stichprobenumfang abnehmen.
+(b) Die Mittelwerte der Stichproben entsprechen etwa dem Mittelwert der Population $\bar{x} \approx 0$. Der Stichprobenumfang beeinflusst die Mittelwerte $\bar{x}$ der Stichproben insofern, als dass die Abweichungen der einzelnen Stichprobenmittelwerte vom Populationsmittelwert $\mu = 0$ mit steigendem Stichprobenumfang abnehmen.
+(c) Die Beobachtung aus (b) äussert sich darin, dass mit steigendem Stichprobenumfang die Variation der Stichprobenmittelwerte um den Populationsparameter, ausgedrückt als Standardfehler SE, immer kleiner wird. Eine Vervierfachung des Stichprobenumfangs von 25 auf 100 oder von 100 auf 400 führt zu einer Halbierung des Standardfehlers.
+
+:::
+
 ## Aufgabe 3
 
+Wir arbeiten weiter mit der Simulations-App [Central Limit Theorem for
+Means](https://gallery.shinyapps.io/CLT_mean/).
+
+::: {.panel-tabset}
+
+### Aufgabe
+
+1. Wähle *Parent Distribution*: right skewed (d.h. die Stichproben werden aus einer rechtsschief verteilten Population gezogen)
+2. Stelle die Stichprobenangaben *Sample size = 2* und *Number of Samples = 700* ein. Notieren sich den Populationsmittelwert *mean of x* und die Standardabweichung *SD of x*, die im Register *Population Distribution* angezeigt wird
+
+Vergrösser jetzt die *Sample Size* schrittweise. Hat der
+Stichprobenumfang einen Einfluss ...
+
+(a) ... auf die Standardabweichungen SD der Stichproben (Register *Samples*: Sample 1 bis Sample 8)?
+(b) ... auf die Mittelwerte $\bar{x}$ der Stichproben (Register *Samples*: Sample 1 bis Sample 8)?
+(c) ... auf den den Standardfehler SE der Verteilung der Stichprobenmittelwerte (Register *Sampling distribution*)?
+(d) ... auf die Form der Verteilung der Stichprobenmittelwerte
+        (Register *Sampling distribution*)?
+
+### Lösung
+
+(a) Die Standardabweichungen der Stichproben ensprechen etwa der Standardabweichung der Population $s \approx 20$. Der Stichprobenumfang beeinflusst die Standardabweichung SD der Stichprobe insofern, als dass die Abweichungen der einzelnen Stichproben-Standardabweichungen von der Populationsstandardabweichung $\sigma = 20$ mit steigendem Stichprobenumfang abnehmen.
+(b) Die Mittelwerte der Stichproben entsprechen etwa dem Mittelwert der Population $\bar{x} \approx 0$. Der Stichprobenumfang beeinflusst die Mittelwerte $\bar{x}$ der Stichproben insofern, als dass die Abweichungen der einzelnen Stichprobenmittelwerte vom Populationsmittelwert $\mu = 0$ mit steigendem Stichprobenumfang abnehmen.
+(c) Die Beobachtung aus (b) äussert sich darin, dass mit steigendem Stichprobenumfang die Variation der Stichprobenmittelwerte um den Populationsparameter, ausgedrückt als Standardfehler SE, immer kleiner wird.
+(d) In kleinen Stichproben (n < 30) entspricht die Verteilung der Stichprobenmittelwerte eher der rechtsschiefen Verteilung der Populationsdaten. Mit zunehmendem Stichprobenumfang nähert sich die Verteilung der Stichprobenmittelwerte der Normalverteilung an.
+
+**Merke:** Unabhängig davon, wie die Daten in der Population verteilt
+sind (normal, rechtsschief, linksschief, irregulär), nähert sich mit
+steigendem Umfang die Verteilung der Stichprobenkennzahlen der
+Normalverteilung an.
+
+:::
+
 ## Aufgabe 4
+
+::: {.panel-tabset}
+
+### Aufgabe
+
+1. Würdest du eher eine grosse oder eher eine kleine Stichprobe wählen, um einen Populationsparameter zu schätzen? Begründe deine ihre Antwort.
+2. Würdest du erwarten, dass eine Punktschätzung von einer kleinen Stichprobe eher einen kleineren oder eher einen grösseren Standardfehler aufweist als eine Punktschätzung von einer grösseren Stichprobe? Begründe deine Antwort.
+
+### Lösung
+
+1. Nehmen wir als Beispiel zwei Stichproben: Stichprobe 1 umfasst 10 und Stichprobe 2 1000 Beobachtungseinheiten. Einzelne Beobachtungen in Stichprobe 1 haben einen weitaus grösseren Einfluss auf die Punktschätzung, während sich bei grösseren Stichproben wie Stichprobe 2 die einzelnen Werte eher gegenseitig ausgleichen. Die grössere Stichprobe 2 wird daher eher eine präzisere Punktschätzung liefern als die kleine Stichprobe 1.
+2. Eine präzisere Schätzung bedeutet, dass sie mit einem geringeren Fehler behaftet ist. Wir können intuitiv sagen, dass eine grosse Stichprobe einen geringeren Fehler aufweist.
+
+:::
+
+## Aufgabe 5
+
+::: {.panel-tabset}
+
+### Aufgabe
+
+In einer Stichprobe von n = 100 Studentinnen ist die Standardabweichung für die Körpergrösse $s = 0.1$ Meter. Die Beobachtungseinheiten sind unabhängig voneinander und der Stichprobenumfang ist kleiner als 10% der Population.
+
+1. Wie gross ist der Standardfehler SE des Mittelwerts $\bar{x} = 1.7$ m?
+2. Wären wir überrascht, wenn jemand sagen würde, dass die durchschnittliche Grösse aller Studentinnen in Wahrheit 1.69 m beträgt?
+
+### Lösung
+
+1. Der Standardfehler berechnet sich aus der Formel $SE = s/\sqrt{n} = 0.1/\sqrt{100} = 0.01$ Meter.\
+2. Das wäre nicht überraschend. Unsere Stichprobe ist 1 SE von 1.69 entfernt und das bedeutet dass unser Wert nahe am wirklichen Populationsparameter liegt.
+
+:::
+
+## Aufgabe 6
+
+::: {.panel-tabset}
+
+### Aufgabe
+
+1. Was ist vertrauenswürdiger: Eine Stichprobe A mit n = 100 oder eine Stichprobe B mit n = 400 Beobachtungseinheiten? Begründe deine Antwort.
+2. Zeige mathematisch, dass unsere Punktschätzung präziser ist, wenn der Stichprobenumfang grösser ist: Berechne dazu den Standardfehler für die beiden Stichproben A und B; die Standardabweichung beträgt für beide Stichproben $s = 10$.
+
+### Lösung
+
+1. Zusätzliche Beobachtungseinheiten sind immer wertvoll, wenn man einen Populationsparameter schätzen muss. Allerdings bedeuten grössere Stichproben in der Realität auch höhere Kosten, weshalb der Stichprobenumfang stets einen Kompromiss zwischen Präzision und Kosten darstellt.
+2. Der Standardfehler für n = 100 ist $SE = 10\sqrt{100} = 1$, für n = 400 $SE = 10/\sqrt{400} = 0.5$
+
+Hinweis: Beachte an diesem Beispiel, dass für eine Halbierung des Standardfehlers, der Stichprobenumfang vervierfacht werden muss (Wurzel-n-Gesetz)
+
+:::
+
+# Vertrauensintervalle
+
+## Aufgabe 7
+
+::: {.panel-tabset}
+
+### Aufgabe
+
+Wenn wir sicher sein wollen, dass unser Vertrauensintervall den Populationsparameter beinhaltet, sollten wir dann eher ein breites (z.B. 95%-CI) oder eher ein schmales Vertrauensintervall (60%-CI) verwenden?
+
+### Lösung
+
+Wenn wir sicher sein wollen, einen Fisch zu fangen, müssen wir ein grösseres Netz wählen. Genau gleich verhält es sich mit Vertrauensintervallen: Wenn wir ein grösseres Vertrauensintervall wählen, können wir eher darauf vertrauen, dass es den Populationsparameter beinhaltet.
+
+:::
+
+## Aufgabe 8
+
+::: {.panel-tabset}
+
+### Aufgabe
+
+Verwende für diese Aufgaben erneut die Daten aus Aufgabe 1.
+
+1. Welche unteren und oberen Grenzen haben die 95%-Vertrauensintervalle der Stichproben?
+2. Inwiefern unterscheiden sich die Vertrauensintervalle bezüglich der Schätzung des Populationsmittelwertes $\mu$ = `{r} m` g? Welchen Einfluss hat die Stichprobengrösse?
+
+### Lösung
+
+<a href="../solutions/BSc_WS3_Inferenz_Ex8_sol.omv" download>BSc_WS3_Inferenz_Ex8_sol.omv</a>
+
+Für die Berechnung des Vertrauensintervalls benötigt man den
+Standardfehler SE:
+
+$$SE = \frac{s}{\sqrt{n}} $$
+
+Die Formel für die Berechnung des 95%-Vertrauensintervalls lautet
+
+$$CI_{95} = \bar{x} \pm 1.96 SE $$
+
+2. Der Populationsmittelwert beträgt $\mu$ = `{r} m` g. Es gibt 95%-Vertrauensintervalle welche den Populationsmittelwert enthalten, aber auch solche die ihn nicht enthalten. Das ist normal. Normalerweise erwarten wir bei 95%-Vertrauensintervallen, dass in 95% der Vertrauensintervalle der wahre Populationsmittelwert enthalten ist. Diese Rate ist im vorliegenden Beispiel viel kleiner und beträgt 50% oder knapp mehr. Das hat damit zu tun, dass die Stichproben sehr klein sind. Würde man die Stichproben vergrössern und die Anzahl der Stichproben erhöhen, würde man sich den 95% annähern. Es ist festzustellen, dass die Anzahl Vertrauensintervalle, welche den Populationsmittelwert enthalten, nicht von der Stichprobengrösse beeinflusst wird. Das ist zu erwarten, weil es wurden unabhängig von der Stichprobengrösse, jeweils 95%-Vertrauensintervalle berechnet.
+
+:::
+
+## Aufgabe 9
+
+
+::: {.panel-tabset}
+
+### Aufgabe
+
+Wie oft wird das 95%-Vertrauensintervall erwartungsgemäss den wahren Populationsmittelwert verfehlen, wenn du a) 20, b) 60, c) 120 Stichproben mit dem gleichen Stichprobenumfang untersuchen.
+
+### Lösung
+
+a)  $0.05 \times 20 = 1$, b) $0.05 \times 60 = 3$, c) $0.05 \times 120 = 6$
+:::
+
+## Aufgabe 10
+
+::: {.panel-tabset}
+
+### Aufgabe
+
+Wie kannst du die Präzision ihrer Schätzung des wahren Populationsmittelwerts durch eine Anpassung des Untersuchungsdesigns erhöhen?
+
+### Lösung
+
+Durch die Erhöhung des Stichprobenumfangs $n$. Da der Standardfehler $SE$ u.a. vom Stichprobenumfang abhängig ist, verkleinert sich das 95%-Vertrauensintervall proportional zur $\sqrt{n}$. Eine schöne Animation zu dieser Frage liefert <https://seeing-theory.brown.edu/frequentist-inference/index.html#section2> . Verändere in den Einstellungen den Stichprobenumfang $n$ und beachte, wie sich die Breite der Konfidenzintervalle verändert.
+
+:::
+
+## Aufgabe 11
+
+::: {.panel-tabset}
+
+### Aufgabe
+
+In einer Klinik wurden bei 270 neugeborenen ausgetragenen Knaben das Durchschnittsgewicht 3350 g und die Standardabweichung 480 g festgestellt. Entsprechend ergab sich bei 256 Mädchen das Durchschnittsgewicht 3100 g und die Standardabweichung 470 g.
+
+1. Bestimme aus den obigen Angaben konkrete Vertrauensintervalle mit der Vertrauenswahrscheinlichkeit von $1-\alpha = 0.95$ und $1-\alpha = 0.99$ für die Durchschnittsgewichte beider Geschlechter.
+2. Geht man bei den Knaben vom Durchschnittsgewicht 3550 g und bei den Mädchen von 3250 g aus: Werden diese Annahmen auf dem 5\%-Niveau durch die Beobachtungen widerlegt?
+
+### Lösung
+
+$$
+\begin{align*}
+& \text{95\% CI: } \left[\bar{x} - 1.96\frac{s}{\sqrt{n}}, \bar{x} + 1.96\frac{s}{\sqrt{n}}\right] \\
+& \text{99\% CI: }\left[\bar{x} - 2.58\frac{s}{\sqrt{n}}, \bar{x} + 2.58\frac{s}{\sqrt{n}}\right]
+\end{align*}
+$$
+
+- $1-\alpha = 0.95$:
+  - Knaben [3292.75, 3407.26] g
+  - Mädchen [3042.43, 3157.58] g
+- $1-\alpha = 0.99$: 
+  - Knaben [3274.63, 3425.37] g 
+  - Mädchen [3024.21, 3175.79] g
+
+Ja, die Annahmen werden durch die Beobachtungen widerlegt, da die Vertrauensintervalle die angenommenen Durchschnittsgewichte nicht enthalten.
+
+:::
+
+# Referenzen
+
+[Stats and R: Hypothesis test by
+hand](https://statsandr.com/blog/hypothesis-test-by-hand/)\
+[Central limit theorem for
+Means](https://gallery.shinyapps.io/CLT_mean/)\
+[Seeing Theory: Confidence
+Intervall](https://seeing-theory.brown.edu/frequentist-inference/index.html#section2)\
