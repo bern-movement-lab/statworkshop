@@ -594,12 +594,12 @@ s_Basel <- 8.4     # Standardabweichung in Basel
 
 # 95%-CI für Bern berechnen
 se_Bern <- s_Bern/sqrt(n)               # SE für Bern
-ci_Bern <- m_Bern + c(-2, 2) * se_Bern  # Grenzen für 95%-CI
+ci_Bern <- m_Bern + c(-1.96, 1.96) * se_Bern  # Grenzen für 95%-CI
 ci_Bern <- round(ci_Bern, 2)            # 95%-CI auf zwei Stellen runden
 
 # CI für Basel
 se_Basel <- s_Basel/sqrt(n)                # SE für Basel
-ci_Basel <- m_Basel + c(-2, 2) * se_Basel  # Grenzen für 95%-CI Basel
+ci_Basel <- m_Basel + c(-1.96, 1.96) * se_Basel  # Grenzen für 95%-CI Basel
 ci_Basel <- round(ci_Basel, 2)             # 95%-CI auf zwei Stellen runden
 
 # 95%-CIs anzeigen
@@ -626,8 +626,8 @@ t_Wert     # t_Wert anzeigen
 * Der t-Wert für die Differenz der Kaffeemengen beträgt -1.804. Damit ist der Wert kleiner als +2/-2 Standardfehler und liegt im Nicht-Verwerfungsbereich für die $H_0$.   
 
 ```{r}
-cord.x <- c(-2, seq(-2, 2, 0.01),2) 
-cord.y <- c(0, dt(seq(-2, 2, 0.01), df = 28),0) 
+cord.x <- c(-2, seq(-1.96, 1.96, 0.01),2) 
+cord.y <- c(0, dt(seq(-1.96, 1.96, 0.01), df = 28),0) 
 curve(dt(x, df = 38),xlim=c(-4, 4),main='t-Distribution, df = 38, area = 95% (t = 2.0)', col = "black", xlab = "", ylab = "")
 polygon(cord.x,cord.y,col='lightblue', border = "black")
 points(x = -1.8, y = 0, pch = 21, bg = "orange", col = "red", cex = 2)
